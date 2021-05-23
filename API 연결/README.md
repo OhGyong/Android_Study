@@ -38,15 +38,15 @@
 ![image](https://user-images.githubusercontent.com/52282493/119254812-7d62b500-bbf3-11eb-9786-7f7cf7081ff2.png)
 
 ``` kotlin
-    package com.example.retrofittest
+package com.example.retrofittest
 
-    import retrofit2.Call
-    import retrofit2.http.*
+import retrofit2.Call
+import retrofit2.http.*
 
-    interface RetrofitService {
-        @GET("/members/idle/mypage/update")
-        fun apiSurvice(): Call<DataClass>
-    }
+interface RetrofitService {
+    @GET("/members/idle/mypage/update")
+    fun apiSurvice(): Call<DataClass>
+}
 ```
 
 
