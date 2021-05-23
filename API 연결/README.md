@@ -96,32 +96,39 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder() // Retrofit 객체 생성
 //            .baseUrl("http://152.67.194.92:3000")
-            .baseUrl("http://10.0.2.2:3000") // 로컬 환경 테스트
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("http://10.0.2.2:3000") // 로컬 환경 테스트, baseUrl로 URL 호출 (고정부분 반복을 줄여줌)
+            .addConverterFactory(GsonConverterFactory.create()) // HTTP 통신 시에 주고받는 데이터 형태를 변환시켜줌
             .build()
 
+        // interface로 생성했던 data를 가져옴
         val dataService: RetrofitService = retrofit.create(RetrofitService::class.java)
-        dataService.apiSurvice().enqueue(object: Callback<DataClass>{
+
+        // .enqueue()로 네트워크 Request를 처리 -> onFailure, onResponse 필요
+       dataService.apiSurvice().enqueue(object: Callback<DataClass>{
+
+           // 예외 처리를 하는 onFailure
             override fun onFailure(call: Call<DataClass>, t: Throwable) {
                 t.message?.let { Log.e("data", it) }
             }
 
+           // 수신된 HTTP Response에 대해 호출하는 onResponse
             override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
                 if (response == null){
                     println("빈값빈값")
                 }
                 data = response.body()
                 Log.e("data", data.toString())
-                println("확인"+response.body()!!.request)
+                println("확인"+response.body())
 
             }
         })
     }
 }
 ```
+
+![image](https://user-images.githubusercontent.com/52282493/119256209-8e62f480-bbfa-11eb-9e97-5264a39bad72.png)
 
 
 
