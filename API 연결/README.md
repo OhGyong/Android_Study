@@ -68,7 +68,8 @@ data class DataClass(
 )
 ```
 
-API로 받을 json 형태의 data를 선언해준다.
+API로 받을 json 형태의 data를 선언해준다. </br>
+data 타입을 제대로 정해줘야한다.
 
 ---
 
