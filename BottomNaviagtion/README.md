@@ -2,6 +2,9 @@
 BottomNavigationBar로 화면 이동하는 것 이외에 좌우 스크롤로 화면 이동을 하려면 ViewPager를 사용하면 된다.</br>
 BottomNavigationBar의 컨텐츠는 5개까지 가능하다.
 
+
+- https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView
+
 1. build.gradle에 dependencies 추가
 2. res-menu에 xml 파일 생성
 3. activity_main.xml 파일 수정
