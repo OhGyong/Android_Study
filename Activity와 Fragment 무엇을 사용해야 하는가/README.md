@@ -3,7 +3,7 @@
 ## Activity는 무엇일까
 안드로이드 Activity는 화면에 표시되는 UI 구성을 위해 가장 기본이 되는 요소이다.</br>
 일반적으로 하나의 화면을 구성하며, 사용자에게 UI가 있는 화면을 제공하는 앱 컴포넌트로 일종의 페이지라고 할 수 있다. </br>
-Activity를 사용하기 위해서는 manifest에 Activity 관련 정보를 등록하고 수명주기(life-cycle)를 적절히 관리해야 한다.\
+Activity를 사용하기 위해서는 manifest에 Activity 관련 정보를 등록하고 수명주기(life-cycle)를 적절히 관리해야 한다.
 
 ![image](https://user-images.githubusercontent.com/52282493/124486128-3ec23c00-dde8-11eb-93b6-18d04fed0b92.png)
 
