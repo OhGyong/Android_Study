@@ -20,7 +20,7 @@ Model과 View가 완전히 분리되어 있기 때문에 괜찮아 보일 수 �
 View가 복잡해질 수록 Controller가 담아야할 코드의 양이 늘어난다. 흔히 말하는 스파게티 코드가 될 가능성이 크다.</br>
 즉, 유지보수가 어렵다.</br>
 
-내가 작업했던 `Idle_Project_Android` (https://github.com/OhGyong/Idle_Project_Android)가 MVC 패턴이 적용된게 아닐까 생각된다.</br>
+내가 작업했던 `Idle_Project_Android` ( https://github.com/OhGyong/Idle_Project_Android ) 가 MVC 패턴이 적용된게 아닐까 생각된다.</br>
 
 
 
