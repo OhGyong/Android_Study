@@ -15,7 +15,7 @@ Model은 데이터를 처리(관리)하고, View는 UI요소들로 사용자에�
 
 **안드로이드에서 이것을 어떻게 적용시킬 수 있을까?**
 - Model : Model (독립적)
-- View : xml 파일
+- View : Activity 또는 Fragment(xml 파일) 
 - Controller : Activity 또는 Fragment
 
 Model과 View가 완전히 분리되어 있기 때문에 괜찮아 보일 수 있으나 View와 Controller가 하나의 클래스에서 이루어지는 문제가 있다.</br>
@@ -32,6 +32,14 @@ MVP의 약자를 알아보면,
 - V : View
 - P : Presenter
 
-Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들어가는데 역할은 비슷하지만 Interface를 사용하는 것에서 차이가 있다.
+Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들어가는데 역할은 비슷하지만 Interface를 사용하는 것에서 차이가 있다. MVC에서는 Controller가 View와 연결되었지만, Presenter는 Interface로 View와 상호작용 한다.</br>
+![image](https://user-images.githubusercontent.com/52282493/126033320-82d83377-1d1c-4451-8c29-07fc723c0b1f.png)
+
+**안드로이드 적용**
+- M : Model
+- V : Activity, Fragement(xml 파일)
+- P : Presenter
+
+Presenter는 View와 Model 사이의 data 전달 역할을 한다. 다만, View와 Presenter 사이의 의존성이 있기 때문에 복잡한 애플리케이션일 수록 둘 사이의 의존성이 커진다.
 
 ## MVVM
