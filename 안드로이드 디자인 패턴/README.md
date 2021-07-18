@@ -33,7 +33,7 @@ MVP의 약자를 알아보면,
 - P : Presenter
 
 Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들어가는데 역할은 비슷하지만 Interface를 사용하는 것에서 차이가 있다. MVC에서는 Controller가 View와 연결되었지만, Presenter는 Interface로 View와 상호작용 한다.</br>
-![image](https://user-images.githubusercontent.com/52282493/126033320-82d83377-1d1c-4451-8c29-07fc723c0b1f.png)
+![image](https://user-images.githubusercontent.com/52282493/126066034-9083e940-137e-4cee-9913-20327d451298.png)
 
 **안드로이드 적용**
 - M : Model
@@ -44,6 +44,9 @@ Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들�
 - View: 화면구성(UI, 인터페이스)
 - Presenter: 두 수의 계산, Model에 데이터 전달
 - Model : 전달 받은 데이터 저장
+
+![image](https://user-images.githubusercontent.com/52282493/126065845-54061665-cabf-4dce-bba9-6d07a6260210.png)
+
 
 Presenter는 View와 Model 사이의 data 전달 역할을 한다. 다만, View와 Presenter 사이의 의존성이 있기 때문에 복잡한 애플리케이션일 수록 둘 사이의 의존성이 커진다.
 
