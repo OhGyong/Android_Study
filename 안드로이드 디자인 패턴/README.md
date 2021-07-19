@@ -48,6 +48,11 @@ Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들�
 ![image](https://user-images.githubusercontent.com/52282493/126065845-54061665-cabf-4dce-bba9-6d07a6260210.png)
 
 
-Presenter는 View와 Model 사이의 data 전달 역할을 한다. 다만, View와 Presenter 사이의 의존성이 있기 때문에 복잡한 애플리케이션일 수록 둘 사이의 의존성이 커진다.
+Presenter는 View와 Model 사이의 data 전달 역할을 한다. 다만, View와 Presenter 사이의 의존성이 있기 때문에 복잡한 애플리케이션일 수록 둘 사이의 의존성이 커진다. 즉 작업의 영역이 커질수록 유지보수가 어려워진다.
 
 ## MVVM
+여러 자료를 찾아보면서 MVP가 안드로이드 개발자들이 가장 많이 사용하는 디자인 패턴이라는 글을 봤었다. 하지만 MVP에도 단점은 있었으며, 그것을 보완하기 위해 등장한 것이 MVVM이라고 한다.</br>
+안드로이드 개발자 가이드를 보면 AAC(Android Architecture Component)라고 안드로이드 
+- M : Model
+- V : View
+- VM : ViewModel
