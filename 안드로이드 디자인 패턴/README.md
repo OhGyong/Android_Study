@@ -52,7 +52,14 @@ Presenter는 View와 Model 사이의 data 전달 역할을 한다. 다만, View�
 
 ## MVVM
 여러 자료를 찾아보면서 MVP가 안드로이드 개발자들이 가장 많이 사용하는 디자인 패턴이라는 글을 봤었다. 하지만 MVP에도 단점은 있었으며, 그것을 보완하기 위해 등장한 것이 MVVM이라고 한다.</br>
-안드로이드 개발자 가이드를 보면 AAC(Android Architecture Component)라고 안드로이드 
+MVVM의 약자를 알아보면,
 - M : Model
 - V : View
 - VM : ViewModel
+
+MVP의 경우 View와 Presenter가 1:1의 결합을 가져 Presenter를 재활용하는데 어려움이 있지만, MVVM에서 View와 ViewModel의 경우 n:1 관계이기 때문에 재활용성이 좋다. -> 데이터 바인딩 or LiveData를 통해 View와의 결합을 끊어낸다고 한다.
+
+안드로이드 개발자 가이드를 보면 AAC(Android Architecture Component)라고 애플리케이션의 테스트와 유지관리를 쉽게 할 수 있도록 하는 라이브러리 모음을 사용할 것을 권장하고 있다.</br>
+![image](https://user-images.githubusercontent.com/52282493/126359875-92055e0e-075a-446e-b6ba-beed4146c792.png)
+
+이 다이어그램의 흐름도를 따라하게 되면 자연스럽게 MVVM 패턴을 사용한 것과 같다고 한다.</br>
