@@ -40,9 +40,9 @@ Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들�
 - V : Activity, Fragement(xml 파일)
 - P : Presenter
 
-**간단한 두 수를 더하는 애플리케이션을 MVP 패턴으로 적용해보기**
+**+버튼과 -버튼으로 값을 변경시키는 애플리케이션을 MVP 패턴으로 적용해보기**
 - View: 화면구성(UI, 인터페이스)
-- Presenter: 두 수의 계산, Model에 데이터 전달
+- Presenter: 버튼 이벤트에 따른 값의 처리, Model에 데이터 전달
 - Model : 전달 받은 데이터 저장
 
 ![image](https://user-images.githubusercontent.com/52282493/126065845-54061665-cabf-4dce-bba9-6d07a6260210.png)
@@ -57,7 +57,7 @@ MVVM의 약자를 알아보면,
 - V : View
 - VM : ViewModel
 
-MVP의 경우 View와 Presenter가 1:1의 결합을 가져 Presenter를 재활용하는데 어려움이 있지만, MVVM에서 View와 ViewModel의 경우 n:1 관계이기 때문에 재활용성이 좋다. -> 데이터 바인딩 or LiveData를 통해 View와의 결합을 끊어낸다고 한다.
+MVP의 경우 View와 Presenter가 1:1의 결합을 가져 Presenter를 재활용하는데 어려움이 있지만, MVVM에서 View와 ViewModel의 경우 n:1 관계이기 때문에 재활용성이 좋다. → 데이터 바인딩 or LiveData를 통해 View와의 결합을 끊어낸다고 한다.
 
 안드로이드 개발자 가이드를 보면 AAC(Android Architecture Component)라고 애플리케이션의 테스트와 유지관리를 쉽게 할 수 있도록 하는 라이브러리 모음을 사용할 것을 권장하고 있다.</br>
 ![image](https://user-images.githubusercontent.com/52282493/126359875-92055e0e-075a-446e-b6ba-beed4146c792.png)
