@@ -25,6 +25,8 @@ View가 복잡해질 수록 Controller가 담아야할 코드의 양이 늘어�
 
 참고로 내가 작업했던 `Idle_Project_Android` ( https://github.com/OhGyong/Idle_Project_Android ) 가 MVC 패턴이 적용된게 아닐까 생각된다.</br>
 
+[MVC 예제](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns/MVC_Example)
+
 ## MVP
 MVC의 단점을 보완하기 위해 나온 디자인 패턴이라고 한다.</br>
 MVP의 약자를 알아보면,
