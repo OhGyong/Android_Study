@@ -25,7 +25,9 @@ View가 복잡해질 수록 Controller가 담아야할 코드의 양이 늘어�
 
 참고로 내가 작업했던 [Idle_Project_Android](https://github.com/OhGyong/Idle_Project_Android) 가 MVC 패턴이 적용된게 아닐까 생각된다.</br>
 
-[MVC 예제](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns/MVC_Example)
+MVC 예제 → [MVC_Example](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns/MVC_Example)
+
+---
 
 ## MVP
 MVC의 단점을 보완하기 위해 나온 디자인 패턴이라고 한다.</br>
@@ -51,6 +53,8 @@ Model과 View는 MVC와 비슷하다. 대신 Controller 대신 Presenter가 들�
 
 
 Presenter는 View와 Model 사이의 data 전달 역할을 한다. 다만, View와 Presenter 사이의 의존성이 있기 때문에 복잡한 애플리케이션일 수록 둘 사이의 의존성이 커진다. 즉 작업의 영역이 커질수록 유지보수가 어려워진다.
+
+---
 
 ## MVVM
 여러 자료를 찾아보면서 MVP가 안드로이드 개발자들이 가장 많이 사용하는 디자인 패턴이라는 글을 봤었다. 하지만 MVP에도 단점은 있었으며, 그것을 보완하기 위해 등장한 것이 MVVM이라고 한다.</br>
