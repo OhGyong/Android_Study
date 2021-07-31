@@ -1,13 +1,10 @@
-package com.example.mvc_example
+package com.example.mvp_example
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,14 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         btnPlus.setOnClickListener {
             Toast.makeText(this@MainActivity, "+1", Toast.LENGTH_SHORT).show()
-            textValue.setText(Model().getValue(count, 1).toString())
-            count = Model().getValue(count, 1);
+            textValue.setText(Presenter().getValue(count, +1).toString())
+            count = Presenter().getValue(count, +1);
         }
 
         btnMinus.setOnClickListener {
             Toast.makeText(this@MainActivity, "-1", Toast.LENGTH_SHORT).show()
-            textValue.setText(Model().getValue(count, -1).toString())
-            count = Model().getValue(count, -1);
+            textValue.setText(Presenter().getValue(count, -1).toString())
+            count = Presenter().getValue(count, -1);
         }
     }
 }
