@@ -1,7 +1,6 @@
 package com.example.mvp_example
 
 class Presenter: Interface.Presenter{
-
     override fun getValue(value: Int, option: Int): Int {
         var changeValue: Int = value;
         if(option == -1){
@@ -14,5 +13,4 @@ class Presenter: Interface.Presenter{
         };
         return 0;
     }
-
 }
