@@ -1,5 +1,5 @@
 # PATHWAY 1: Introduction to Kotlin
-[PATHWAY1 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-one)
+[PATHWAY 1 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-one)
 
 ## 1. Welcome to Android Basics in Kotlin
 전 세계에는 스마트폰, 태플릿, TV, 시계, 자동차 등 25억 대가 넘는 안드로이드 기기가 있다. 안드로이드 개발을 통해 우리가 상상한 아이디어를 언급한 매체를 통해 구현할 수 있다. </br>
