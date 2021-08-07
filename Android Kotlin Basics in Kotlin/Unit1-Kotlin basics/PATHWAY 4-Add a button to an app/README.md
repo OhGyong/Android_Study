@@ -33,3 +33,18 @@ ex) val diceRange=1..6  → val dicRange: IntRange=1..6
 - `Toast.makeText` 토스트 사용법
 - `TextView의 text 변경` '변수명'.text = "data"
 - `코드 정렬` Ctrl+Alt+L를 사용하면 코드를 정렬할 수 있다.
+
+## 3. Add conditional behavior in Kotlin
+[코틀린에서 조건부 동작 추가하는 법](https://developer.android.com/codelabs/basic-android-kotlin-training-conditional-dice-roll-behavior?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-four%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-conditional-dice-roll-behavior#0)
+
+- `if, else if, else` if문을 통한 조건에서 <, >, == 와 같은 연산자 쓰임새
+- `when` swich-case문
+
+## 4. Add images to the Dsice Roller app
+[번호가 변하는 프로젝트에서 이미지로 변환하기](https://developer.android.com/codelabs/basic-android-kotlin-training-dice-roller-images?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-four%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-dice-roller-images#0)
+
+
+- `이미지 추가` Resource Manager 아래의 +를 클릭하고  Import Drawables를 선택하여 추가하려는 이미지가 있는 파일 경로로 가서 import 해준다.
+- `dp 단위 특징` 밀도 독립형 픽셀(dp)을 단위로 사용하여 크기를 정의하면 픽셀 해상도가 다른 기기에서 이미지 크기가 적절하게 조정된다.
+- `ImageView의 이미지 변경` '변수명'.setImageResource(R.id.요소 아이디)
+- `ImageView의 contentDescription 설정` '변수명'.contentDescription, 해당 이미지가 무엇인지 설명할 텍스트를 지정해주어야 한다.
