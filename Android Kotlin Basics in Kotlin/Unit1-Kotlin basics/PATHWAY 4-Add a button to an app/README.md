@@ -48,3 +48,12 @@ ex) val diceRange=1..6  → val dicRange: IntRange=1..6
 - `dp 단위 특징` 밀도 독립형 픽셀(dp)을 단위로 사용하여 크기를 정의하면 픽셀 해상도가 다른 기기에서 이미지 크기가 적절하게 조정된다.
 - `ImageView의 이미지 변경` '변수명'.setImageResource(R.id.요소 아이디)
 - `ImageView의 contentDescription 설정` '변수명'.contentDescription, 해당 이미지가 무엇인지 설명할 텍스트를 지정해주어야 한다.
+
+https://user-images.githubusercontent.com/52282493/128595316-13270794-24f9-4718-ac74-765100a8ce66.mp4
+
+## 5. What can you build with these basics?
+
+## 6. 
+[Lemonade 프로젝트](https://developer.android.com/codelabs/basic-android-kotlin-training-project-lemonade?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-four%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-project-lemonade#0)
+
+- `안드로이드 테스트 실행` 안드로이드 스튜디오에서 java 폴더 안에 MainActivity가 속해있는 폴더 이외의 폴더가 test를 진행할 수 있는 파일
