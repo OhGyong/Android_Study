@@ -57,3 +57,6 @@ https://user-images.githubusercontent.com/52282493/128595316-13270794-24f9-4718-
 [Lemonade 프로젝트](https://developer.android.com/codelabs/basic-android-kotlin-training-project-lemonade?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-four%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-project-lemonade#0)
 
 - `안드로이드 테스트 실행` 안드로이드 스튜디오에서 java 폴더 안에 MainActivity가 속해있는 폴더 이외의 폴더가 test를 진행할 수 있는 파일
+
+## 완료
+![image](https://user-images.githubusercontent.com/52282493/128601055-ad464d53-473d-4a42-b963-5b6c6f086ac7.png)
