@@ -44,4 +44,4 @@ abstract로 클래스를 생성시 내부 변수에 값이 선언되지 않았�
 - `kotlin.math.PI , kotlin.math.sqrt` 수학 라이브러리에서의 파이와 제곱근 함수
 - `super` 상위 클래스에 정의된 함수를 호출 → super.'상위 클래스 함수명'
 
-[계층구조 공부를 위해 작업한 코드]()
+[계층구조 공부를 위해 작업한 코드](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%201-Get%20user%20input%20in%20an%20app%20Part1/PATHWAY1-3%20code)
