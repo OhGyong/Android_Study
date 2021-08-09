@@ -45,3 +45,10 @@ abstract로 클래스를 생성시 내부 변수에 값이 선언되지 않았�
 - `super` 상위 클래스에 정의된 함수를 호출 → super.'상위 클래스 함수명'
 
 [계층구조 공부를 위해 작업한 코드](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%201-Get%20user%20input%20in%20an%20app%20Part1/PATHWAY1-3%20code)
+
+
+## 4. Create XML layouts for Android
+[팁 계산기 앱 xml 레이아웃 만들기](https://developer.android.com/codelabs/basic-android-kotlin-training-xml-layouts?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-xml-layouts#0)
+
+- `XML` XML은 확장성 마크업 언어를 의미하며 텍스트 기반 문서를 사용하여 데이터를 표현한다. 각 UI 요소는 XML 파일의 XML 요소로 표현된다. 각 요소는 태그로 시작하고 끝난다(<와 >).
+
