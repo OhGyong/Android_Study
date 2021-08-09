@@ -51,4 +51,12 @@ abstract로 클래스를 생성시 내부 변수에 값이 선언되지 않았�
 [팁 계산기 앱 xml 레이아웃 만들기](https://developer.android.com/codelabs/basic-android-kotlin-training-xml-layouts?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-xml-layouts#0)
 
 - `XML` XML은 확장성 마크업 언어를 의미하며 텍스트 기반 문서를 사용하여 데이터를 표현한다. 각 UI 요소는 XML 파일의 XML 요소로 표현된다. 각 요소는 태그로 시작하고 끝난다(<와 >).
-
+- `XML 요소, 속성` '빈 요소 태그' 라고 하는 약식 표현과 요소를 채운 종료 태그는 같은 의미이다. → <'TextView'> />a == <'TextView'></'TextView'>
+- `androidx.constraintlayout.widget.ConstraintLayout` ConstraintLayout이 안드로이드 플랫폼 이외에도 추가 기능을 제공하는 코드 라이브러리가 포함된 Android Jetpack의 일부이기 때문이다. UI 구성요소가 'adroidx'로 시작하는 것은 Jetpack의 일부인 것을 알 수 있다.
+- `Android Jetpack` 앱을 더 쉽게 빌드하는데 활용할 수 있는 유용한 기능이 집약된 라이브러리이다.
+- `xmlns` XML 네임스페이스를 나타내고 각 줄은 스키마 같은 속성의 어휘를 정의한다.
+- `XML에서의 주석, <!-- -->`
+- `<?xml version="1.0" encoding="utf-8"?>` 파일이 XML 파일이지만 모든 XML 파일에 이 내용이 포함되는 것은 아님을 나타낸다.
+- `padding` 패딩은 여백과 비슷하지만 외부에 공간을 추가하는 대신 layout 내부에 공간을 추가한다.
+- `constraintlayout 제약조건` LTR(왼쪽에서 오른쪽) 또는 RTL(오른쪽에서 왼쪽) 언어에서 모두 작동할 수 있도록 제약 조건을 추가한다.
+- `EditText의 속성` inputType으로 text나 number로 지정, hint 사용
