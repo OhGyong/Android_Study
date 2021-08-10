@@ -60,3 +60,32 @@ abstract로 클래스를 생성시 내부 변수에 값이 선언되지 않았�
 - `padding` 패딩은 여백과 비슷하지만 외부에 공간을 추가하는 대신 layout 내부에 공간을 추가한다.
 - `constraintlayout 제약조건` LTR(왼쪽에서 오른쪽) 또는 RTL(오른쪽에서 왼쪽) 언어에서 모두 작동할 수 있도록 제약 조건을 추가한다.
 - `EditText의 속성` inputType으로 text나 number로 지정, hint 사용
+- `RadioGroup, RadioButton` RadioGroup 내에서 RadioButton을 그룹화하여 버튼의 선택이 한 개만 적용이 되도록 설정해준다. RadioGroup은 orientation속성으로 vertical이나 horizontal으로 가로 세로 방향을 지정해준다.
+- `android:checkedButton` RadioGroup에서 checkedButton 속성으로 RadioButton id를 부여하여 처음에 선택되어지도록 버튼을 지정할 수 있다.
+- `Switch 버튼` 사용자에게 두 옵션 간에 전환을 할 수 있도록 한다.
+- `0dp` 시스템에서 너비 또는 높이를 계산하지 않고 뷰에 적용된 제약 조건을 이치시켜준다.
+
+## 5. Calculate the tip
+[xml 레이아웃 만들기에서 생성한 UI에 사용할 수 있는 코틀린 코드 작성하기](https://developer.android.com/codelabs/basic-android-kotlin-training-tip-calculator?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-tip-calculator#0)
+
+- `뷰 결합(View Binding)` xml에서 작업한 view를 코드로 호출할 때 findViewById() 메서드를 사용하는데, 이러한 접근 방식은 앱에 뷰가 많아지고 UI들이 복잡해지면 매번 findViewById()를 사용하기 번거로워진다. 이것을 위해 build.gradle(.app)파일에
+    ```
+    buildFeatures {
+        viewBinding = true
+    }
+    ```
+    를 추가하고 MainActivity 클래스에서 바인딩 객체를 한 번 만들고 초기화시켜서 사용한다.</br>
+    ```kotlin
+    lateinit var binding: ActivityMainBinding
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root) // 앱의 뷰 계층 구조 루트인 binding.root를 지정
+    ```
+
+- `lateinit` 코드가 변수를 사용하기 전에 먼저 초기화할 것임을 확인해주는 키워드이다. 변수를 초기화하지 않으면 앱이 강제 종료된다.
+- `Double 데이터 유형` 앱에서 십진수를 사용하려면 Int 대신 Double을 사용해야 한다. [코틀린의 숫자 데이터 유형 문서](https://kotlinlang.org/docs/basic-types.html#numbers)를 참고.
+- `toDouble()` 코틀린에서 String을 Double로 변환하는 메서드
+- `EditText 또는 TextView의 String을 숫자 data로 변환` 코틀린에서 Text관련 요소를 가져올때 '변수명'.text로 가져오게 되는데 이 상태에서 toDouble()을 사용할 수 없다. .text로 가져온 데이터 타입이 Editable이기 때문에 toString()을 한 번더 호출해주어야 사용가능하다. → '변수명'.text.toString()
+- `kotlin.math.ceil` 코틀린에서 제공하는 반올림 함수
+- `안드로이드에서의 숫자형식 지정 → NumberFormat.getCurrencyInstance()` 국가마다 서로 다른 통화(유통화폐)를 사용하게 되는데 안드로이드에서는 숫자를 통화 형식으로 지정하는 메서드를 제공한다. 사용자가 스마트폰에서 선택한 언어 및 기타 설정에 따라 시스템이 자동으로 통화 형식으로 지정한다. NumberFormat.getCurrencyInstance()을 쓰면 숫자를 통화 형식으로 지정할 수 있다.
+- `문자열 매개변수` string.xml 파일에서 %s를 추가하고 코드에서 getString('string.xml에서 name 값', '매개변수')로 사용하면 된다.
+
