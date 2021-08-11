@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private fun calculateTip() {
 
         // 서비스 비용 가져오기
-        val stringInTextField = binding.costOfService.text.toString()
+        val stringInTextField = binding.costOfServiceEditText.text.toString()
         val cost = stringInTextField.toDoubleOrNull()
 
         if(cost == null){
