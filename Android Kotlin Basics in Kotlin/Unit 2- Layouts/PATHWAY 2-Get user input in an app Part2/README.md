@@ -6,6 +6,7 @@
 
 - `테마(theme)` 테마는 개별 View뿐 아니라 앱 구조 전체에 적용되는 스타일의 모음이다. 
 - `colors.xml에 색상 추가 및 themes.xml에 색상 사용`
+- `스마트기기가 다크모드일 시 앱의 어두운 테마 설정` themes.xml 파일중에서 (night)라고 되어있는 것이 있다. 스마트 기기가 다크모드가 적용되면 해당 파일이 사용된다.
 
 ## 2. Change the app icon
 [앱의 아이콘 변경](https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-icon?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-change-app-icon#0)
@@ -23,3 +24,8 @@ drawable 폴더에 있지 않고 mipmap 폴더에 한정자 별로 존재하는 
 스타일 이름을 원하는 대로 지정할 수 있지만 상위 머티리얼 스타일에서 상속하는 경우 유사한 방식으로 MaterialComponents를 앱 이름으로 바꿔 스타일 이름을 지정하는 것이 권장하는 방식이다. 이 경우 변경사항이 고유한 네임스페이스로 이동되어 향후 머티리얼 구성요소에 새로운 스타일이 도입될 때 충돌이 발생할 가능성이 없어진다.
 - `dimens.xml`공통적인 값을 치수로 표준화하여 앱을 쉽게 관리할 수 있게하는 리소스 파일.
 - `Widget.MaterialComponents.TextInputLayout.OutlinedBox` MDS 라이브러리에서 제공되는 윤곽선 스타일
+- `ScrollView`
+- `handKeyEvent(View, keyCode)` keyCode 입력 매개변수가 KeyEvent.KEYCODE_ENTER와 같은 경우 터치 키보드를 숨기는 비공개 도우미 함수이다.
+- `InputMethodManager` 소프트 키보드를 표시할지 숨길지 제어하고 사용자가 어느 소프트 키보드를 표시할지 선택할 수 있도록 한다.
+- `setOnKeyListener()` 키 누름이 발생할 때 트리거되는 메서드. 입력 인수로 (view- 뷰, keyCode- 누른 키의 코드, keyEvent)를 사용한다. 만약 사용하지 않는 입력 인수가 있다면 '_'를 입력한다.
+- `벡터 드로어블 색 변경` 'android:tint' 값을 변경시켜 색을 변경할 수 있다.
