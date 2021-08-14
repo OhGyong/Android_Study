@@ -41,3 +41,11 @@ List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 �
 - `while 문` while 괄호 안의 표현식이 true이면 중괄호 안의 코드가 계속해서 반복 실행되는 함수이다.
 - `for 문`
 - `String.length` String 변수의 문자 수를 확인할 수 있다.
+
+### 다양한 조합의 음식을 주문하여 출력하는 코드작성
+[예제코드](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%203-Display%20a%20scrollable%20list/PATHWAY%203-2%20code)
+
+- `toString()` 코틀린에서는 모든 클래스가 자동으로 toString() 메서드를 상속을 하게된다. toString() 메서드는 객체 인스턴스를 출력하면 자동으로 호출된다.
+- `vararg (가변인자)` 매개변수로 인자의 개수를 유동적으로 받을 수 있게한다. 인자가 유동적으로 변경되기 때문에 불필요한 오버로딩을 하는 코드가 필요없다.
+- `joinToString()` 리스트로 구성된 자료를 하나의 문자열로 표현
+- `빌더 패턴` 빌더 패턴은 단계별 접근 방식으로 복잡한 객체를 빌드할 수 있는 프로그래밍의 디자인 패턴이다.
