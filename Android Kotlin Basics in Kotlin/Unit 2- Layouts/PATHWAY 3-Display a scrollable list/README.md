@@ -86,3 +86,5 @@ List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 �
 - `RecyclerView의 Adapter 메서드 재정의` onCreateViewHolder, getItemCount, onBindViewHolder 3개의 메서드 재정의
 - `LayoutInflater.from()` LayoutInflater는 XML 레이아웃을 뷰 객체의 계층 구조로 확장하는 방법을 알고 있다.
 - `recyclerView.setHasFixedSize()` recyclerView의 크기가 고정되어 있는 경우에 RecyclerView의 성능을 개선하기 위한 설정이다. 콘텐츠를 변경해도 RecyclerView의 레이아웃 크기가 변경되지 않는다.
+
+[Affirmations 프로젝트](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%203-Display%20a%20scrollable%20list/Affirmations)
