@@ -1,9 +1,11 @@
 package com.example.affirmations.adpter
 
 import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.R
@@ -24,6 +26,7 @@ class ItemAdapter(
      */
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
+        val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 
     /**
@@ -34,7 +37,7 @@ class ItemAdapter(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
 
-        // adapterLayout 이 목록 항목 뷰의 참조를 보유하도록 설정(TextView 같은 하위 뷰를 찾을 수 있음)
+        // adapterLayout이 목록 항목 뷰의 참조를 보유하도록 설정(TextView 같은 하위 뷰를 찾을 수 있음)
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
 
@@ -51,6 +54,7 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position] // Affirmation 객체를 찾는다.
         holder.textView.text = context.resources.getString(item.stringResourceId) // 현재 context 의 text 를 Affirmation 문자열로 표시하도록 설정
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
 

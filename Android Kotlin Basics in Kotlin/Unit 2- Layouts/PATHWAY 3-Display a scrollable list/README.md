@@ -88,3 +88,16 @@ List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 �
 - `recyclerView.setHasFixedSize()` recyclerView의 크기가 고정되어 있는 경우에 RecyclerView의 성능을 개선하기 위한 설정이다. 콘텐츠를 변경해도 RecyclerView의 레이아웃 크기가 변경되지 않는다.
 
 [Affirmations 프로젝트](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%203-Display%20a%20scrollable%20list/Affirmations)
+
+
+## Display a list of images using cards
+[Affirmations 프로젝트에 이미지 추가하기](https://developer.android.com/codelabs/basic-android-kotlin-training-display-list-cards?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-display-list-cards#0)
+
+- `리소스 주석` @ 기호를 통해 리소스 주석을 사용할 수 있다.
+- `LinearLayout` 뷰를 세로나 가로로 정렬하여 표현할 때 LinearLayout이 적합하다.
+- `android:importantForAccessibility` 해당 위젯을 순전히 장식용도로 사용할 때 no 속성을 부여하여 사용한다.
+- `'imageView'.setImageResource`
+- `android:textAppearance` textAppearance는 텍스트별 스타일을 정의할 수 있는 속성이다.
+- `MaterialCardView(Card 뷰)` 레이아웃 별로 구분을 줄 수 있는 뷰로, 컨테이너의 스타일을 일관되게 유지하면서 간편하게 뷰 그룹을 포함할 수 있다.
+
+https://user-images.githubusercontent.com/52282493/129556781-bf5a63ff-825d-46ba-9cac-a25856a8d0e6.mp4
