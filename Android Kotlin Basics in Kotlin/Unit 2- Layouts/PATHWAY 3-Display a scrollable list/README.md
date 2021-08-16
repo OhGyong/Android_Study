@@ -22,7 +22,7 @@ List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 �
 
     // mutableList로 생성
     val entress = mutableListOf<Int>()
-    val entress: mutableList<Int> = mutableListOf()
+    val entress: MutableList<Int> = mutableListOf()
     ```
 - `listOf()` List 값을 만듬 → listOf(1, 2, 3, 4, 5) = [1, 2, 3, 4, 5]
 - `mutableListOf()` mutableList 값을 만듬
