@@ -26,11 +26,24 @@
 
 https://user-images.githubusercontent.com/52282493/128595316-13270794-24f9-4718-ac74-765100a8ce66.mp4
 
- </br>
+## Unit 2: Layouts
+[Unit 2 정리 페이지](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts)
+- PATHWAY 1- Get User input in an app: Part1
+    - 클래스 계층구조 (주택의 거주인, 면적 등을 계산하는 것을 예시로한 코드)
+    - 안드로이드 스튜디오 xml 파일 다루기
+    - 뷰 결합(binding)
+    - 팁 계산기 앱 개발
+- PATHWAY 2- Get User input in an app: Part2
+    - 테마, colors.xml 사용법
+    - 스마트 기기가 다크모드일 때 앱의 테마 설정
+    - 앱의 아이콘 변경
+    - 머티리얼 디자인(material design) 문서 소개
+    - 팁 계산기 앱 UI 꾸미기
+- PATHWAY 3- Display a scrollable list
+    - 코틀린에서 List 사용 (다양한 조합의 음식을 주문하는 것을 예시로한 코드)
+    - RecyclerView
+    - 일일 명언 앱 개발
 
+    https://user-images.githubusercontent.com/52282493/129019448-378b5693-78ce-49d0-82bd-6e1aed85f60e.mp4
 
-
-
-
-
-## Unit 2
+    https://user-images.githubusercontent.com/52282493/129556781-bf5a63ff-825d-46ba-9cac-a25856a8d0e6.mp4
