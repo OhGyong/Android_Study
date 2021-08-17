@@ -21,9 +21,12 @@
     - 코틀린에서 if, when 문의 사용법
     - 주사위 굴리기 앱 개발
 
+![image](https://user-images.githubusercontent.com/52282493/129652762-3a228b21-b4f0-46e6-b638-6b42faa5d646.png)
+</br>
+
 https://user-images.githubusercontent.com/52282493/128595316-13270794-24f9-4718-ac74-765100a8ce66.mp4
 
-![image](https://user-images.githubusercontent.com/52282493/129652762-3a228b21-b4f0-46e6-b638-6b42faa5d646.png) </br>
+ </br>
 
 
 
