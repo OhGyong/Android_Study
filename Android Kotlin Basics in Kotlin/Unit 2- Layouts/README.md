@@ -4,4 +4,4 @@
 - [PATHWAY 2- Get User input in an app: Part2](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%202-Get%20user%20input%20in%20an%20app%20Part2)
 - [PATHWAY 3- Display a scrollable list](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%203-Display%20a%20scrollable%20list)
 
-![image](https://user-images.githubusercontent.com/52282493/129664443-cc06fc6e-bfac-47f8-9e3d-b11a2c703c15.png)
+![image](https://user-images.githubusercontent.com/52282493/129664821-13d4a203-205c-4957-8307-c3e631c3330e.png)
