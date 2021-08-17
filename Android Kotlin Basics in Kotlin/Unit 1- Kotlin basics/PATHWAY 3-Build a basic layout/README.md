@@ -25,3 +25,5 @@
 - `프로젝트에 이미지 추가`
 - `문자열 리소스 명명 규칙` 소문자 이름으로 시작하고 그 뒤의 단어는 밑줄(_)로 구분되어야 한다.
 - `should use @string resource 해결` Extract Resource에서 Resource name추가 및 string.xml 파일에서 확인.
+
+![image](https://user-images.githubusercontent.com/52282493/129652762-3a228b21-b4f0-46e6-b638-6b42faa5d646.png)
