@@ -1,3 +1,4 @@
+``` kotlin
 import kotlin.math.PI
 import kotlin.math.sqrt
 
@@ -111,8 +112,8 @@ fun main() {
         println("Floor area: ${floorArea()}")
         println("Carpet size: ${calculateMaxCarpetSize()}")
     }
-
 }
+```
 
 
 ### 실행결과
