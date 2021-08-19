@@ -65,3 +65,9 @@ filter() 함수를 사용할 때 startWidt()로 지정된 단어로 시작하는
 컬렉션에서 항목의 원하는 개수 만큼만 반환하도록 한다.
 
 ## 3. Activities and intents
+[Activty와 인텐트 설명](https://developer.android.com/codelabs/basic-android-kotlin-training-activities-intents?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-activities-intents#0)
+
+- `인텐트`</br>
+실행할 작업을 나타내는 객체이다. 암시적 인텐트와 명시적 인텐트 두 가지 유형이 있다.</br>
+명시적 인텐트는 매우 구체적이며 실행할 활동을 정확하게 알 수 있고 자체 앱의 화면인 경우가 많다.</br>
+암시적 인텐트는 좀 더 추상적이면서 시스템에 링크 열기나 이메일 작성, 전화 걸기와 같은 작업 유형을 알려주고 시스템은 요청 처리 방법을 파악해야 한다.
