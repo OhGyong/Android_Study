@@ -4,8 +4,9 @@
 ## 1. Welcome to Unit 3: Navigation
 이전 Unit들에서는 Layout이 한 개인 앱들을 개발하고 공부했다면 이번에는 탐색할 수 있는 여러 개의 화면이 있는 앱을 만들어 볼 것이다.
 
-## 2. Collections in Kotlin
+## 2. Collections in Kotlin]
 컬렉션, 코틀린에서의 람다 및 고차 함수에 관해 학습한다.
+[코틀린 컬렉션, 고차함수 소개 페이지](https://developer.android.com/codelabs/basic-android-kotlin-training-collections?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-collections#0)
 
 - `컬렉션` 단어 목록이나 직원 기록 모음과 같은 관련 항목 그룹이다. 컬렉션의 항목은 순서가 지정되거나 지정되지 않을 수 있으며 고유하거나 고유하지 않을 수 있다. 컬렉션의 유형으로 List, set, map이 있다.
 - `set(집합)` List와 달리 중복될 수 없고 순서는 중요하지 않은 컬렉션이다. contains()를 통해 집합에 해당 요소가 있는지 확인할 수 있으며, 수학의 집학처럼 교집합 또는 합집합과 같은 연산을 intersect(), union()을 통해 할 수 있다.
@@ -28,5 +29,17 @@
     람다는 일반 변수에 저장할 수도 있는데, 아래의 그림을 참고하자.
     ```
     ![image](https://user-images.githubusercontent.com/52282493/129927798-4cfd74e3-8365-4b10-bb69-76d5f67f9919.png)
+- `고차 함수` 함수(람다)를 다른 함수로 전달하거나 다른 함수에서 함수를 반환하는 것을 의미한다.</br>
+map, filter, forEach 함수는 모두 매개변수를 사용했기 때문에 고차 함수의 예라고 볼 수 있다.
+- `sortedWith()` 
+    ```
+    문자열 길이를 기준으로 목록을 정렬하는 함수. 람다식을 이용하여 두 문자열의 길이를 비교하는 코드를 작성한다.
+    sortedWith() 예시 : 'List 변수'.sortedWidth{str1: String, str2: String -> str1.length-str2.length}
+    위의 sortedWith()에 전달된 람다식에는 String 형의 str1, str2 두 개의 매개변수가 있다.
+    -> 다음에는 str1.length-str2.length 함수 본문이 나온다. 첫 번째 문자열과 두 번째 문자열 길이의 차이를 반환하여 낮은 순서대로 문자열을 정렬한다.
+    ```
+- `startsWidt()` filter() 함수를 사용할 때 startWidt()로 지정된 단어로 시작하는 항목을 찾아낼 수 있다.
+- `shuffleed()` 코틀린 컬렉션을 사용하면 shuffled() 함수를 사용하여 항목을 무작위로 섞어 반환한다.
+- `take()` 컬렉션에서 항목의 원하는 개수 만큼만 반환하도록 한다.
 
-
+## 3. Activities and intents
