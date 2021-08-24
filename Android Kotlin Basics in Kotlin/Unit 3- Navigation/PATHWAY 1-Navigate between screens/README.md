@@ -107,4 +107,37 @@ startActivity()를 intent 등을 사용하여 호출하면서 해당 화면을 �
     - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
     - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호춯한다.
 
+## 4. Stages of the activity lifecycle
+[Activity 생명 주기 소개](https://developer.android.com/codelabs/basic-android-kotlin-training-activity-lifecycle?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-activity-lifecycle#0)
+
+Activity 생명 주기는 Activity가 생성되는 시점에 시작하여 활동이 소멸되어 시스템에서 Activity 리소스가 회수될 때까지의 싸이클이다.</br>
+앱을 사용하는 유저들은 Activity 간에 화면을 이동하게 되는데 이동 간에 Activity 생명 주기는 다양한 상태로 전환된다.</br>
+
+개발자는 생명 주기를 파악하고 있어야 한다. Activity가 생명 주기에 올바르게 응답하지 않으면 앱에 버그가 발생하여 사용자의 동작에 혼란을 주거나 앱의 안드로이드 시스템 리소스를 너무 많이 사용하게 될 수 있다.</br>
+
+안드로이드 수명 주기를 파악하고 수명 주기 상태 변경에 올바르게 응답하는 것은 좋은 AOS 개발자가 되기 위한 중요 요소이다.</br>
+![image](https://user-images.githubusercontent.com/52282493/130561531-9b8f8cd7-1936-4bf0-a322-576e48591cff.png)
+
+'DessertClick'라는 앱을 개발하면서 생명 주기에 대해 알아보자.
+
+- `onCreate() 메서드`</br>
+모든 Activity에서 구현해야 하는 메서드이다. view binding 등 Activity의 일회성 초기화를 한다.</br>
+Activity가 초기화 된 뒤에(Activity 객체가 메모리에 만들어질 때) 한 번 호출된다.</br>
+onCreate() 메서드를 재정의 할 때 super 클래스로 생성해야 한다. 즉, super.onCreate()를 즉시 호출해야 한다.
+onCreate()가 실행되면 Activity가 생성됨으로 간주된다. 
+
+- `Log`
+Log 클래스는 Logcat에 메시지를 쓴다. Logcat은 메시지를 기록하는 콘솔이다.</br>
+    - Log.d() : 디버그 메시지를 작성한다. 
+    - Log.i() : 정보 메시지를 작성한다.
+    - Log.e() : 오류 메시지를 작성한다.
+    - Log.w() : 경고 메시지를 작성한다.
+    - Log.v() : 자세한 메시지를 작성한다.</br>   
+    모든 메서드에 두 개의 메개변수가 들어간다.</br>
+    첫 번째 매개변수는 로그 태그이다. MainActivity 같은 클래스 이름을 삽입하여 로그 메시지를 더 쉽게 찾을 수 있다.</br>
+    두 번째 매개변수는 로그 메시지이다. 문자열을 입력하면 된다.
+
+
+
+
 
