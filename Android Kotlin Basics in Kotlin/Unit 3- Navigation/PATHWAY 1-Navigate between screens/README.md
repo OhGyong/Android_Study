@@ -77,12 +77,14 @@ filter() 함수를 사용할 때 startWidt()로 지정된 단어로 시작하는
     val list = ('A').rangeTo('Z').toList()
     ```
     위 예제 코드를 출력하면 [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z] 이렇게 된다.
-- `accessibilityDelegate`
-- `Intent()`
+- `accessibilityDelegate`</br>
+- `Intent()`</br>
+extras를 통하여 다른 구성요소에 데이터를 전달할 수 있다.</br>
+Extra는 Bundle 객체이며 Bundle은 여러 가지 타입의 값을 저장할 수 있는 클래스이다.
 - `intent.putExtra`</br>
 다른 Activity에 데이터를 전달하는 메서드
 - `intent.extras`</br>
-intent에 전달된 모든 extras에 액세스하는 방법
+extras는 Bundle 유형으로 intent에 전달된 모든 extras에 액세스하는 방법
 - `속성의 ?`</br>
 null을 허용할 수 있다는 처리를 ?를 통해서 표현한다.(값이 없을 수 있다.)
 - `companion object (컴패니언 객체)`</br>
@@ -91,5 +93,18 @@ null을 허용할 수 있다는 처리를 ?를 통해서 표현한다.(값이 �
 URL(Uniform Resource Locator)와 달리 형식에 관한 좀 더 일반적인 용어이다.</br>
 ![image](https://user-images.githubusercontent.com/52282493/130318539-83c60c8e-88d4-4b24-ae5d-61e9eee665d7.png)
 - `intent.ACTION_VIEW`</br>
-ACTION_VIEW는 URI를 사용하는 일반적인 인텐트이다. 시스템에서 사용자의 웹브라우저에서 URI를 열어 인텐트를 처리할 수 있다.
+ACTION_VIEW는 URI를 사용하는 일반적인 인텐트이다. </br>
+시스템에서 사용자의 웹브라우저에서 URI를 열어 인텐트를 처리할 수 있다.
+- `startActivity()`</br>
+startActivity()를 intent 등을 사용하여 호출하면서 해당 화면을 실행시킨다.
+- `app bar (앱 바)`
+앱의 상단에 표시되는 부분을 말한다.</br>
+앱 이름을 표시할 수 있고, 메뉴를 추가하는 등의 맞춤 설정을 할 수 있다.
+- `메뉴 추가하는 방법`</br>
+- `GridLayoutManager()`
+- `onCreateOptionMenu()와 onOptionsItemSelected()`</br>
+앱이 메뉴를 사용하기 위해서는 onCreateOptionMenu()와 onOptionsItemSelected() 두 개의 메서드가 필요하다.</br>
+    - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
+    - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호춯한다.
+
 
