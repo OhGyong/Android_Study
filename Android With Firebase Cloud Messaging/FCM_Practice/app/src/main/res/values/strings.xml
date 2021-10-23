@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FCM_Practice</string>
+    <string name="firebase_notification_channel_id">360191077270019356</string>
 </resources>
