@@ -22,28 +22,37 @@ FCM 메시지를 받았을 때 처리하는 방법 설명.
 
 ```kotlin
     class MyFirebaseMessagingService : FirebaseMessagingService() {
-        private val TAG: String = this.javaClass.simpleName
 
+        /**
+        * 메세지를 수신할 때 호출된다.
+        * remoteMessage는 수신한 메시지.
+        * 메시지의 유형은 notification과 data가 있는데 notification은 foreground일 때만 푸시 알림이 오고,
+        * data는 foreground와 background일 때 알림이 온다.
+        */
         override fun onMessageReceived(remoteMessage: RemoteMessage) {
             super.onMessageReceived(remoteMessage)
-            if (remoteMessage.notification != null) {
-                sendNotification(remoteMessage.notification?.title, remoteMessage.notification!!.body!!)
+            Log.d("onMessageReceived 호출", "From: ${remoteMessage.from}")
+
+            if(remoteMessage.data.isNotEmpty()){
+                Log.d("알림 data 확인", "Message data payload: ${remoteMessage.data}")
+                sendNotification(remoteMessage.data["title"].toString(),remoteMessage.data["body"].toString())
             }
+
+
         }
 
+        /**
+        * FCM 등록 토큰이 업데이트되면 호출된다.(앱 삭제 및 재설치 등의 이유로 토큰이 변경될 수 있음)
+        */
         override fun onNewToken(token: String) {
-            Log.d(TAG, "new Token: $token")
-
-            // 토큰 값을 따로 저장해둔다.
-            val pref = this.getSharedPreferences("token", Context.MODE_PRIVATE)
-            val editor = pref.edit()
-            editor.putString("token", token).apply()
-            editor.commit()
-
-            Log.i("로그: ", "성공적으로 토큰을 저장함")
+            Log.d("토큰 확인", "Refreshed token: $token")
         }
 
-        // 받은 알림을 기기에 표시하는 메서드
+
+        /**
+        * 수신 된 FCM 메시지를 포함하여 간단한 알림을 만들고 표시한다.
+        * onMessagedReceived() 메서드에서 FCM이 보낸 title과 body 등의 정보를 알아와서 세부 설정을 한다.
+        */
         private fun sendNotification(title: String?, body: String) {
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
