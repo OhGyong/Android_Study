@@ -90,3 +90,9 @@ FCM 메시지를 받았을 때 처리하는 방법 설명.
 
 ![image](https://user-images.githubusercontent.com/52282493/138563243-a5d5d09d-2416-4462-8594-434718110770.png)</br>
 ![image](https://user-images.githubusercontent.com/52282493/138563232-7dd3421e-bc45-412c-9e02-226e7e18b812.png)
+
+## Postman에서 테스트
+![image](https://user-images.githubusercontent.com/52282493/138599492-c14341ef-1663-4c36-8a6e-eab17566f858.png)</br>
+
+Header의 KEY 값 중 Authorization은 Firebase 설정에서 클라우드 메시징의 서버 키를 넣어준다.</br>
+![image](https://user-images.githubusercontent.com/52282493/138599602-13c92818-8552-4684-9173-e9897c485e81.png)
