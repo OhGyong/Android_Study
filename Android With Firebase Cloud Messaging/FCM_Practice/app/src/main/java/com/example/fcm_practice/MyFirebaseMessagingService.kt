@@ -9,6 +9,7 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -23,12 +24,20 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      */
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        Log.d("onMessageReceived 호출", "From: ${remoteMessage.from}")
+        Log.d("알림 onMessageReceived 호출", "From: ${remoteMessage.from}")
+        println("알림 From: ${remoteMessage.from}")
+        println("알림 아이디 ${FirebaseInstanceId.getInstance().token}")
 
         if(remoteMessage.data.isNotEmpty()){
             Log.d("알림 data 확인", "Message data payload: ${remoteMessage.data}")
             sendNotification(remoteMessage.data["title"].toString(),remoteMessage.data["body"].toString())
         }
+
+        remoteMessage.notification?.let {
+            Log.d("알림 notification 확인", "Message notification payload: ${remoteMessage.notification}")
+            sendNotification(remoteMessage.notification!!.title, remoteMessage.notification!!.body.toString())
+        }
+
 
 
     }
@@ -37,7 +46,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      * FCM 등록 토큰이 업데이트되면 호출된다.(앱 삭제 및 재설치 등의 이유로 토큰이 변경될 수 있음)
      */
     override fun onNewToken(token: String) {
-        Log.d("토큰 확인", "Refreshed token: $token")
+        Log.d("알림 토큰 확인", "Refreshed token: $token")
     }
 
 
@@ -58,6 +67,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
             .setContentTitle(title)
             .setContentText(body)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)
             .setContentIntent(pendingIntent)
@@ -75,6 +85,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
+        notificationManager.notify(0 , notificationBuilder.build())
     }
 }
