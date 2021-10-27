@@ -1,5 +1,16 @@
-# 안드로이드에서 Firebase Cloud Messaging 사용하기
+# Node 서버에서 Firebase 서버를 거쳐 안드로이드에서 알람 띄우기
 
+## Firebase Cloud Message(FCM) 소개
+[Firebase 클라우드 메시징 소개 사이트](https://firebase.google.com/docs/cloud-messaging/?authuser=1#implementation_paths)
+
+FCM은 무료로 메시지를 안정적으로 전송할 수 있는 교차 플랫폼 메시징 솔루션이다. 즉 FCM은 앱에 알람 기능을 사용할 수 있게하는 서비스이다.
+
+FCM은 2가지 유형의 메시지를 클라이언트(안드로이드)에 보낼 수 있는데, 하나는 `notification`이고 다른 하나는 `data` 형식이며 두 가지 형식을 함께 보내도 된다.</br>
+
+
+
+
+## 안드로이드 설정
 안드로이드 스튜디오 상단 탭에서 Tools의 Firebase를 클릭한다.</br>
 ![image](https://user-images.githubusercontent.com/52282493/138554990-f0cc57fa-74bf-46f8-8e8f-f3d3783850ee.png)
 
