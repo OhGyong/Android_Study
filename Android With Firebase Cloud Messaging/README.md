@@ -6,8 +6,51 @@
 FCM은 무료로 메시지를 안정적으로 전송할 수 있는 교차 플랫폼 메시징 솔루션이다. 즉 FCM은 앱에 알람 기능을 사용할 수 있게하는 서비스이다.
 
 FCM은 2가지 유형의 메시지를 클라이언트(안드로이드)에 보낼 수 있는데, 하나는 `notification`이고 다른 하나는 `data` 형식이며 두 가지 형식을 함께 보내도 된다.</br>
+- `notification(알림 메시지)`</br>
+포그라운드에서 onMessageReceived() 메서드에 구현한 대로 작동을 하는 반면, 백그라운드에서는 자동으로 title과 body를 뽑아와 push를 하게 되어 커스텀을 할 수 없다.
+- `data(데이터 메시지)`</br>
+포그라운드와 백그라운드에서 onMessageReceived() 메서드에 구현한 대로 작동한다.
 
+보통 data형식을 사용하여 구현하는 경우가 많다.
 
+![image](https://user-images.githubusercontent.com/52282493/139264517-ced07d1c-b57f-42d2-b61c-5a5272e654f9.png)</br>
+node 서버에서 Firebase 서버를 거쳐 안드로이드에 알람을 띄우려고 한다. 이것을 구현하는 것을 FCM Push 구현이라고 한다.
+
+## 서버 설정
+서버에서 사용하기 위해서 비공개 키를 다운받아야 한다.</br>
+![서버스 계정 생성](https://user-images.githubusercontent.com/52282493/139266009-abbae32b-9e6c-412f-b862-06af33b5d1c0.PNG)</br>
+Firebase에서 해당 앱의 프로젝트 설정 페이지로 이동하여 서비스 계정 탭에서 새 비공개 키 생성을 눌러 json 파일을 받아서 serviceAccount에 등록한다.
+
+```kotlin
+    const admin = require('firebase-admin')
+    let serviceAccount = require('')
+    router.post('/test', (req, res)=>{
+        if(!admin.apps.length){
+            admin.initializeApp({
+                credential: admin.credential.cert(serviceAccount)
+            })
+        }
+
+        let message = {
+            token: '',
+            data: {
+                title: "node에서 title",
+                body: "node에서의 data",
+                clickAction: "SubActivity"
+            }
+        }
+
+        try {
+            admin
+            .messaging()
+            .send(message)
+            .then(res.send("보내짐"))
+            
+        } catch (error) {
+            res.send(error)
+        }
+    })
+```
 
 
 ## 안드로이드 설정
