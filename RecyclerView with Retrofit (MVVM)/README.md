@@ -7,3 +7,10 @@ api, data, repository 클래스 생성</br>
 - repostiroy는 data 클래스의 data를 추상화
 
 2. 서버 통신 작업
+- gradle에 retrofit, gson 라이브러리 implementation
+- manifests에 인터넷 권한, usesCleartextTraffic 권한 허용
+- api, data, repository에 코드 작성
+
+3. 프래그먼트 추가
+- navigation 라이브러리 implementation
+- activity_main에 FragmentContainerView를 사용하여 앱 시작시 프래그먼트가 켜지게 함
