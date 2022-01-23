@@ -14,3 +14,6 @@ api, data, repository 클래스 생성</br>
 3. 프래그먼트 추가
 - navigation 라이브러리 implementation
 - activity_main에 FragmentContainerView를 사용하여 앱 시작시 프래그먼트가 켜지게 함
+
+4. ViewModel, LiveData 추가
+- ViewModel을 생성하고 LiveData를 사용하여 서버에서 얻은 데이터를 출력
