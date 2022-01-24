@@ -17,3 +17,7 @@ api, data, repository 클래스 생성</br>
 
 4. ViewModel, LiveData 추가
 - ViewModel을 생성하고 LiveData를 사용하여 서버에서 얻은 데이터를 출력
+
+5. RecyclerView 작업
+- Adapter 생성
+- Fragment의 observe에서 Adapter에 넘겨줄 데이터 처리
