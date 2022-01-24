@@ -18,13 +18,14 @@
 
 
     <TextView
-        android:id="@+id/userName"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="홍길동"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/ranking_user_image"
         app:layout_constraintStart_toEndOf="@+id/ranking_user_image"
         app:layout_constraintTop_toTopOf="@+id/ranking_user_image" />
@@ -35,9 +36,9 @@
         android:layout_height="20dp"
         android:src="@drawable/bonfire"
         android:layout_marginStart="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/userName"
-        app:layout_constraintStart_toEndOf="@+id/userName"
-        app:layout_constraintTop_toTopOf="@+id/userName" />
+        app:layout_constraintBottom_toBottomOf="@+id/user_name"
+        app:layout_constraintStart_toEndOf="@+id/user_name"
+        app:layout_constraintTop_toTopOf="@+id/user_name" />
 
     <TextView
         android:id="@+id/bonfire_num"
@@ -45,9 +46,10 @@
         android:layout_height="wrap_content"
         android:text="10"
         android:textSize="20dp"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/bonfire_num_image"
-        app:layout_constraintTop_toTopOf="@+id/userName" />
+        app:layout_constraintTop_toTopOf="@+id/user_name" />
 
     <View
         android:layout_width="match_parent"

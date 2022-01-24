@@ -2,19 +2,20 @@ package com.example.recyclerview_with_retrofit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
-import com.example.recyclerview_with_retrofit.repository.RankingRepository
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Thread{
-            val response = RankingRepository().getRankingData()
-//            println("메인 $response")
-        }.start()
-
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
     }
 }
