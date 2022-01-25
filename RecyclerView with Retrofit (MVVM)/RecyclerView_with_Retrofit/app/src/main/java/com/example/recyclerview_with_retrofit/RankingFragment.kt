@@ -12,8 +12,13 @@ import com.example.recyclerview_with_retrofit.data.Ranking
 
 class RankingFragment : Fragment() {
 
+    // 뷰모델
     private val viewModel: RankingViewModel by viewModels()
+
+    // 리사이클러 뷰
     private lateinit var rankingRecyclerView: RecyclerView
+
+    // observe에서 랭킹 데이터 리스트
     private lateinit var rankList: ArrayList<Ranking>
 
     override fun onCreateView(
@@ -21,6 +26,7 @@ class RankingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // 바인딩 변수의 인스턴스화
         return inflater.inflate(R.layout.fragment_ranking, container, false)
     }
 
@@ -46,7 +52,6 @@ class RankingFragment : Fragment() {
                     Ranking(id, nickName, rank, totalFire)
                 )
             }
-
             for (i in 1 until payload.size()) {
                 val payloadIndex = payload.get(i)
                 val id = payloadIndex.asJsonObject.get("id").asInt

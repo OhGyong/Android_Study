@@ -21,3 +21,7 @@ api, data, repository 클래스 생성</br>
 5. RecyclerView 작업
 - Adapter 생성
 - Fragment의 observe에서 Adapter에 넘겨줄 데이터 처리
+
+6. databinding 작업
+- build.gradle에 dataBinding, kotlin-kapt 속성 추가
+- xml 파일에 <'layout'>태그 추가

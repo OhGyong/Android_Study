@@ -1,65 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/ranking_user_image"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/user"
-        android:layout_marginStart="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="rankingItem"
+            type="com.example.recyclerview_with_retrofit.data.Ranking" />
 
+    </data>
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="홍길동"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/ranking_user_image"
-        app:layout_constraintStart_toEndOf="@+id/ranking_user_image"
-        app:layout_constraintTop_toTopOf="@+id/ranking_user_image" />
-
-    <ImageView
-        android:id="@+id/bonfire_num_image"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/bonfire"
-        android:layout_marginStart="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/user_name"
-        app:layout_constraintStart_toEndOf="@+id/user_name"
-        app:layout_constraintTop_toTopOf="@+id/user_name" />
-
-    <TextView
-        android:id="@+id/bonfire_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/bonfire_num_image"
-        app:layout_constraintTop_toTopOf="@+id/user_name" />
-
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="2px"
-        android:background="#191818"
-        android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ranking_user_image" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ranking_user_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/user"
+            android:layout_marginStart="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{rankingItem.nickName}"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/ranking_user_image"
+            app:layout_constraintStart_toEndOf="@+id/ranking_user_image"
+            app:layout_constraintTop_toTopOf="@+id/ranking_user_image" />
+
+        <ImageView
+            android:id="@+id/bonfire_num_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="150dp"
+            android:src="@drawable/bonfire"
+            app:layout_constraintBottom_toBottomOf="@+id/user_name"
+            app:layout_constraintStart_toEndOf="@+id/ranking_user_image"
+            app:layout_constraintTop_toTopOf="@+id/user_name" />
+
+        <TextView
+            android:id="@+id/bonfire_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(rankingItem.totalFire)}"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/bonfire_num_image"
+            app:layout_constraintTop_toTopOf="@+id/user_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#191818"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ranking_user_image" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
