@@ -25,15 +25,21 @@ class RankingAdapter(private val list: ArrayList<Ranking>) : RecyclerView.Adapte
 //        }
 //    }
 
-    inner class RankingViewHolder(val binding: RecyclerRankingBinding): RecyclerView.ViewHolder(binding.root) {
+    /**
+     * 데이터 바인딩 썼을 때
+     */
+    inner class RankingViewHolder(private val binding: RecyclerRankingBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(ranking: Ranking){
             binding.rankingItem = ranking
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankingViewHolder {
+        // 데이터 바인딩 쓰지않고 LiveData만 사용했을 때
 //        val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.recycler_ranking, parent ,false)
 //        return RankingViewHolder(adapterLayout)
+
+        // 데이터 바인딩 썼을 때
         val binding = RecyclerRankingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RankingViewHolder(binding)
     }
