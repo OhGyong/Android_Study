@@ -12,7 +12,7 @@ api, data, repository 클래스 생성</br>
 - api, data, repository에 코드 작성
 
 3. 프래그먼트 추가
-- navigation 라이브러리 implementation
+- navigation 라이브러리 implementation -> 2022.01.27 삭제 (네비게이션 사용하지 않아도 됨)
 - activity_main에 FragmentContainerView를 사용하여 앱 시작시 프래그먼트가 켜지게 함
 
 4. ViewModel, LiveData 추가
