@@ -43,12 +43,20 @@ class RankingRepository {
 
         runBlocking {
             println("Repository")
-            // create() 메서드를 사용하여 retrofit과 인터페이스를 연결
-            val response = retrofit.create(RankingService::class.java)
 
             // 데이터 가져오기
-            data = response.rankingDisplay().execute().body()
+            data = RankingApi.rankingResponse.rankingDisplay().execute().body()
         }
         return data!!
+    }
+
+    /**
+     * create 함수 호출 시 리소스가 많이 들기 때문에
+     * 싱글톤 객체 선언을 통해 한번만 생성되도록 설정
+     */
+    object RankingApi {
+        val rankingResponse: RankingService by lazy{
+            retrofit.create(RankingService::class.java)
+        }
     }
 }
