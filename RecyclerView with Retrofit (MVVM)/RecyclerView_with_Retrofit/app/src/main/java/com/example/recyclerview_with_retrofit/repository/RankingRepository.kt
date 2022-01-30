@@ -49,13 +49,13 @@ class RankingRepository {
         }
         return data!!
     }
-
-    /**
-     * create 함수 호출 시 리소스가 많이 들기 때문에
-     * 싱글톤 객체 선언을 통해 한번만 생성되도록 설정
-     */
 }
 
+
+/**
+ * create 함수 호출 시 리소스가 많이 들기 때문에
+ * 싱글톤 객체 선언을 통해 한번만 생성되도록 설정
+ */
 object RankingApi {
     val rankingResponse: RankingService by lazy{
         retrofit.create(RankingService::class.java)
