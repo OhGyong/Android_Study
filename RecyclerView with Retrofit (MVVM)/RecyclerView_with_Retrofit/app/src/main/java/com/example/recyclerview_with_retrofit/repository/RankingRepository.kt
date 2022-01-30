@@ -39,7 +39,7 @@ class RankingRepository {
      */
     fun getRankingData(): RankingResponse {
 
-        var data: RankingResponse? = null
+        var data: RankingResponse?
 
         runBlocking {
             println("Repository")
