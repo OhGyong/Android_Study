@@ -24,3 +24,10 @@ repeat()문은 `루프문`이다.
     println(range) // 1..6
     range.forEach{print("$it ")} // 1 2 3 4 5 6
 ```
+
+## random()
+random() 함수는 주어진 범위의 랜덤 숫자를 생성하고 반환한다.
+
+```kotlin
+    println((1..5).random())
+```
