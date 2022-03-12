@@ -15,3 +15,12 @@ repeat()문은 `루프문`이다.
         print("hi ") // hi hi hi hi hi 
     }
 ```
+
+## IntRange
+코틀린에 있는 데이터 유형으로, 시작점부터 끝점까지의 정수 범위를 표현할 수 있다.<br/>
+
+```kotlin
+    var range = 1..6
+    println(range) // 1..6
+    range.forEach{print("$it ")} // 1 2 3 4 5 6
+```
