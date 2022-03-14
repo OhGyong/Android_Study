@@ -11,6 +11,7 @@ View는 `ViewGroup`이라는 View 객체가 있을 수 있는 컨테이너에 �
 
 <br/><br/>
 
+---
 ## 크기 측정 단위
 안드로이드에서 View나 ViewGroup의 크기를 지정할 때 `wrap_content`, `match_parent`, `dp`, `sp` 등이 있다.<br/>
 
@@ -25,6 +26,7 @@ sp는 텍스트 크기를 지정할 때 화면 밀도와 사용자의 환경설�
 
 <br/><br/>
 
+---
 ## 안드로이드 4대 컴포넌트
 안드로이드의 4대 컴포넌트는 **Activity**, **Service**, **Broadcast Receiver**, **Content Provider**이다.<br/>
 컴포넌트는 앱의 구성 단위이며, 앱은 컴포넌트를 조합하여 만들어진다. 각 컴포넌트들은 하나의 독립된 형태로 존재하고, 정해진 역할을 수행한다. 인텐트(Intent)를 통해 각각의 컴포넌트들은 상호작용한다.
