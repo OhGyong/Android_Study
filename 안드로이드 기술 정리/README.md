@@ -111,7 +111,7 @@ Activity는 화면을 구성하는 가장 기본적인 컴포넌트이다.<br/>
 ---
 ## Fragment 생명주기
 Activity와 마찬가지로 Fragment도 리소스들이 생명주기 상태에 따라 리소스들이 초기화되고 메모리에서 삭제될 수 있다.<br/>
-![image](https://user-images.githubusercontent.com/52282493/158845687-ebf79a85-d1fc-4c02-87fc-aaf0f0b1e067.png) <br/>
+![image](https://user-images.githubusercontent.com/52282493/159151972-98aefb20-3773-49ee-b1b5-5a561886feb3.png) <br/>
 
 프래그먼트 생명주기에는 위의 사진처럼 CREATED, STARTED, RESUMED, INITIALIZED, DESTROYED 로 다섯 가지 생명주기 상태가 있고, 각 상태에 따른 Callback 함수들이 있다.
 - `onAttach()`
