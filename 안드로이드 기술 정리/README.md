@@ -154,3 +154,28 @@ Activity와 마찬가지로 Fragment도 리소스들이 생명주기 상태에 �
     - 프래그먼트를 제거하기 직전에 실행된다.
 - `onDetach()`
     - 프래그먼트를 제거를 완료하고 액티비티와의 연결을 해제할 때 실행된다.
+
+<br/><br/>
+
+---
+## Context
+Context는 애플리케이션 또는 액티비티 환경에 대한 전역 정보의 인터페이스이다.<br/>
+알기 쉽게 설명하자면, 자신이 어떤 애플리케이션(or 액티비티)인지 알 수 있게 해주는 신분증 역할이라고 보면 된다.
+<br/><br/>
+
+Context는 여러 컴포넌트들의 상위 추상 클래스이다. 안드로이드 컴포넌트 중 **액티비티**, **애플리케이션**, **서비스**는 **ContextWrapper**(Context를 직접 상속한 구현체)를 상속 받았기 때문에 만약 Context가 없다면 언급한 컴포넌트들은 사용(시작)할 수 없다.<br/>
+![image](https://user-images.githubusercontent.com/52282493/159159402-430fdc66-8a72-4e21-9cc6-e63f1bb720c7.png)<br/>
+
+예를 들어 액티비티 클래스는 Context의 상속을 받게 되는데 Context를 통해 Class나 시스템 자원(getResource, SharedPreferences) 등에 접근할 수 있게된다. 액티비티에서 `this`, `getBaseContext()`, `getApplicationContext()`를 통해 Context를 가져올 수 있다.(참고로 모두 다른 인스턴스이다.)
+<br/><br/>
+
+Context는 **Application Context**와 **Activity Context**로 나눌 수 있다.<br/>
+![image](https://user-images.githubusercontent.com/52282493/159164097-b7df5f18-6cab-45d2-8b4a-38d36f58e518.png)
+
+### `Application Context`
+Application Context는 싱클톤 객체이고, **getApplicationContext()**를 통해 얻을 수 있다.<br/>
+Application의 생명주기에 영향을 받고, 애플리케이션 전역에서 사용할 라이브러리를 액티비티에서 초기화 하는데 있어서 Context가 필요할 때 Application Context를 사용하면 된다. 요약하면 오랫동안 지속되거나 앱 전역에서 사용할 Context가 필요할 때 Application Context를 이용하면 된다.
+
+### `Activity Context`
+Activity의 생명주기에 영향을 받기 때문에 현재의 Context와 분리되지 않는 생명주기를 가진 Context가 필요할 때 사용한다.<br/>
+보통 Context가 현재 액티비티와 함께 소멸해야 하는 경우에 사용한다.
