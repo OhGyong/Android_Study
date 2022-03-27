@@ -1,6 +1,5 @@
 ## 사용자 인터페이스 정보
-앱의 사용자 `인터페이스(UI)`는 화면에 표시되는 Text, Image, Button 등 여러 유형의 요소이다. UI를 통해 앱은 사용자에게 콘텐츠를 표시하고 사용자는 앱과 상호작용할 수 있다.
-<br/><br/>
+앱의 사용자 `인터페이스(UI)`는 화면에 표시되는 Text, Image, Button 등 여러 유형의 요소이다. UI를 통해 앱은 사용자에게 콘텐츠를 표시하고 사용자는 앱과 상호작용할 수 있다.<br/><br/>
 
 이때, 위에서 언급한 여러 유형의 요소들을 `View`라고 한다. 즉, 앱에 표시되는 대부분의 것들은 View라고 볼 수 있다. View는 화면에 자체적으로 있을 수 없다. 예를 들자면 Image옆에 Text가 있고 그 아래에 Button이 있다고 했을 때, 이 요소들을 정렬 시킬 수 있는 컨테이너가 필요하다.
 <br/><br/>
@@ -160,14 +159,12 @@ Activity와 마찬가지로 Fragment도 리소스들이 생명주기 상태에 �
 ---
 ## Context
 Context는 애플리케이션 또는 액티비티 환경에 대한 전역 정보의 인터페이스이다.<br/>
-알기 쉽게 설명하자면, 자신이 어떤 애플리케이션(or 액티비티)인지 알 수 있게 해주는 신분증 역할이라고 보면 된다.
-<br/><br/>
+알기 쉽게 설명하자면, 자신이 어떤 애플리케이션(or 액티비티)인지 알 수 있게 해주는 신분증 역할이라고 보면 된다.<br/><br/>
 
 Context는 여러 컴포넌트들의 상위 추상 클래스이다. 안드로이드 컴포넌트 중 **액티비티**, **애플리케이션**, **서비스**는 **ContextWrapper**(Context를 직접 상속한 구현체)를 상속 받았기 때문에 만약 Context가 없다면 언급한 컴포넌트들은 사용(시작)할 수 없다.<br/>
 ![image](https://user-images.githubusercontent.com/52282493/159159402-430fdc66-8a72-4e21-9cc6-e63f1bb720c7.png)<br/>
 
-예를 들어 액티비티 클래스는 Context의 상속을 받게 되는데 Context를 통해 Class나 시스템 자원(getResource, SharedPreferences) 등에 접근할 수 있게된다. 액티비티에서 `this`, `getBaseContext()`, `getApplicationContext()`를 통해 Context를 가져올 수 있다.(참고로 모두 다른 인스턴스이다.)
-<br/><br/>
+예를 들어 액티비티 클래스는 Context의 상속을 받게 되는데 Context를 통해 Class나 시스템 자원(getResource, SharedPreferences) 등에 접근할 수 있게된다. 액티비티에서 `this`, `getBaseContext()`, `getApplicationContext()`를 통해 Context를 가져올 수 있다.(참고로 모두 다른 인스턴스이다.)<br/><br/>
 
 Context는 **Application Context**와 **Activity Context**로 나눌 수 있다.<br/>
 ![image](https://user-images.githubusercontent.com/52282493/159164097-b7df5f18-6cab-45d2-8b4a-38d36f58e518.png)
