@@ -12,8 +12,6 @@ class MainActivity : AppCompatActivity() {
 
         var viewPager = findViewById<ViewPager2>(R.id.viewPager)
         viewPager.adapter = ViewPagerAdapter(imageList())
-
-
     }
 
     private fun imageList(): ArrayList<Int>{
