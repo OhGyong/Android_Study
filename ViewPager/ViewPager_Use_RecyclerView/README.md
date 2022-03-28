@@ -107,6 +107,6 @@ ViewPager를 이미지로 구성할 것이기 때문에 ImageView 속성만 추�
 
 ---
 
-![ViewPager_gif](https://user-images.githubusercontent.com/52282493/160350273-ec1f9aa9-17c8-4844-a644-841411ae8411.gif)
+![ViewPager_gif](https://user-images.githubusercontent.com/52282493/160350592-7b70404d-d5a7-4b06-a017-09b52d47d5a0.gif)
 
 
