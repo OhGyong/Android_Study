@@ -43,25 +43,33 @@ Activity는 화면을 구성하는 가장 기본적인 컴포넌트이다.<br/>
 
 ### `서비스(Service)`
 서비스는 눈에 보이는 화면(Activity)과 상관없이 백그라운드에서 동작하는 컴포넌트이다.<br/>
+
 서비스는 일반적으로 화면 없이 동작하는 프로그램을 말한다. 다른 말로는 데몬(Daemon), 백그라운드 프로세스(Background Process)라고도 한다. 서비스의 작업으로 음악 프로그램을 들으면서 다른 앱을 사용하는 것을 예로 들 수 있다.<br/>
+
 - 앱이 종료되어도 서비스는 백그라운드에서 실행되기 때문에 계속 작동한다.(다른 앱으로 이동해도 작동.)
 - 모든 서비스는 Service 클래스를 상속받아 사용한다.
 - UI가 동작하는 스레드에서 동작한다.
 - Activity와 마찬가지로 생명주기를 갖고 있다.<br/>
+
 ![image](https://user-images.githubusercontent.com/52282493/158046850-ba15e721-4a3b-4305-99a9-1ebf2ecba912.png) <br/>
 왼쪽의 다이어그램은 startService()로 생성된 경우의 서비스, 오른쪽은 bindService()로 생성된 경우의 서비스이다. ([참고](https://developer.android.com/guide/components/services?hl=ko)) 
 
 
 ### `방송 수신자(Broadcast Receiver)`
 방송 수신자는 Broadcasting Message가 발생하면 반응하는 컴포넌트이다.<br/>
+
 방송 수신자를 활용하면 안드로이드에서 발생하는 많은 이벤트(문자 메시지, 배터리 방전, 날짜 변경 등)를 감지고하고 이를 처리하는 앱을 작성할 수 있다.<br/>
+
 문자 메시지 도착, 배터리 상태, SD 카드 탈부착 등이 발생하면 broadcast 신호를 보내는데 이 신호를 Broadcasting Message라고 할 수 있다. 이런 broadcast 신호를 받아서 처리하는 것이 Broadcast Receiver이다.<br/>
+
 - 디바이스에서 발생하는 이벤트를 정보를 받고 반응한다.
 - 일반적으로 UI를 가지고 있지 않다.
 
 ### `콘텐트 제공자(Content Provider)`
 콘텐트 제공자는 응용 프로그램 사이에 데이터를 공휴가 위한 컴포넌트이다.<br/>
+
 안드로이드는 보안상 앱에서 사용하는 데이터를 외부에서 접근할 수 없다. SQLite 등의 데이터는 자신의 앱에서만 사용할 수 있고 다른 앱에서는 사용할 수 없다. 이러한 파일이나 데이터베이스를 외부 앱에서 사용하게 하기 위해서 콘텐트 제공자(줄여서 CP)를 만들어서 외부로 제공해야 한다.<br/>
+
 카카오톡이나 페이스북에서 전화번호부에 저장되어 있는 데이터베이스를 사용하는 것을 예로 들 수 있다.
 - 콘텐트 제공자는 앱에 데이터를 제공한다.
 - 콘텐트 제공자를 통해 다른 앱의 데이터를 쿼리하는 등의 변경이 가능하다.
@@ -71,12 +79,17 @@ Activity는 화면을 구성하는 가장 기본적인 컴포넌트이다.<br/>
 ---
 ## Activity 생명주기
 액티비티 생명주기는 액티비티가 생성되는 시점부터 소멸되어 시스템에서 액티비티 리소스가 회수될 때까지의 주기를 말한다. 앱을 사용하는 유저들은 액티비티 간에 화면을 이동하거나 앱을 종료 할 때 액티비티 생명주기는 다양한 상태로 전환된다.<br/>
+
 액티비티가 생명주기에 올바르게 응답하지 않으면 앱에 버그가 발생하여 사용자의 동작에 혼란을 주거나 앱의 안드로이드 시스템 리소스를 너무 많이 사용하게 될 수 있다.<br/>
+
 ![image](https://user-images.githubusercontent.com/52282493/158847929-6436e306-257a-4d71-b200-acb52d78f7cb.png) <br/>
 
 앱이 실행 되면 onCreate(), onStart(), onResume() 순으로 호출이 되고,<br/>
+
 뒤로 버튼, 홈 화면이 터치 되거나 종료되면 onPause(), onStop(), onDestroy()이 순서대로 호출된다.<br/>
+
 홈이나 다른 액티비티에서 원래있던 액티비티로 돌아갈 때는 onRestart()가 호출된다.
+
 - `onCreate()`
     - 모든 액티비티에서 구현해야 하는 메서드로 binding을 하는 등 액티비티의 일회성 초기화를 한다.
     - 전체 생명주기 동안에 **한 번**만 발생한다. 
@@ -110,6 +123,7 @@ Activity는 화면을 구성하는 가장 기본적인 컴포넌트이다.<br/>
 ---
 ## Fragment 생명주기
 Activity와 마찬가지로 Fragment도 리소스들이 생명주기 상태에 따라 리소스들이 초기화되고 메모리에서 삭제될 수 있다.<br/>
+
 ![image](https://user-images.githubusercontent.com/52282493/159151972-98aefb20-3773-49ee-b1b5-5a561886feb3.png) <br/>
 
 프래그먼트 생명주기에는 위의 사진처럼 CREATED, STARTED, RESUMED, INITIALIZED, DESTROYED 로 다섯 가지 생명주기 상태가 있고, 각 상태에 따른 Callback 함수들이 있다.
@@ -159,6 +173,7 @@ Activity와 마찬가지로 Fragment도 리소스들이 생명주기 상태에 �
 ---
 ## Context
 Context는 애플리케이션 또는 액티비티 환경에 대한 전역 정보의 인터페이스이다.<br/>
+
 알기 쉽게 설명하자면, 자신이 어떤 애플리케이션(or 액티비티)인지 알 수 있게 해주는 신분증 역할이라고 보면 된다.<br/><br/>
 
 Context는 여러 컴포넌트들의 상위 추상 클래스이다. 안드로이드 컴포넌트 중 **액티비티**, **애플리케이션**, **서비스**는 **ContextWrapper**(Context를 직접 상속한 구현체)를 상속 받았기 때문에 만약 Context가 없다면 언급한 컴포넌트들은 사용(시작)할 수 없다.<br/>
@@ -171,10 +186,12 @@ Context는 **Application Context**와 **Activity Context**로 나눌 수 있다.
 
 ### `Application Context`
 Application Context는 싱클톤 객체이고, **getApplicationContext()**를 통해 얻을 수 있다.<br/>
+
 Application의 생명주기에 영향을 받고, 애플리케이션 전역에서 사용할 라이브러리를 액티비티에서 초기화 하는데 있어서 Context가 필요할 때 Application Context를 사용하면 된다. 요약하면 오랫동안 지속되거나 앱 전역에서 사용할 Context가 필요할 때 Application Context를 이용하면 된다.
 
 ### `Activity Context`
 Activity의 생명주기에 영향을 받기 때문에 현재의 Context와 분리되지 않는 생명주기를 가진 Context가 필요할 때 사용한다.<br/>
+
 보통 Context가 현재 액티비티와 함께 소멸해야 하는 경우에 사용한다.
 
 <br/><br/>
