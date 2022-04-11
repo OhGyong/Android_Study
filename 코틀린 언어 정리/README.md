@@ -182,4 +182,7 @@ sum() 함수의 매개변수와 callByFunc()함수의 c라는 람다식 자료�
     */
 ```
 
-main() 함수에서 callByFunc()을 호출할 때, sum() 함수가 실행되지 않고 callByFunc() 함수에서 sum() 함수가 적용된 c 람다식이 호출될 때 실행된 것을 확인할 수 있다.
+main() 함수에서 callByFunc()을 호출할 때, sum() 함수가 실행되지 않고 callByFunc() 함수에서 sum() 함수가 적용된 c 람다식이 호출될 때 실행된 것을 확인할 수 있다.<br/>
+
+[참고자료, 코틀린 공식 사이트](https://gold.gitbook.io/kotlin/call-by-value-call-by-name)<br/>
+[참고자료, Do it! 코틀린 프로그래밍](https://books.google.co.kr/books?id=F6WeDwAAQBAJ&pg=PA123&lpg=PA123&dq=%EC%BD%94%ED%8B%80%EB%A6%B0+call+by+value&source=bl&ots=Jl2vhgzlSc&sig=ACfU3U3Xc0Y4qV70ehOgCAPnLGf2iERIvg&hl=ko&sa=X&ved=2ahUKEwjb0czG9In3AhVSL6YKHUJbAFc4ChDoAXoECBUQAw#v=onepage&q=%EC%BD%94%ED%8B%80%EB%A6%B0%20call%20by%20value&f=false)
