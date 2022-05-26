@@ -27,24 +27,26 @@ class MainActivity : AppCompatActivity() {
         mBinding.tabMain.addTab(mBinding.tabMain.newTab().setText("세번째"))
         mBinding.tabMain.addTab(mBinding.tabMain.newTab().setText("네번째"))
 
-        val bundle = Bundle()
-        val fragment = MainFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        bundle.putString("data", "첫번째")
-        fragment.arguments = bundle
-        transaction.add(mBinding.flMain.id, fragment)
-        transaction.commit()
+        val initBundle = Bundle()
+        initBundle.putString("data", "첫번째")
+
+        val initFragment = MainFragment()
+        initFragment.arguments = initBundle
+
+        val initTransaction = supportFragmentManager.beginTransaction()
+        initTransaction.add(R.id.fl_main, initFragment)
+        initTransaction.commit()
 
 
-        mBinding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        mBinding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                val bundle = Bundle()
+                val fragment = MainFragment()
+                val transaction = supportFragmentManager.beginTransaction()
                 bundle.putString("data", tab!!.text.toString())
-                val fragment2 = MainFragment()
-                fragment2.arguments = bundle
-
-                val transaction2 = supportFragmentManager.beginTransaction()
-                transaction2.add(mBinding.flMain.id, fragment2)
-                transaction2.commit()
+                fragment.arguments = bundle
+                transaction.add(R.id.fl_main, fragment)
+                transaction.commit()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {

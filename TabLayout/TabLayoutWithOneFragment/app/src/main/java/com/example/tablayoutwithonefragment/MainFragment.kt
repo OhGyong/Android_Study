@@ -17,7 +17,7 @@ class MainFragment: Fragment() {
     ): View? {
         mBinding = FragmentMainBinding.inflate(inflater, container, false)
 
-        mBinding.tvFragment.text = arguments?.getString("data")
+        mBinding.tvFragment.text = requireArguments().getString("data")
 
         return mBinding.root
     }
