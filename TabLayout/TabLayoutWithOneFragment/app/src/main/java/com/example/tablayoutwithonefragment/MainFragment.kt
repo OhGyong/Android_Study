@@ -7,18 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tablayoutwithonefragment.databinding.FragmentMainBinding
 
-class MainFragment: Fragment() {
+class MainFragment : Fragment() {
     private lateinit var mBinding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentMainBinding.inflate(inflater, container, false)
 
         mBinding.tvFragment.text = requireArguments().getString("data")
 
         return mBinding.root
+    }
+
+    fun changeTextView(string: String) {
+        mBinding.tvFragment.text = string
     }
 }

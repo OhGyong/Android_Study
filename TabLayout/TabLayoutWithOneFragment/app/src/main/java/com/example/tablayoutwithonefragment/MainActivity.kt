@@ -27,26 +27,20 @@ class MainActivity : AppCompatActivity() {
         mBinding.tabMain.addTab(mBinding.tabMain.newTab().setText("세번째"))
         mBinding.tabMain.addTab(mBinding.tabMain.newTab().setText("네번째"))
 
-        val initBundle = Bundle()
-        initBundle.putString("data", "첫번째")
+        val bundle = Bundle()
+        bundle.putString("data", "첫번째")
 
-        val initFragment = MainFragment()
-        initFragment.arguments = initBundle
+        val fragment = MainFragment()
+        fragment.arguments = bundle
 
-        val initTransaction = supportFragmentManager.beginTransaction()
-        initTransaction.add(R.id.fl_main, initFragment)
-        initTransaction.commit()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.fl_main, fragment)
+        transaction.commit()
 
 
         mBinding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                val bundle = Bundle()
-                val fragment = MainFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                bundle.putString("data", tab!!.text.toString())
-                fragment.arguments = bundle
-                transaction.add(R.id.fl_main, fragment)
-                transaction.commit()
+                fragment.changeTextView(tab!!.text.toString())
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
