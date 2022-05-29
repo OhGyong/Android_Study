@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         transaction.add(R.id.fl_main, fragment)
         transaction.commit()
 
-
         mBinding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 fragment.changeTextView(tab!!.text.toString())
@@ -48,8 +47,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
-
         })
-
     }
 }
