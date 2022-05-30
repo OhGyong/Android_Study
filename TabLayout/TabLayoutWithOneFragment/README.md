@@ -1,13 +1,16 @@
 # 단일 Fragment로 TabLayout 구성하기
 
  서버에서 받아온 데이터로 Tab의 항목이 유동적으로 변하고 각 탭의 화면이 거의 유사하게 구성되어 있다면, TabLayout의 `addTab()` 함수와 `단일 Fragment`을 사용하여 효율적으로 개발할 수 있다.
- <br/><br/>
+ <br/>
 
 activity_main에서 TabLayout을 등록하고 탭의 항목을 누르면 선택한 항목의 텍스트를 Fragment에서 보여주는 프로젝트를 예제로 들려고 한다.<br/>
- addTab()을 통해 Tab의 텍스트를 설정하고, `addOnTabSelectedListener()`를 통해서 탭의 item을 눌렀을 때의 이벤트 처리를 관리한다.<br/>
- activity가 생성되었을 때 addOnTabSelectedListener()가 사용되지 않았기 때문에 빈 화면으로 나오게 된다. 때문에 리스너 전에 Fragment에 초기값을 설정해줘야 한다. `Bundle()`과 `arguments`를 통해서 Fragment에 데이터를 보내주고, activity_main에서 Fragment를 담을 레이아웃으로 FrameLayout을 사용하였는데 `beginTransaction()`과 `commit()`을 통하여 FrameLayout에 Fragment를 연결시켜준다.<br/>
- 이후에 탭 리스너를 통해 화면을 갱신해주면 된다.
- 
+TabLayout의 addTab()을 통해 Tab의 텍스트를 설정하고, `addOnTabSelectedListener()`를 통해서 탭의 item을 눌렀을 때의 이벤트 처리를 관리한다.<br/>
+addOnTabSelectedListener()은 리스너이기 때문에 화면을 처음 실행하게 되면 FrameLayout에 아무것도 표시되지 않는다. 때문에 리스너 전에 Fragment에 초기값을 설정해줘야 한다. `Bundle()`과 `arguments`를 통해서 Fragment에 데이터를 보내주고, activity_main에서 Fragment를 담을 레이아웃으로 FrameLayout을 사용하였는데 `beginTransaction()`과 `commit()`을 통하여 FrameLayout에 Fragment를 연결시켜준다.<br/>
+이후에 탭 리스너를 통해 화면을 갱신해주면 된다.
+
+
+https://user-images.githubusercontent.com/105263450/171011202-505c277c-ca7f-409c-9cee-0aa59bc8d853.mp4
+
 --- 
 
 ### activity_main
