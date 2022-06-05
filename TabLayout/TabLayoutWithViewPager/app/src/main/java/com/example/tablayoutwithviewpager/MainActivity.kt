@@ -36,10 +36,10 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(mBinding.tabMain, mBinding.vpMain) { tab, pos ->
             tab.text = pos.toString()
             when (pos) {
-                0 -> tab.text = getString(R.string.one)
-                1 -> tab.text = getString(R.string.two)
-                2 -> tab.text = getString(R.string.three)
-                3 -> tab.text = getString(R.string.four)
+                0 -> tab.text = getString(R.string.first)
+                1 -> tab.text = getString(R.string.second)
+                2 -> tab.text = getString(R.string.third)
+                3 -> tab.text = getString(R.string.fourth)
             }
         }.attach()
     }

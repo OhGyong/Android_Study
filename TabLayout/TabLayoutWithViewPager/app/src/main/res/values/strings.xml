@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TabLayoutWithViewPager</string>
 
-    <string name="one">ONE</string>
-    <string name="two">TWO</string>
-    <string name="three">THREE</string>
-    <string name="four">FOUR</string>
+    <string name="first">첫번째</string>
+    <string name="second">두번째</string>
+    <string name="third">세번째</string>
+    <string name="fourth">네번째</string>
 </resources>

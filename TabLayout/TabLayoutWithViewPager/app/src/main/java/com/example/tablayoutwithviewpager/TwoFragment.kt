@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tablayoutwithviewpager.databinding.FragmentTwoBinding
+import com.example.tablayoutwithviewpager.databinding.FragmentSecondBinding
 
 class TwoFragment: Fragment() {
-    private lateinit var mBinding: FragmentTwoBinding
+    private lateinit var mBinding: FragmentSecondBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentTwoBinding.inflate(inflater, container, false)
+        mBinding = FragmentSecondBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 }
