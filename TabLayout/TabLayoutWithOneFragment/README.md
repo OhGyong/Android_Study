@@ -134,6 +134,18 @@ https://user-images.githubusercontent.com/105263450/171011202-505c277c-ca7f-409c
     }
 ```
 
+### ViewPagerAdapter
+```kotlin
+    class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+        val fragments = mutableListOf<Fragment>()
+
+        override fun getItemCount(): Int = fragments.size
+
+        override fun createFragment(position: Int): Fragment = fragments[position]
+
+    }
+```
+
 
 ### MainFragment
 ```kotlin
