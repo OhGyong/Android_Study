@@ -1,7 +1,7 @@
 # 단일 Fragment로 TabLayout 구성하기
 
- 서버에서 받아온 데이터로 Tab의 항목이 유동적으로 변하고 각 탭의 화면이 거의 유사하게 구성되어 있다면, TabLayout의 `addTab()` 함수와 `단일 Fragment`을 사용하여 효율적으로 개발할 수 있다.
- <br/>
+서버에서 받아온 데이터로 Tab의 항목이 유동적으로 변하고 각 탭의 화면이 거의 유사하게 구성되어 있다면, TabLayout의 `addTab()` 함수와 `단일 Fragment`을 사용하여 효율적으로 개발할 수 있다.
+<br/>
 
 activity_main에서 TabLayout을 등록하고 탭의 항목을 누르면 선택한 항목의 텍스트를 Fragment에서 보여주는 프로젝트를 예제로 들려고 한다.<br/>
 TabLayout의 addTab()을 통해 Tab의 텍스트를 설정하고, `addOnTabSelectedListener()`를 통해서 탭의 item을 눌렀을 때의 이벤트 처리를 관리한다.<br/>
