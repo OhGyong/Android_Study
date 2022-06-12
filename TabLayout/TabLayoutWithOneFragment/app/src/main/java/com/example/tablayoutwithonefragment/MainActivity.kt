@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         fragment.arguments = bundle
 
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fl_main, fragment)
+        transaction.add(R.id.fc_main, fragment)
         transaction.commit()
 
         mBinding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

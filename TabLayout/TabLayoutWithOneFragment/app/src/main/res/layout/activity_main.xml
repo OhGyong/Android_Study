@@ -34,11 +34,18 @@
         android:background="#878585"
         app:layout_constraintTop_toBottomOf="@id/tab_main"/>
     
-    <FrameLayout
-        android:id="@+id/fl_main"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_main2" />
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fl_main"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/v_main2" />-->
+
+    <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fc_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_main2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
