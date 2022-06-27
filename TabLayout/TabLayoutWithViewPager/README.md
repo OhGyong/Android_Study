@@ -132,3 +132,15 @@ Adapter를 생성하고 Activity에서 Adapter에 내가 사용할 Fragment 정�
         }
     }
 ```
+
+###  ViewPagerAdapter
+```kotlin
+    class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+        val fragments = mutableListOf<Fragment>()
+
+        override fun getItemCount(): Int = fragments.size
+
+        override fun createFragment(position: Int): Fragment = fragments[position]
+
+    }
+```
