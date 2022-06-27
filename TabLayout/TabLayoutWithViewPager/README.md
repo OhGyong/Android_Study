@@ -2,7 +2,8 @@
 
 탭의 항목을 누르거나 스와이프 하여 선택한 항목의 텍스트를 보여주는 프로젝트를 만들어 보려고 한다.<br/>
 우선 activity_main에서 TabLayout과 ViewPager2를 등록하고, 내가 보여줄 화면의 Fragment를 정의해준다.<br/>
-ViewPager를 적용하기 총 page를 계산하고 그려야 하기 때문에 Adapter가 필요하다. Adapter를 생성하고 Activity에서 Adapter에 내가 사용할 Fragment 정보를 넘겨주면 ViewPager를 사용할 준비는 끝난다.<br/>
+ViewPager를 적용하기 위해 총 page를 계산하고 그려야 하기 때문에 Adapter가 필요하다.<br/>
+Adapter를 생성하고 Activity에서 Adapter에 내가 사용할 Fragment 정보를 넘겨주면 ViewPager를 사용할 준비는 끝난다.<br/>
 마지막으로 Activity에서 `TabLayoutMediator`를 사용하여 Tab의 설정을 해주면 마무리 된다.
 
 ![TabLayoutWithViewPager2Gif](https://user-images.githubusercontent.com/105263450/172046410-71e8a745-af63-4eba-a32f-e08f5f9a1d8a.gif)
