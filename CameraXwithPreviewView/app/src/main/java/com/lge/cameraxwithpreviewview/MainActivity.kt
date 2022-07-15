@@ -49,12 +49,8 @@ class MainActivity : AppCompatActivity() {
         // 2. CameraProvider를 요청한 후, 뷰를 만들 때 초기화에 성공했는지 확인
         cameraProviderFuture.addListener({
             // 3. 카메라를 선택하고 생명주기에 binding
-            // 3-1. Preview를 만든다.
-            // 3-2. 카메라 세팅을 한다. (+ useCases는 선택)
-            // 3-3. 선택한 카메라를 생명주기에 binding 한다.
-            // 3-4. Preview를 PreviewView에 연결한다.
 
-            // Preview를 통해서 카메라 미리보기 화면을 구현.
+            // 3-1. Preview를 만든다. → Preview를 통해서 카메라 미리보기 화면을 구현.
             // surfaceProvider는 데이터를 받을 준비가 되었다는 신호를 카메라에게 보내준다.
             // setSurfaceProvider는 PreviewView에 SurfaceProvider를 제공해준다.
             val preview = Preview.Builder().build()
@@ -64,8 +60,10 @@ class MainActivity : AppCompatActivity() {
 //               it.setSurfaceProvider(mBinding.viewFinder.surfaceProvider)
 //           }
 
+            // 3-2. 카메라 세팅을 한다. (useCase는 bindToLifecycle에서)
             // CameraSelector는 카메라 세팅을 맡는다.(전면, 후면 카메라)
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
 
             // 생명주기에 binding할 수 있는 ProcessCameraProvider 객체 가져옴
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
@@ -73,7 +71,8 @@ class MainActivity : AppCompatActivity() {
                 // binding 전에 binding 초기화
                 cameraProvider.unbindAll()
 
-                // 카메라를 생명주기에 binding 시키기 (bindToLifeCycle 통해서)
+                // 3-3. 선택한 카메라를 생명주기에 binding 한다.
+                // 카메라를 생명주기에 binding 시키기 (bindToLifeCycle 통해서, useCases는 선택 )
                 camera = cameraProvider.bindToLifecycle(
                     this, cameraSelector, preview)
 
@@ -90,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
     }
 
-    // 카메라 권한
+    // 권한 요청 결과를 판단(requestPermissions에 의해 호출)
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>,
         grantResults:
