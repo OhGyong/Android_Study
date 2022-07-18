@@ -3,7 +3,6 @@ package com.study.bottomsheetdialog
 import android.content.Context
 import android.os.Bundle
 import android.view.Window
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.study.bottomsheetdialog.databinding.DialogBottomSheetBinding
 
@@ -27,7 +26,6 @@ class CustomBottomSheetDialog(context: Context) :
 
     class Builder(context: Context) {
         private val mDialog = CustomBottomSheetDialog(context)
-        private val mContext = context
 
         fun setTitle(text: String): Builder {
             text.let{
