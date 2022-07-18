@@ -25,16 +25,12 @@ class CustomBottomSheetDialog(context: Context) :
         private val mDialog = CustomBottomSheetDialog(context)
 
         fun setTitle(text: String): Builder {
-            text.let{
-                mDialog.mBinding.tvTitle.text = text
-            }
+            mDialog.mBinding.tvTitle.text = text
             return this
         }
 
         fun setContent(text: String): Builder {
-            text.let {
-                mDialog.mBinding.tvContent.text = text
-            }
+            mDialog.mBinding.tvContent.text = text
             return this
         }
 
