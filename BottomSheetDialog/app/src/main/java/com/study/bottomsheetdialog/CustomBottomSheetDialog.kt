@@ -18,10 +18,7 @@ class CustomBottomSheetDialog(context: Context) :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.activity_main)
-
         setContentView(mBinding.root)
-
     }
 
     class Builder(context: Context) {
