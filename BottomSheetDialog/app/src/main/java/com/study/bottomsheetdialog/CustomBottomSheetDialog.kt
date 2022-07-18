@@ -10,7 +10,7 @@ class CustomBottomSheetDialog(context: Context) :
     BottomSheetDialog(context) {
 
     interface BtnClickListener {
-        fun onBtnClick(dlg: CustomBottomSheetDialog)
+        fun onBtnClick()
     }
 
     private var mBinding = DialogBottomSheetBinding.inflate(layoutInflater)
@@ -43,7 +43,7 @@ class CustomBottomSheetDialog(context: Context) :
 
         fun setCheckBtn(rightBtnClickListener: BtnClickListener? = null): Builder {
             mDialog.mBinding.btnCheck.setOnClickListener {
-                rightBtnClickListener?.onBtnClick(mDialog)
+                rightBtnClickListener?.onBtnClick()
             }
             return this
         }

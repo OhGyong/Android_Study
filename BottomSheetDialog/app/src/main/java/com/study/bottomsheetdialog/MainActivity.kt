@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("다이얼로그")
                 .setContent("다이얼로그 생성")
                 .setCheckBtn(object: CustomBottomSheetDialog.BtnClickListener{
-                    override fun onBtnClick(dlg: CustomBottomSheetDialog) {
+                    override fun onBtnClick() {
                         Toast.makeText(this@MainActivity, "완료", Toast.LENGTH_LONG).show()
                     }
                 })
