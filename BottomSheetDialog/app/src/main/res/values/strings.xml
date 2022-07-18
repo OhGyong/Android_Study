@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BottomSheetDialog</string>
+    <string name="cancel">취소</string>
+    <string name="check">확인</string>
+    <string name="open">열기</string>
+</resources>
