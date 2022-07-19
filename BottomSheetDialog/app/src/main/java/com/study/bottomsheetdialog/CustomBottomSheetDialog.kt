@@ -2,7 +2,9 @@ package com.study.bottomsheetdialog
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.Window
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.study.bottomsheetdialog.databinding.DialogBottomSheetBinding
 
@@ -17,8 +19,12 @@ class CustomBottomSheetDialog(context: Context) :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(mBinding.root)
+
+        val behavior = BottomSheetBehavior.from(mBinding.root.parent as View)
+        behavior.isHideable = false
     }
 
     class Builder(context: Context) {
