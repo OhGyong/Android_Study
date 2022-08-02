@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mPrefs : SharedPreferences
     private lateinit var editPrefs: SharedPreferences.Editor
     private var stringPrefs : String? = null
-    private var arrayListPrefs = ArrayList<searchData>()
+    private var arrayListPrefs = ArrayList<PrefData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             if(actionId == EditorInfo.IME_ACTION_DONE){
                 arrayListPrefs.add(
                     0,
-                    searchData(
+                    PrefData(
                         textView.text.toString(),
                         SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(System.currentTimeMillis()) // 현재 날짜
                     )
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         // prefs에 데이터가 있으면 String을 ArrayList로 변환
         if(stringPrefs != null && stringPrefs != "[]"){
-            arrayListPrefs = GsonBuilder().create().fromJson(stringPrefs, object: TypeToken<ArrayList<searchData>>(){}.type)
+            arrayListPrefs = GsonBuilder().create().fromJson(stringPrefs, object: TypeToken<ArrayList<PrefData>>(){}.type)
         }
     }
 
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         // arrayList 타입을 json 형태의 String 타입으로 변환
         val toGson = GsonBuilder().create().toJson(
             arrayListPrefs,
-            object : TypeToken<ArrayList<searchData>>() {}.type
+            object : TypeToken<ArrayList<PrefData>>() {}.type
         )
         editPrefs.putString("searchList", toGson) // prefs에 push
         editPrefs.apply() // prefs 저장

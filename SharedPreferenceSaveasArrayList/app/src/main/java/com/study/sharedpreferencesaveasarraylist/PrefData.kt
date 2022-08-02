@@ -1,6 +1,6 @@
 package com.study.sharedpreferencesaveasarraylist
 
-data class searchData (
+data class PrefData (
     val name : String,
     val date :String
 )
