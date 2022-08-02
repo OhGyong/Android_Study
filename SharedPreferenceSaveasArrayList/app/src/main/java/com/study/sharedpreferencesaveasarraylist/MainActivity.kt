@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             }
             false // false로 해야 키패드가 닫힘
         }
-
     }
 
     /**
