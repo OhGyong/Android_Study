@@ -1,4 +1,4 @@
-package com.study.permissionnotagain
+package com.study.permissionprocessing
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
