@@ -76,23 +76,23 @@ class MainActivity : AppCompatActivity() {
             // 다시 묻지 않음을 생각하고 처리하는 법.
             REQUEST_PERMISSION_CODE_1 -> {
                 if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[3] == PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this, "모든 권한을 허용하였습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "모든 권한을 허용하였습니다.", Toast.LENGTH_SHORT).show()
                 }else{
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                            Toast.makeText(this, "블루투스 권한을 허용하였습니다.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "블루투스 권한을 허용하였습니다.", Toast.LENGTH_SHORT).show()
                         }else if(shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_ADVERTISE)){
-                            Toast.makeText(this, "블루투스 권한을 거절하였습니다.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "블루투스 권한을 거절하였습니다.", Toast.LENGTH_SHORT).show()
                         }else{
-                            Toast.makeText(this, "블루투스 권한을 다시 묻지 않음을 하였습니다.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "블루투스 권한을 다시 묻지 않음을 하였습니다.", Toast.LENGTH_SHORT).show()
                         }
 
                         if(grantResults[3] == PackageManager.PERMISSION_GRANTED){
-                            Toast.makeText(this, "카메라 권한을 허용하였습니다.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "카메라 권한을 허용하였습니다.", Toast.LENGTH_SHORT).show()
                         }else if(shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)){
-                            Toast.makeText(this, "카메라 권한을 거절하였습니다.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "카메라 권한을 거절하였습니다.", Toast.LENGTH_SHORT).show()
                         }else{
-                            Toast.makeText(this, "카메라 권한을 다시 묻지 않음을 하였습니다.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "카메라 권한을 다시 묻지 않음을 하였습니다.", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -102,9 +102,9 @@ class MainActivity : AppCompatActivity() {
             REQUEST_PERMISSION_CODE_2 -> {
                 // 권한 허용일 때
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this, "카메라 권한을 허용하였습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "카메라 권한을 허용하였습니다.", Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(this, "카메라 권한을 거절하였습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "카메라 권한을 거절하였습니다.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
