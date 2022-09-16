@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-            // 다시 묻지 않음을 생각하지 않고 처리하는 법.
+            // 다시 묻지 않음을 생각하지 않고 처리.
             REQUEST_PERMISSION_CODE_2 -> {
                 // 권한 허용일 때
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
