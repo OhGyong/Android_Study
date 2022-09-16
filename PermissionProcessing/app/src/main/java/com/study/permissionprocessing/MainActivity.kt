@@ -1,6 +1,7 @@
 package com.study.permissionprocessing
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +13,8 @@ import androidx.core.content.ContextCompat
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val REQUEST_PERMISSION_CODE_1 = 1001
-        private const val REQUEST_PERMISSION_CODE_2 = 1002
+        const val REQUEST_PERMISSION_CODE_1 = 1001
+        const val REQUEST_PERMISSION_CODE_2 = 1002
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +36,8 @@ class MainActivity : AppCompatActivity() {
                 )
             }
 
-        val btn = findViewById<Button>(R.id.btn_permission_request)
-        btn.setOnClickListener {
+        val btnCheckPermission = findViewById<Button>(R.id.btn_permission_request)
+        btnCheckPermission.setOnClickListener {
             if(Build.VERSION.SDK_INT >= 31){
                 // 블루투스와 카메라 권한이 허용되었는지 체크
                 if(permissionArray.all{ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED}){
@@ -57,6 +58,12 @@ class MainActivity : AppCompatActivity() {
                     requestPermissions(permissionArray, REQUEST_PERMISSION_CODE_2)
                 }
             }
+        }
+
+        val btnIntent = findViewById<Button>(R.id.btn_intent_activity)
+        btnIntent.setOnClickListener {
+            val intent = Intent(this, OneByOneProcessActivity::class.java)
+            startActivity(intent)
         }
     }
 
