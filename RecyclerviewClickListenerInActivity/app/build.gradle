@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.recyclerviewclicklistenerinactivity"
+        applicationId "com.study.recyclerviewclicklistenerinactivity"
         minSdk 30
         targetSdk 32
         versionCode 1
@@ -28,6 +28,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
     }
 }
 
