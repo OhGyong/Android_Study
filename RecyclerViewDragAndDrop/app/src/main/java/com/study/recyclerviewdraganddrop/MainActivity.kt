@@ -1,6 +1,5 @@
 package com.study.recyclerviewdraganddrop
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -14,7 +13,7 @@ data class SampleData(
 class MainActivity : AppCompatActivity() {
 
     private var sampleList = arrayListOf(
-        SampleData("샘플 제목6"), SampleData("샘플 제목5"), SampleData("샘플 제목4"),
+        SampleData("샘플 제목5"), SampleData("샘플 제목4"),
         SampleData("샘플 제목3"), SampleData("샘플 제목2"), SampleData("샘플 제목1")
     )
 
@@ -28,17 +27,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
         mAdapter = MainListAdapter(object: MainListAdapter.ItemStartDragListener{
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onEndDrag(initList: ArrayList<SampleData>) {
-                println(initList)
-                println("11")
+            // Drop 될 때 마다 호출
+            override fun onEndDrag(
+                initList: ArrayList<SampleData>,
+                changeList: ArrayList<SampleData>
+            ) {
+                println(initList) // 최초 리스트
+                println(changeList) // Drag and Drop 이후 리스트
             }
         })
-//        mAdapter = MainListAdapter()
 
         val mCallback = RecyclerViewItemTouchHelperCallback(mAdapter)
         mItemTouchHelper = ItemTouchHelper(mCallback)
-        mItemTouchHelper!!.attachToRecyclerView(mBinding.rvMain)
+        mItemTouchHelper?.attachToRecyclerView(mBinding.rvMain) // ItemTouchHelper를 RecyclerView에 연결
 
         mAdapter.setData(sampleList)
         mBinding.rvMain.adapter = mAdapter

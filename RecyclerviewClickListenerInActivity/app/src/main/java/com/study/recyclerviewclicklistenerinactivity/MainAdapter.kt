@@ -20,7 +20,7 @@ class MainAdapter(private val mList: ArrayList<String>) : RecyclerView.Adapter<M
         fun bind(mItemData: String){
             itemViewBinding.tvName.text = mItemData
 
-            if(adapterPosition != -1){
+            if(adapterPosition != RecyclerView.NO_POSITION){
                 itemViewBinding.ctMain.setOnClickListener {
                     onClickListener?.setOnClickListener(mItemData, itemViewBinding)
                 }

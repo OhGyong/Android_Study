@@ -8,25 +8,38 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class MainListAdapter(private val listener: ItemStartDragListener) :
-//class MainListAdapter() :
         RecyclerView.Adapter<MainListAdapter.ViewHolder>(),
-        RecyclerViewItemTouchHelperCallback.ItemMoveListener {
+        ItemMoveListener {
 
     interface ItemStartDragListener {
-        fun onEndDrag(initList : ArrayList<SampleData>)
+        fun onEndDrag(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
     }
 
     private var mSampleList: ArrayList<SampleData> = ArrayList()
     var initList: ArrayList<SampleData> = ArrayList()
 
-    override fun onDragEnd() {
-        listener.onEndDrag(initList)
-    }
-
     inner class ViewHolder(private val binding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(mSampleData: SampleData){
             binding.tvTitle.text = mSampleData.title
         }
+    }
+
+    fun setData(sampleList: ArrayList<SampleData>){
+        mSampleList = sampleList
+        initList.clear()
+        initList.addAll(sampleList)
+
+        notifyDataSetChanged()
+    }
+
+    override fun onDragEnd() {
+        listener.onEndDrag(initList, mSampleList)
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
+        Collections.swap(mSampleList, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
+        return true
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -40,19 +53,5 @@ class MainListAdapter(private val listener: ItemStartDragListener) :
 
     override fun getItemCount(): Int {
         return mSampleList.size
-    }
-
-    fun setData(sampleList: ArrayList<SampleData>){
-        mSampleList = sampleList
-        initList.clear()
-        initList.addAll(sampleList)
-
-        notifyDataSetChanged()
-    }
-
-    override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
-        Collections.swap(mSampleList, fromPosition, toPosition)
-        notifyItemMoved(fromPosition, toPosition)
-        return true
     }
 }
