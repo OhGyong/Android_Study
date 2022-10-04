@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private val list = arrayListOf(
         "짱구", "철수", "유리", "훈이", "맹구"
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
