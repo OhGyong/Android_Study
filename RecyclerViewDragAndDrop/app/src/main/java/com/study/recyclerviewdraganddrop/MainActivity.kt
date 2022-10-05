@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        mAdapter = MainListAdapter(object: MainListAdapter.ItemStartDragListener{
+        mAdapter = MainListAdapter(object: ItemStartDragListener{
             // Drop 될 때 마다 호출
             override fun onEndDrag(
                 initList: ArrayList<SampleData>,

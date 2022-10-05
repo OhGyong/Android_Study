@@ -7,13 +7,14 @@ import com.study.recyclerviewdraganddrop.databinding.ListItemRecyclerviewBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
+// Activity에서 사용할 interface
+interface ItemStartDragListener {
+    fun onEndDrag(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
+}
+
 class MainListAdapter(private val listener: ItemStartDragListener) :
         RecyclerView.Adapter<MainListAdapter.ViewHolder>(),
         ItemMoveListener {
-
-    interface ItemStartDragListener {
-        fun onEndDrag(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
-    }
 
     private var mSampleList: ArrayList<SampleData> = ArrayList()
     var initList: ArrayList<SampleData> = ArrayList()

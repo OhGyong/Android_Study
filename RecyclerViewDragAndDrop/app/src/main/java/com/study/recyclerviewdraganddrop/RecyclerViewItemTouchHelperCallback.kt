@@ -3,7 +3,7 @@ package com.study.recyclerviewdraganddrop
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
-// 리스너를 위한 인터페이스
+// Adapter에서 사용할 interface
 interface ItemMoveListener {
     // Drag 처리를 위한 함수
     fun onItemMove(fromPosition: Int, toPosition: Int): Boolean
@@ -11,7 +11,7 @@ interface ItemMoveListener {
 }
 
 /**
- * ItemTouchHelper는 RecyclerView에 Swipe와 Drag and Drop을 지원하는 유틸리티 클래스이다.
+ * ItemTouchHelper는 RecyclerView에 Swipe와 Drag and Drop을 지원하는 유틸리티 클래스
  */
 class RecyclerViewItemTouchHelperCallback(private val moveListener: ItemMoveListener) : ItemTouchHelper.Callback() {
 
@@ -52,6 +52,7 @@ class RecyclerViewItemTouchHelperCallback(private val moveListener: ItemMoveList
     override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
         super.onSelectedChanged(viewHolder, actionState)
         when(actionState){
+            // 드래그 또는 스와이프가 끝났을 때 ACTION_STATE_IDLE가 전달 됨.
             ItemTouchHelper.ACTION_STATE_IDLE -> moveListener.onDragEnd()
         }
     }
