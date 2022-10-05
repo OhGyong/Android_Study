@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 interface ItemMoveListener {
     // Drag 처리를 위한 함수
     fun onItemMove(fromPosition: Int, toPosition: Int): Boolean
-    fun onDragEnd()
+    fun onDropAdapter()
 }
 
 /**
@@ -53,7 +53,7 @@ class RecyclerViewItemTouchHelperCallback(private val moveListener: ItemMoveList
         super.onSelectedChanged(viewHolder, actionState)
         when(actionState){
             // 드래그 또는 스와이프가 끝났을 때 ACTION_STATE_IDLE가 전달 됨.
-            ItemTouchHelper.ACTION_STATE_IDLE -> moveListener.onDragEnd()
+            ItemTouchHelper.ACTION_STATE_IDLE -> moveListener.onDropAdapter()
         }
     }
 }

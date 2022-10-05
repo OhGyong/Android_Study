@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         mAdapter = MainListAdapter(object: ItemStartDragListener{
             // Drop 될 때 마다 호출
-            override fun onEndDrag(
+            override fun onDropActivity(
                 initList: ArrayList<SampleData>,
                 changeList: ArrayList<SampleData>
             ) {

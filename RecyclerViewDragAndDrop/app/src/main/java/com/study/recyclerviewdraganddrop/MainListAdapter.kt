@@ -9,7 +9,7 @@ import kotlin.collections.ArrayList
 
 // Activity에서 사용할 interface
 interface ItemStartDragListener {
-    fun onEndDrag(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
+    fun onDropActivity(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
 }
 
 class MainListAdapter(private val listener: ItemStartDragListener) :
@@ -33,8 +33,8 @@ class MainListAdapter(private val listener: ItemStartDragListener) :
         notifyDataSetChanged()
     }
 
-    override fun onDragEnd() {
-        listener.onEndDrag(initList, mSampleList)
+    override fun onDropAdapter() {
+        listener.onDropActivity(initList, mSampleList)
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
