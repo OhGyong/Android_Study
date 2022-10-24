@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mAdapter: MainAdapter
 
     private val list = arrayListOf(
-        "짱구", "철수", "유리", "훈이", "맹구"
+        "가", "나", "다", "라", "마"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
