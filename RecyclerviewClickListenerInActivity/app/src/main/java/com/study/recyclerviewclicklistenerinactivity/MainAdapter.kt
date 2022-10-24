@@ -5,15 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.study.recyclerviewclicklistenerinactivity.databinding.ItemListMainBinding
 
-interface OnClickListener {
-    fun setOnClickListener(itemData: String, binding: ItemListMainBinding)
+interface SetOnClickListenerInterface {
+    fun setOnClickListenerInterface(itemData: String, binding: ItemListMainBinding)
 }
 
 class MainAdapter(private val mList: ArrayList<String>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
-    private var onClickListener: OnClickListener? = null
 
-    fun onClickListener(onClick: OnClickListener) {
-        this.onClickListener = onClick
+    private var onClickListener: SetOnClickListenerInterface? = null
+
+    fun setOnClickListenerFunc(pOnClick: SetOnClickListenerInterface) {
+        this.onClickListener = pOnClick
     }
 
     inner class ViewHolder(private val itemViewBinding: ItemListMainBinding) : RecyclerView.ViewHolder(itemViewBinding.root) {
@@ -22,7 +23,7 @@ class MainAdapter(private val mList: ArrayList<String>) : RecyclerView.Adapter<M
 
             if(adapterPosition != RecyclerView.NO_POSITION){
                 itemViewBinding.ctMain.setOnClickListener {
-                    onClickListener?.setOnClickListener(mItemData, itemViewBinding)
+                    onClickListener?.setOnClickListenerInterface(mItemData, itemViewBinding)
                 }
             }
         }
