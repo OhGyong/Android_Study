@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         mBinding.rvMain.layoutManager = LinearLayoutManager(this)
 
         mAdapter.setOnClickListenerFunc(object: SetOnClickListenerInterface {
-            override fun setOnClickListenerInterface(itemData: String, binding: ItemListMainBinding) {
+            override fun listItemClickListener(itemData: String, binding: ItemListMainBinding) {
                 Toast.makeText(this@MainActivity, itemData, Toast.LENGTH_SHORT).show()
             }
         })

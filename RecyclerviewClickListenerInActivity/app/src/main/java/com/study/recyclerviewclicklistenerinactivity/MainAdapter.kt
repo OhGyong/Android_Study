@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.study.recyclerviewclicklistenerinactivity.databinding.ItemListMainBinding
 
 interface SetOnClickListenerInterface {
-    fun setOnClickListenerInterface(itemData: String, binding: ItemListMainBinding)
+    fun listItemClickListener(itemData: String, binding: ItemListMainBinding)
 }
 
 class MainAdapter(private val mList: ArrayList<String>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
@@ -23,7 +23,7 @@ class MainAdapter(private val mList: ArrayList<String>) : RecyclerView.Adapter<M
 
             if(adapterPosition != RecyclerView.NO_POSITION){
                 itemViewBinding.ctMain.setOnClickListener {
-                    onClickListener?.setOnClickListenerInterface(mItemData, itemViewBinding)
+                    onClickListener?.listItemClickListener(mItemData, itemViewBinding)
                 }
             }
         }
