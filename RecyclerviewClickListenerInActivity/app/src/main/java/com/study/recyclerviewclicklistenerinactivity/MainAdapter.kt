@@ -13,7 +13,7 @@ class MainAdapter(private val mList: ArrayList<String>) : RecyclerView.Adapter<M
 
     private var onClickListener: SetOnClickListenerInterface? = null
 
-    fun setOnClickListenerFunc(pOnClick: SetOnClickListenerInterface) {
+    fun listItemClickFunc(pOnClick: SetOnClickListenerInterface) {
         this.onClickListener = pOnClick
     }
 
