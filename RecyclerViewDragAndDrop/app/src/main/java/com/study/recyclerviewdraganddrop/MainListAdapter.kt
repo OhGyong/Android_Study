@@ -12,11 +12,17 @@ interface ItemStartDragListener {
     fun onDropActivity(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
 }
 
-class MainListAdapter(private val listener: ItemStartDragListener) :
+class MainListAdapter() :
         RecyclerView.Adapter<MainListAdapter.ViewHolder>(),
         ItemMoveListener {
 
     private var mSampleList: ArrayList<SampleData> = ArrayList()
+    private  var onItemDragListener: ItemStartDragListener? = null
+
+    fun itemDragListener(itf: ItemStartDragListener) {
+        this.onItemDragListener = itf
+    }
+
     var initList: ArrayList<SampleData> = ArrayList()
 
     inner class ViewHolder(private val binding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -34,7 +40,7 @@ class MainListAdapter(private val listener: ItemStartDragListener) :
     }
 
     override fun onDropAdapter() {
-        listener.onDropActivity(initList, mSampleList)
+        onItemDragListener?.onDropActivity(initList, mSampleList)
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {

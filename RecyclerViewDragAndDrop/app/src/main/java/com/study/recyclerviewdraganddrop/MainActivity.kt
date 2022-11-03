@@ -26,16 +26,7 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        mAdapter = MainListAdapter(object: ItemStartDragListener{
-            // Drop 될 때 마다 호출
-            override fun onDropActivity(
-                initList: ArrayList<SampleData>,
-                changeList: ArrayList<SampleData>
-            ) {
-                println(initList) // 최초 리스트
-                println(changeList) // Drag and Drop 이후 리스트
-            }
-        })
+        mAdapter = MainListAdapter()
 
         val mCallback = RecyclerViewItemTouchHelperCallback(mAdapter)
         mItemTouchHelper = ItemTouchHelper(mCallback)
@@ -44,5 +35,17 @@ class MainActivity : AppCompatActivity() {
         mAdapter.setData(sampleList)
         mBinding.rvMain.adapter = mAdapter
         mBinding.rvMain.layoutManager = LinearLayoutManager(this)
+
+        mAdapter.itemDragListener(object : ItemStartDragListener{
+            override fun onDropActivity(
+                initList: ArrayList<SampleData>,
+                changeList: ArrayList<SampleData>
+            ) {
+                println(initList) // 최초 리스트
+                println(changeList) // Drag and Drop 이후 리스트
+            }
+        })
     }
+
+
 }
