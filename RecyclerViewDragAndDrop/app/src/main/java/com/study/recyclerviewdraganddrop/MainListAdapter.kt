@@ -12,7 +12,7 @@ interface ItemStartDragListener {
     fun onDropActivity(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
 }
 
-class MainListAdapter() :
+class MainListAdapter :
         RecyclerView.Adapter<MainListAdapter.ViewHolder>(),
         ItemMoveListener {
 
@@ -25,9 +25,9 @@ class MainListAdapter() :
 
     var initList: ArrayList<SampleData> = ArrayList()
 
-    inner class ViewHolder(private val binding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val mBinding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(mBinding.root) {
         fun bind(mSampleData: SampleData){
-            binding.tvTitle.text = mSampleData.title
+            mBinding.tvTitle.text = mSampleData.title
         }
     }
 
@@ -60,5 +60,11 @@ class MainListAdapter() :
 
     override fun getItemCount(): Int {
         return mSampleList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        println("position $position")
+        println("super.getItemViewType(position) ${super.getItemViewType(position)}")
+        return super.getItemViewType(position)
     }
 }
