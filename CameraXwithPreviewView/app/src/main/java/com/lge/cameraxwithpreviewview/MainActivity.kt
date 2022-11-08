@@ -48,6 +48,9 @@ class MainActivity : AppCompatActivity() {
 
         // 2. CameraProvider를 요청한 후, 뷰를 만들 때 초기화에 성공했는지 확인
         cameraProviderFuture.addListener({
+            // 생명주기에 binding 할 수 있는 ProcessCameraProvider 객체 가져옴
+            val cameraProvider = cameraProviderFuture.get()
+
             // 3. 카메라를 선택하고 생명주기에 binding
 
             // 3-1. Preview를 만든다. → Preview를 통해서 카메라 미리보기 화면을 구현.
@@ -64,15 +67,12 @@ class MainActivity : AppCompatActivity() {
             // CameraSelector는 카메라 세팅을 맡는다.(전면, 후면 카메라)
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
-
-            // 생명주기에 binding할 수 있는 ProcessCameraProvider 객체 가져옴
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
             try {
                 // binding 전에 binding 초기화
                 cameraProvider.unbindAll()
 
                 // 3-3. 선택한 카메라를 생명주기에 binding 한다.
-                // 카메라를 생명주기에 binding 시키기 (bindToLifeCycle 통해서, useCases는 선택 )
+                // 카메라를 생명주기에 binding 시킨다. (bindToLifeCycle 통해서, useCases는 선택 )
                 camera = cameraProvider.bindToLifecycle(
                     this, cameraSelector, preview)
 
