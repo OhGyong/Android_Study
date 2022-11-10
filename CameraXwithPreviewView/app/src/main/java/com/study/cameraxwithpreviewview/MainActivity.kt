@@ -1,10 +1,10 @@
-package com.lge.cameraxwithpreviewview
+package com.study.cameraxwithpreviewview
 
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
@@ -12,7 +12,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.lge.cameraxwithpreviewview.databinding.ActivityMainBinding
+import com.study.cameraxwithpreviewview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.lge.cameraxwithpreviewview
+package com.study.cameraxwithpreviewview
 
 import org.junit.Test
 
