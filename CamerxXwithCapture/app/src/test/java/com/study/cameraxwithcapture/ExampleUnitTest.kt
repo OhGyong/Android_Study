@@ -1,4 +1,4 @@
-package com.study.myapplication
+package com.study.cameraxwithcapture
 
 import org.junit.Test
 
