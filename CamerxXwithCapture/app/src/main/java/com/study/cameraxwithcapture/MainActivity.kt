@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private var camera: Camera? = null
     private var cameraController: CameraControl? = null
 
+    private var imageCapture: ImageCapture? = null // 이미지 캡처를 위한 변수
+    private lateinit var photoFile: File
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,27 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this, arrayOf(REQUIRED_PERMISSIONS), REQUEST_CODE_PERMISSIONS)
         }
+
+        // 이미지 임시 파일 생성 -> 캐시 생성(data/data/패키지/cache)
+        photoFile = File(
+            applicationContext.cacheDir,
+            "newImage.jpg"
+        )
+
+        mBinding.btnCapture.setOnClickListener {
+            if(mBinding.btnCapture.text == "캡처하기"){
+                // 사진 캡처 하기
+                takePhoto()
+            }else {
+                // 사진 캡처 세팅
+                mBinding.ivCapture.visibility = View.INVISIBLE
+                mBinding.viewFinder.visibility = View.VISIBLE
+                mBinding.btnCapture.text = getString(R.string.capture)
+
+                // 임시 파일 삭제
+                photoFile.delete()
+            }
+        }
     }
 
     /**
@@ -46,50 +69,68 @@ class MainActivity : AppCompatActivity() {
      */
     private fun startCamera() {
 
-        // 1. CameraProvider 요청
-        // ProcessCameraProvider는 Camera의 생명주기를 LifeCycleOwner의 생명주기에 Binding 함
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener({
-            // 2. CameraProvier 사용 가능 여부 확인
-            // 생명주기에 binding 할 수 있는 ProcessCameraProvider 객체 가져옴
             val cameraProvider = cameraProviderFuture.get()
 
-            // 3. 카메라를 선택하고 use case를 같이 생명주기에 binding
-
-            // 3-1. Preview를 생성 → Preview를 통해서 카메라 미리보기 화면을 구현.
-            // surfaceProvider는 데이터를 받을 준비가 되었다는 신호를 카메라에게 보내준다.
-            // setSurfaceProvider는 PreviewView에 SurfaceProvider를 제공해준다.
             val preview = Preview.Builder().build()
             preview.setSurfaceProvider(mBinding.viewFinder.surfaceProvider)
-            // 아래처럼 써도 됨
-//           val preview = Preview.Builder().build().also {
-//               it.setSurfaceProvider(mBinding.viewFinder.surfaceProvider)
-//           }
 
-            // 3-2. 카메라 세팅을 한다. (useCase는 bindToLifecycle에서)
-            // CameraSelector는 카메라 세팅을 맡는다.(전면, 후면 카메라)
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
+            // 이미지캡처 Builder 객체 생성
+            imageCapture = ImageCapture.Builder().build()
+
             try {
-                // binding 전에 binding 초기화
                 cameraProvider.unbindAll()
 
-                // 3-3. use case와 카메라를 생명 주기에 binding
                 camera = cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview)
+                    this, cameraSelector, preview, imageCapture)
 
                 cameraController = camera!!.cameraControl
                 cameraController!!.setZoomRatio(1F) // 1x Zoom
             } catch (exc: Exception) {
                 println("에러 $exc")
             }
-
-            // 4. Preview를 PreviewView에 연결한다.
-            // surfaceProvider는 데이터를 받을 준비가 되었다는 신호를 카메라에게 보내준다.
-            // setSurfaceProvider는 PreviewView에 SurfaceProvider를 제공해준다.
             preview.setSurfaceProvider(mBinding.viewFinder.surfaceProvider)
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    /**
+     * 사진 캡처(촬영)
+     */
+    private fun takePhoto() {
+        val mImageCapture = imageCapture ?: return
+
+        // 이미지 임시 파일 생성(이름, 확장자, 파일 경로) -> 캐시 영역에 생김(data/data/패키지/cache)
+//        val photoFile = File.createTempFile("image", ".jpeg") // 파일 경로 생략
+
+        // ImageCapture.OutputFileOptions는 새로 캡처한 이미지를 저장하기 위한 옵션
+        // 저장 위치 및 메타데이터를 구성하는데 사용
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
+        // takePicture를 통해 사진을 촬영.
+        mImageCapture.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    // Glide를 통해서 ImageView에 이미지 캡처한 이미지 설정
+                    Glide.with(mBinding.ivCapture.context)
+                        .load(Uri.fromFile(photoFile))
+                        .into(mBinding.ivCapture)
+                    mBinding.ivCapture.visibility = View.VISIBLE
+                    mBinding.viewFinder.visibility = View.INVISIBLE
+                    mBinding.btnCapture.text = getString(R.string.re_capture)
+
+                }
+
+                override fun onError(exception: ImageCaptureException) {
+                    Toast.makeText(applicationContext, "사진 촬영에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
     }
 
     /**
