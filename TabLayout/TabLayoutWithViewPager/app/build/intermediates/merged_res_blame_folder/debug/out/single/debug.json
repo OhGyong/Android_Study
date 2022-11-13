@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\layout_fragment_three.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\layout\\fragment_three.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.tablayoutwithviewpager.app-merged_res-5:/layout_fragment_fourth.xml.flat",
+        "source": "com.example.tablayoutwithviewpager.app-main-7:/layout/fragment_fourth.xml"
+    },
+    {
+        "merged": "com.example.tablayoutwithviewpager.app-merged_res-5:/layout_fragment_second.xml.flat",
+        "source": "com.example.tablayoutwithviewpager.app-main-7:/layout/fragment_second.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-pngs-0:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\layout_fragment_two.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\layout\\fragment_two.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.tablayoutwithviewpager.app-merged_res-5:/layout_fragment_third.xml.flat",
+        "source": "com.example.tablayoutwithviewpager.app-main-7:/layout/fragment_third.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.tablayoutwithviewpager.app-merged_res-5:/layout_fragment_first.xml.flat",
+        "source": "com.example.tablayoutwithviewpager.app-main-7:/layout/fragment_first.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\layout_fragment_four.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\layout\\fragment_four.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\layout_fragment_one.xml.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\layout\\fragment_one.xml"
+    },
+    {
+        "merged": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\oky71\\.gradle\\daemon\\7.3.3\\com.example.tablayoutwithviewpager.app-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
+    }
+]
