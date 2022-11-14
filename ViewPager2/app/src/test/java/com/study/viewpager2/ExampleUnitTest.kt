@@ -1,4 +1,4 @@
-package com.example.viewpagerstudy
+package com.study.viewpager2
 
 import org.junit.Test
 

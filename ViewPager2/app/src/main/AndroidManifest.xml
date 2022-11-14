@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViewPagerStudy">
         <activity
-            android:name=".MainActivity"
+            android:name="com.study.viewpager2.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

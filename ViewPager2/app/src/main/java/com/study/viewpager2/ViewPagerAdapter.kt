@@ -1,10 +1,11 @@
-package com.example.viewpagerstudy
+package com.study.viewpager2
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.viewpagerstudy.R
 
 class ViewPagerAdapter(imageList: ArrayList<Int>): RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolder>() {
 

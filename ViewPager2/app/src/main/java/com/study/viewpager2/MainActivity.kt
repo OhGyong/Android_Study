@@ -1,8 +1,9 @@
-package com.example.viewpagerstudy
+package com.study.viewpager2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
+import com.example.viewpagerstudy.R
 
 class MainActivity : AppCompatActivity() {
 

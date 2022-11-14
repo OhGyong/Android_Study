@@ -1,4 +1,4 @@
-# ViewPager를 RecyclerView로 만들기
+# ViewPager2 사용방법
 
 ViewPager를 통해 간단하게 이미지만 표현해보려고 한다.<br/>
 ViewPager를 구현하는 방법으로 RecyclerView를 사용해 볼 것이다.
