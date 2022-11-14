@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
 
         mBinding.btnCapture.setOnClickListener {
             if(mBinding.btnCapture.text == "캡처하기"){
+                // 임시 파일 삭제
+                photoFile.delete()
+
                 // 사진 캡처 하기
                 takePhoto()
             }else {
@@ -117,13 +120,12 @@ class MainActivity : AppCompatActivity() {
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     // Glide를 통해서 ImageView에 이미지 캡처한 이미지 설정
-                    Glide.with(mBinding.ivCapture.context)
-                        .load(Uri.fromFile(photoFile))
+                    Glide.with(this@MainActivity)
+                        .load(outputFileResults.savedUri)
                         .into(mBinding.ivCapture)
                     mBinding.ivCapture.visibility = View.VISIBLE
                     mBinding.viewFinder.visibility = View.INVISIBLE
                     mBinding.btnCapture.text = getString(R.string.re_capture)
-
                 }
 
                 override fun onError(exception: ImageCaptureException) {
