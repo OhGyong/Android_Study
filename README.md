@@ -1,6 +1,6 @@
 [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) : Retrofit2 사용 방법 <br/>
 [Activity와 Fragment 무엇을 사용해야하는가](https://github.com/OhGyong/Android_Study/tree/master/Activity%EC%99%80%20Fragment%20%EB%AC%B4%EC%97%87%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%EA%B0%80) : Activity, Fragment 정리 <br/>
-[Android Design Patterns](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns) : Android에서 사용하는 디자인 패턴 정리
+[Android Design Patterns](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns) : Android에서 사용하는 디자인 패턴 정리 <
 [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) : FCM 사용 방법 <br/>
 [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) : BottomNavigation 사용 방법<br/>
 [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) : BottomSheetDialog 사용 방법<br/>
