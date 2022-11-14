@@ -12,6 +12,8 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.study.cameraxwithcapture.databinding.ActivityMainBinding
 import java.io.File
 
@@ -49,10 +51,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         mBinding.btnCapture.setOnClickListener {
+            // 임시 파일 삭제
+            photoFile.delete()
             if(mBinding.btnCapture.text == "캡처하기"){
-                // 임시 파일 삭제
-                photoFile.delete()
-
                 // 사진 캡처 하기
                 takePhoto()
             }else {
@@ -60,9 +61,6 @@ class MainActivity : AppCompatActivity() {
                 mBinding.ivCapture.visibility = View.INVISIBLE
                 mBinding.viewFinder.visibility = View.VISIBLE
                 mBinding.btnCapture.text = getString(R.string.capture)
-
-                // 임시 파일 삭제
-                photoFile.delete()
             }
         }
     }
@@ -122,7 +120,14 @@ class MainActivity : AppCompatActivity() {
                     // Glide를 통해서 ImageView에 이미지 캡처한 이미지 설정
                     Glide.with(this@MainActivity)
                         .load(outputFileResults.savedUri)
+                        .apply(
+                            // 이전 이미지를 재활용하지 않도록 처리
+                            RequestOptions()
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .skipMemoryCache(true)
+                        )
                         .into(mBinding.ivCapture)
+
                     mBinding.ivCapture.visibility = View.VISIBLE
                     mBinding.viewFinder.visibility = View.INVISIBLE
                     mBinding.btnCapture.text = getString(R.string.re_capture)
