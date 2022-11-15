@@ -14,4 +14,4 @@
 [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferenceSaveasArrayList) : SharedPreferences에 ArrayList 형태로 데이터 저장하는 방법<br/>
 [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithOneFragment) : Fragment 하나로 탭 레이아웃 재활용하는 방법<br/>
 [TabLayout with ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithViewPager) : ViewPager로 탭 레이아웃 사용하는 방법<br/>
-[ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) : ViewPager2 사용 방법<
+[ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) : ViewPager2 사용 방법<br/>
