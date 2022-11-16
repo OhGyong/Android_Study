@@ -31,14 +31,7 @@ class MainActivity : AppCompatActivity() {
         mBinding.etTextField.setOnEditorActionListener { textView, actionId, _ ->
             // 키보드에서 완료 버튼이 눌렸을 때 처리
             if(actionId == EditorInfo.IME_ACTION_DONE){
-                arrayListPrefs.add(
-                    0,
-                    PrefData(
-                        textView.text.toString(),
-                        SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(System.currentTimeMillis()) // 현재 날짜
-                    )
-                )
-                savePrefs()
+                savePrefs(textView.text.toString()) // SharedPreferences에 저장
             }
             false // false로 해야 키패드가 닫힘
         }
@@ -53,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         stringPrefs = mPrefs.getString("pref_data", null)
 
         // SharedPreferences 데이터가 있으면 String을 ArrayList로 변환
+        // fromJson → json 형태의 문자열을 명시한 객체로 변환(두번째 인자)
         if(stringPrefs != null && stringPrefs != "[]"){
             arrayListPrefs = GsonBuilder().create().fromJson(
                 stringPrefs, object: TypeToken<ArrayList<PrefData>>(){}.type
@@ -63,13 +57,23 @@ class MainActivity : AppCompatActivity() {
     /**
      * SharedPreference 저장
      */
-    private fun savePrefs() {
-        // arrayList 타입을 json 형태의 String 타입으로 변환
-        val toGson = GsonBuilder().create().toJson(
+    private fun savePrefs(inputText: String) {
+        // ArrayList에 추가
+        arrayListPrefs.add(
+            0,
+            PrefData(
+                inputText,
+                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(System.currentTimeMillis()) // 현재 날짜
+            )
+        )
+
+        // ArrayList를 json 형태의 String으로 변환
+        // toJson → json으로 변환된 문자열 리턴
+        stringPrefs = GsonBuilder().create().toJson(
             arrayListPrefs,
             object : TypeToken<ArrayList<PrefData>>() {}.type
         )
-        mEditPrefs.putString("pref_data", toGson) // SharedPreferences에 push
+        mEditPrefs.putString("pref_data", stringPrefs) // SharedPreferences에 push
         mEditPrefs.apply() // SharedPreferences 적용
     }
 }
