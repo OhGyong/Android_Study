@@ -1,6 +1,6 @@
 package com.study.sharedpreferencessaveasarraylist
 
 data class PrefData (
-    val name : String,
+    val text : String,
     val date :String
 )

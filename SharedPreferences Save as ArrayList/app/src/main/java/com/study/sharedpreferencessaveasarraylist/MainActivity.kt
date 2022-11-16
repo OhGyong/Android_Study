@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mPrefs : SharedPreferences
     private lateinit var mEditPrefs: SharedPreferences.Editor
 
-    private var stringPrefs : String? = null
-    private var arrayListPrefs = ArrayList<PrefData>()
+    private var arrayListPrefs = ArrayList<PrefData>() // 저장할 ArrayList
+    private var stringPrefs : String? = null // 저장할 때 사용할 문자열 변수
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * SharedPreference 설정
+     * SharedPreferences 설정
      */
     private fun settingPrefs() {
         mPrefs = getSharedPreferences("pref_file", MODE_PRIVATE) // SharedPreferences 불러오기
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * SharedPreference 저장
+     * SharedPreferences 저장
      */
     private fun savePrefs(inputText: String) {
         // ArrayList에 추가
