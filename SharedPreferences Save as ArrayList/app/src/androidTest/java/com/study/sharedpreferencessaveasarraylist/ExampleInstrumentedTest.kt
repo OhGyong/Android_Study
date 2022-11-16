@@ -1,4 +1,4 @@
-package com.study.sharedpreferencesaveasarraylist
+package com.study.sharedpreferencessaveasarraylist
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.study.sharedpreferencesaveasarraylist
+package com.study.sharedpreferencessaveasarraylist
 
 data class PrefData (
     val name : String,

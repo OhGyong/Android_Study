@@ -1,4 +1,4 @@
-package com.study.sharedpreferencesaveasarraylist
+package com.study.sharedpreferencessaveasarraylist
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import com.study.sharedpreferencesaveasarraylist.databinding.ActivityMainBinding
+import com.study.sharedpreferencessaveasarraylist.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList

@@ -1,4 +1,4 @@
-package com.study.sharedpreferencesaveasarraylist
+package com.study.sharedpreferencessaveasarraylist
 
 import org.junit.Test
 
