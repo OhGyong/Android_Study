@@ -14,7 +14,8 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mPrefs : SharedPreferences
-    private lateinit var editPrefs: SharedPreferences.Editor
+    private lateinit var mEditPrefs: SharedPreferences.Editor
+
     private var stringPrefs : String? = null
     private var arrayListPrefs = ArrayList<PrefData>()
 
@@ -47,13 +48,15 @@ class MainActivity : AppCompatActivity() {
      * SharedPreference 설정
      */
     private fun settingPrefs() {
-        mPrefs = this.getSharedPreferences("station_search_list", MODE_PRIVATE) // prefs 불러오기
-        editPrefs = mPrefs.edit() // prefs Edit 선언
+        mPrefs = getSharedPreferences("station_search_list", MODE_PRIVATE) // SharedPreferences 불러오기
+        mEditPrefs = mPrefs.edit() // SharedPreferences Edit 선언
         stringPrefs = mPrefs.getString("searchList", null)
 
-        // prefs에 데이터가 있으면 String을 ArrayList로 변환
+        // SharedPreferences 데이터가 있으면 String을 ArrayList로 변환
         if(stringPrefs != null && stringPrefs != "[]"){
-            arrayListPrefs = GsonBuilder().create().fromJson(stringPrefs, object: TypeToken<ArrayList<PrefData>>(){}.type)
+            arrayListPrefs = GsonBuilder().create().fromJson(
+                stringPrefs, object: TypeToken<ArrayList<PrefData>>(){}.type
+            )
         }
     }
 
@@ -66,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             arrayListPrefs,
             object : TypeToken<ArrayList<PrefData>>() {}.type
         )
-        editPrefs.putString("searchList", toGson) // prefs에 push
-        editPrefs.apply() // prefs 저장
+        mEditPrefs.putString("searchList", toGson) // SharedPreferences에 push
+        mEditPrefs.apply() // SharedPreferences 적용
     }
 }
