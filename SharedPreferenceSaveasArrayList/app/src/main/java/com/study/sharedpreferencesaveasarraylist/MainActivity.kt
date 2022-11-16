@@ -48,9 +48,9 @@ class MainActivity : AppCompatActivity() {
      * SharedPreference 설정
      */
     private fun settingPrefs() {
-        mPrefs = getSharedPreferences("station_search_list", MODE_PRIVATE) // SharedPreferences 불러오기
+        mPrefs = getSharedPreferences("pref_file", MODE_PRIVATE) // SharedPreferences 불러오기
         mEditPrefs = mPrefs.edit() // SharedPreferences Edit 선언
-        stringPrefs = mPrefs.getString("searchList", null)
+        stringPrefs = mPrefs.getString("pref_data", null)
 
         // SharedPreferences 데이터가 있으면 String을 ArrayList로 변환
         if(stringPrefs != null && stringPrefs != "[]"){
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             arrayListPrefs,
             object : TypeToken<ArrayList<PrefData>>() {}.type
         )
-        mEditPrefs.putString("searchList", toGson) // SharedPreferences에 push
+        mEditPrefs.putString("pref_data", toGson) // SharedPreferences에 push
         mEditPrefs.apply() // SharedPreferences 적용
     }
 }
