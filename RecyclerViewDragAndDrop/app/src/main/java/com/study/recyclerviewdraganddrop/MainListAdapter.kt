@@ -9,6 +9,7 @@ import kotlin.collections.ArrayList
 
 // Activity에서 사용할 interface
 interface ItemStartDragListener {
+    // Drop이 됐을 때 Activity에서 사용할 메서드
     fun onDropActivity(initList : ArrayList<SampleData>, changeList: ArrayList<SampleData>)
 }
 
@@ -19,6 +20,7 @@ class MainListAdapter :
     private var mSampleList: ArrayList<SampleData> = ArrayList()
     private  var onItemDragListener: ItemStartDragListener? = null
 
+    // Activity에서 호출할 메서드
     fun itemDragListener(itf: ItemStartDragListener) {
         this.onItemDragListener = itf
     }
@@ -60,11 +62,5 @@ class MainListAdapter :
 
     override fun getItemCount(): Int {
         return mSampleList.size
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        println("position $position")
-        println("super.getItemViewType(position) ${super.getItemViewType(position)}")
-        return super.getItemViewType(position)
     }
 }

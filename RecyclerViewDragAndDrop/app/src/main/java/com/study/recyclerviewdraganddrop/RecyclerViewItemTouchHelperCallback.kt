@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.RecyclerView
 
 // Adapter에서 사용할 interface
 interface ItemMoveListener {
-    // Drag 처리를 위한 함수
+    // Drag 처리를 위한 메서드
     fun onItemMove(fromPosition: Int, toPosition: Int): Boolean
+
+    // Drop 처리를 위한 메서드
     fun onDropAdapter()
 }
 

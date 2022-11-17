@@ -2,6 +2,7 @@ package com.study.recyclerviewdraganddrop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.study.recyclerviewdraganddrop.databinding.ActivityMainBinding
@@ -41,8 +42,12 @@ class MainActivity : AppCompatActivity() {
                 initList: ArrayList<SampleData>,
                 changeList: ArrayList<SampleData>
             ) {
-                println(initList) // 최초 리스트
-                println(changeList) // Drag and Drop 이후 리스트
+                // TODO : 드랍됐을 때 처리
+//               Toast.makeText(
+//                   this@MainActivity,
+//                   "initList: $initList \n changeList: $changeList ",
+//                   Toast.LENGTH_SHORT
+//               ).show()
             }
         })
     }
