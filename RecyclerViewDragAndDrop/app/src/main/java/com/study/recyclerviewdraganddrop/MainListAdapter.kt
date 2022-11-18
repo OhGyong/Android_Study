@@ -18,26 +18,14 @@ class MainListAdapter :
         ItemMoveListener {
 
     private var mSampleList: ArrayList<SampleData> = ArrayList()
-    private  var onItemDragListener: ItemStartDragListener? = null
+    private var onItemDragListener: ItemStartDragListener? = null
     var initList: ArrayList<SampleData> = ArrayList()
 
-    // Activity에서 호출할 메서드
+    /**
+     * Activity에서 호출할 메서드
+     */
     fun itemDragListener(itf: ItemStartDragListener) {
         this.onItemDragListener = itf
-    }
-
-    inner class ViewHolder(private val mBinding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(mSampleData: SampleData){
-            mBinding.tvTitle.text = mSampleData.title
-        }
-    }
-
-    fun setData(sampleList: ArrayList<SampleData>){
-        mSampleList = sampleList
-        initList.clear()
-        initList.addAll(sampleList)
-
-        notifyDataSetChanged()
     }
 
     /**
@@ -67,5 +55,19 @@ class MainListAdapter :
 
     override fun getItemCount(): Int {
         return mSampleList.size
+    }
+
+    inner class ViewHolder(private val mBinding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(mBinding.root) {
+        fun bind(mSampleData: SampleData){
+            mBinding.tvTitle.text = mSampleData.title
+        }
+    }
+
+    fun setData(sampleList: ArrayList<SampleData>){
+        mSampleList = sampleList
+        initList.clear()
+        initList.addAll(sampleList)
+
+        notifyDataSetChanged()
     }
 }

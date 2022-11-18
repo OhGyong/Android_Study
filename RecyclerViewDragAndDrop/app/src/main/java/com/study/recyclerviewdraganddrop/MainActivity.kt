@@ -43,11 +43,10 @@ class MainActivity : AppCompatActivity() {
                 changeList: ArrayList<SampleData>
             ) {
                 // TODO : 드랍됐을 때 처리
-//               Toast.makeText(
-//                   this@MainActivity,
-//                   "initList: $initList \n changeList: $changeList ",
-//                   Toast.LENGTH_SHORT
-//               ).show()
+                println(initList) // 최초 리스트
+                println(changeList) // Drag and Drop 이후 리스트
+                println("------ \n")
+
             }
         })
     }
