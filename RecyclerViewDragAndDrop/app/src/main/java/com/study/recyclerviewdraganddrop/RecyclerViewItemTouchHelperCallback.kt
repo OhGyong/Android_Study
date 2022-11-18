@@ -37,15 +37,8 @@ class RecyclerViewItemTouchHelperCallback(private val moveListener: ItemMoveList
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
-        moveListener.onItemMove(viewHolder.adapterPosition, target.adapterPosition)
+        moveListener.onItemMove(viewHolder.adapterPosition, target.adapterPosition) // Adapter에 전달
         return true
-    }
-
-    /**
-     * Item이 옆으로 움직일 때의 동작 구현
-     */
-    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        TODO("Not yet implemented")
     }
 
     /**
@@ -55,8 +48,15 @@ class RecyclerViewItemTouchHelperCallback(private val moveListener: ItemMoveList
         super.onSelectedChanged(viewHolder, actionState)
         when(actionState){
             // 드래그 또는 스와이프가 끝났을 때 ACTION_STATE_IDLE가 전달 됨.
-            ItemTouchHelper.ACTION_STATE_IDLE -> moveListener.onDropAdapter()
+            ItemTouchHelper.ACTION_STATE_IDLE -> moveListener.onDropAdapter() // Adapter에 전달
         }
+    }
+
+    /**
+     * Item이 옆으로 움직일 때의 동작 구현
+     */
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+        TODO("Not yet implemented")
     }
 }
 
