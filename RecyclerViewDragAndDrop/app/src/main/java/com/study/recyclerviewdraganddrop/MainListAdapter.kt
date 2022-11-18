@@ -19,13 +19,12 @@ class MainListAdapter :
 
     private var mSampleList: ArrayList<SampleData> = ArrayList()
     private  var onItemDragListener: ItemStartDragListener? = null
+    var initList: ArrayList<SampleData> = ArrayList()
 
     // Activity에서 호출할 메서드
     fun itemDragListener(itf: ItemStartDragListener) {
         this.onItemDragListener = itf
     }
-
-    var initList: ArrayList<SampleData> = ArrayList()
 
     inner class ViewHolder(private val mBinding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(mBinding.root) {
         fun bind(mSampleData: SampleData){
@@ -41,10 +40,16 @@ class MainListAdapter :
         notifyDataSetChanged()
     }
 
+    /**
+     * Drag and Drop하여 ViewHolder가 변경될 때 호출
+     */
     override fun onDropAdapter() {
-        onItemDragListener?.onDropActivity(initList, mSampleList)
+        onItemDragListener?.onDropActivity(initList, mSampleList) // Activity에 전달
     }
 
+    /**
+     * Item이 바뀌면 리스트에 적용
+     */
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
         Collections.swap(mSampleList, fromPosition, toPosition)
         notifyItemMoved(fromPosition, toPosition)
