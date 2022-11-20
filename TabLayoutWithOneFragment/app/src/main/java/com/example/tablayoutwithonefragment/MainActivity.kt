@@ -14,10 +14,6 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        initView()
-    }
-
-    private fun initView() {
         setTabLayout()
     }
 
