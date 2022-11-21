@@ -14,24 +14,13 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        faqViewPagerInit()
         faqTabInit()
+        faqViewPagerInit()
     }
 
-    // ViewPager 설정
-    private fun faqViewPagerInit() {
-        val fragmentList = listOf(
-            OneFragment(),
-            TwoFragment(),
-            ThreeFragment(),
-            FourFragment()
-        )
-        viewPagerAdapter = ViewPagerAdapter(this)
-        viewPagerAdapter.fragments.addAll(fragmentList)
-        mBinding.vpMain.adapter = viewPagerAdapter
-    }
-
-    // TabLayout 설정
+    /**
+     * TabLayout 설정
+     */
     private fun faqTabInit() {
         TabLayoutMediator(mBinding.tabMain, mBinding.vpMain) { tab, pos ->
             tab.text = pos.toString()
@@ -42,5 +31,20 @@ class MainActivity : AppCompatActivity() {
                 3 -> tab.text = getString(R.string.fourth)
             }
         }.attach()
+    }
+
+    /**
+     * ViewPager2 설정
+     */
+    private fun faqViewPagerInit() {
+        val fragmentList = listOf(
+            OneFragment(),
+            TwoFragment(),
+            ThreeFragment(),
+            FourFragment()
+        )
+        viewPagerAdapter = ViewPagerAdapter(this)
+        viewPagerAdapter.fragments.addAll(fragmentList)
+        mBinding.vpMain.adapter = viewPagerAdapter
     }
 }
