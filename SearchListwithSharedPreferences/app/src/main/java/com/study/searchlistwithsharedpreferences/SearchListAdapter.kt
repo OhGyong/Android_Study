@@ -32,4 +32,9 @@ class SearchListAdapter: RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
     override fun getItemCount(): Int {
         return itemList.size
     }
+
+    fun setList(pList: ArrayList<PrefData>) {
+        itemList = pList
+        notifyItemRangeChanged(0, itemList.size)
+    }
 }

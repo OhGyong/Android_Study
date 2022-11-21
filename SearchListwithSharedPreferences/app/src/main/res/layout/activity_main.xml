@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:imeOptions="actionDone"
+        android:hint="@string/search_text_hint"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
