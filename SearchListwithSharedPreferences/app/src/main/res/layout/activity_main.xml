@@ -13,21 +13,10 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:imeOptions="actionDone"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/iv_search_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
-        android:id="@+id/iv_search_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/search_icon"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/et_text_field"
-        app:layout_constraintBottom_toBottomOf="@id/et_text_field" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search_list"
