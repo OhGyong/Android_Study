@@ -8,8 +8,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.study.bottomsheetdialog.databinding.DialogBottomSheetBinding
 
-class CustomBottomSheetDialog(context: Context) :
-    BottomSheetDialog(context) {
+class CustomBottomSheetDialog(context: Context) : BottomSheetDialog(context) {
 
     interface BtnClickListener {
         fun onBtnClick()
