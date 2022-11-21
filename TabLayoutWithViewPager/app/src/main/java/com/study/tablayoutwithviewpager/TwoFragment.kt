@@ -1,21 +1,21 @@
-package com.example.tablayoutwithviewpager
+package com.study.tablayoutwithviewpager
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tablayoutwithviewpager.databinding.FragmentThirdBinding
+import com.study.tablayoutwithviewpager.databinding.FragmentSecondBinding
 
-class ThreeFragment: Fragment() {
-    private lateinit var mBinding: FragmentThirdBinding
+class TwoFragment: Fragment() {
+    private lateinit var mBinding: FragmentSecondBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        mBinding = FragmentThirdBinding.inflate(inflater, container, false)
+    ): View? {
+        mBinding = FragmentSecondBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 }

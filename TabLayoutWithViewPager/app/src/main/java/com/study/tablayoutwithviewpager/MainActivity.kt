@@ -1,8 +1,8 @@
-package com.example.tablayoutwithviewpager
+package com.study.tablayoutwithviewpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.tablayoutwithviewpager.databinding.ActivityMainBinding
+import com.study.tablayoutwithviewpager.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.tablayoutwithviewpager
+package com.study.tablayoutwithviewpager
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
