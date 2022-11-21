@@ -15,3 +15,4 @@
 - [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithOneFragment) : Fragment 하나로 탭 레이아웃 재활용하는 방법<br/>
 - [TabLayout with ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithViewPager) : ViewPager로 탭 레이아웃 사용하는 방법<br/>
 - [ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) : ViewPager2 사용 방법<br/>
+- [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences로 검색 리스트 만들기
