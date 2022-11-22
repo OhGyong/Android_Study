@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
 
     /**
-     * LinearLayout의 크기 변환
+     * LayoutParams의 크기 변환
      */
     private fun setLayoutParams(llLayoutParams: ViewGroup.LayoutParams, value: Float) {
         llLayoutParams.width = TypedValue.applyDimension(
