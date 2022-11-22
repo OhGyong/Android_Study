@@ -1,4 +1,4 @@
-package com.lge.expandablerecyclerview
+package com.study.expandablerecyclerview
 
 import org.junit.Test
 

@@ -1,10 +1,10 @@
-package com.lge.expandablerecyclerview
+package com.study.expandablerecyclerview
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lge.expandablerecyclerview.databinding.ListItemRecyclerviewBinding
+import com.study.expandablerecyclerview.databinding.ListItemRecyclerviewBinding
 
 class MainListAdapter(private var sampleDataList: ArrayList<SampleData>) :
     RecyclerView.Adapter<MainListAdapter.ViewHolder>() {

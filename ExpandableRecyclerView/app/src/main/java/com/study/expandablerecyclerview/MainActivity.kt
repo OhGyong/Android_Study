@@ -1,9 +1,9 @@
-package com.lge.expandablerecyclerview
+package com.study.expandablerecyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lge.expandablerecyclerview.databinding.ActivityMainBinding
+import com.study.expandablerecyclerview.databinding.ActivityMainBinding
 
 data class SampleData(
     val title: String,
@@ -16,27 +16,24 @@ class MainActivity : AppCompatActivity() {
 
     private var sampleList = arrayListOf(
         SampleData(
-            "샘플 제목3",
+            "공지3",
             "2022.04.11",
-            "본문입니다." +
-                    "본문입니다." +
-                    "본문입니다." +
+            "공지3\n" +
+                    "본문입니다.\n" +
+                    "본문입니다.\n" +
                     "본문입니다."
         ),
         SampleData(
-            "샘플 제목2",
+            "공지2",
             "2022.03.23",
-            "본문입니다." +
-                    "본문입니다." +
-                    "본문입니다." +
+            "공지2\n" +
+                    "본문입니다.\n" +
                     "본문입니다."
         ),
         SampleData(
-            "샘플 제목1",
+            "공지1",
             "2022.03.18",
-            "본문입니다." +
-                    "본문입니다." +
-                    "본문입니다." +
+            "공지1\n" +
                     "본문입니다."
         )
     )

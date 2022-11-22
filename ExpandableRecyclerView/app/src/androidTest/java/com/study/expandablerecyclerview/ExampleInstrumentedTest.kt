@@ -1,4 +1,4 @@
-package com.lge.expandablerecyclerview
+package com.study.expandablerecyclerview
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
