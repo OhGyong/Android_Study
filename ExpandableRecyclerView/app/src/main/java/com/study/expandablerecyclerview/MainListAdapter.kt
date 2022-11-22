@@ -9,18 +9,20 @@ import com.study.expandablerecyclerview.databinding.ListItemRecyclerviewBinding
 class MainListAdapter(private var sampleDataList: ArrayList<SampleData>) :
     RecyclerView.Adapter<MainListAdapter.ViewHolder>() {
 
-    inner class ViewHolder(private val binding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val mBinding: ListItemRecyclerviewBinding) : RecyclerView.ViewHolder(mBinding.root) {
         fun bind(mSampleData: SampleData){
-            binding.tvTitle.text = mSampleData.title
-            binding.tvDate.text = mSampleData.date
-            binding.tvContent.text = mSampleData.content
+            mBinding.tvTitle.text = mSampleData.title
+            mBinding.tvDate.text = mSampleData.date
+            mBinding.tvContent.text = mSampleData.content
 
-            binding.ctParent.setOnClickListener {
+            mBinding.ctParent.setOnClickListener {
                 if(mSampleData.expandable){
-                    binding.ctChild.visibility = View.GONE
+                    mBinding.ctChild.visibility = View.GONE
+                    mBinding.ivDrop.setImageResource(R.drawable.drop_down_icon)
                     mSampleData.expandable = false
                 }else{
-                    binding.ctChild.visibility = View.VISIBLE
+                    mBinding.ctChild.visibility = View.VISIBLE
+                    mBinding.ivDrop.setImageResource(R.drawable.drop_up_icon)
                     mSampleData.expandable = true
                 }
             }
