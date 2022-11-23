@@ -38,5 +38,10 @@ class MainActivity : AppCompatActivity() {
                 mBinding.vMain.setBackgroundColor(Color.BLACK)
             }
         }
+
+        mBinding.btnCompareIntent.setOnClickListener {
+            val intent = Intent(this, CompareActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
