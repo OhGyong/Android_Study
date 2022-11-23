@@ -19,7 +19,7 @@ class CompareActivity: Activity() {
         mBinding.etCompare.addTextChangedListener(object: TextWatcher {
             /**
              * 텍스트 변경 전
-             * s:기존 문자열, start:커서 시작 위치, before:변경 전 단어 수, after:변경 후 문자 수
+             * s:기존 문자열, start:커서 시작 위치, before:변경 전 문자 수, after:변경 후 문자 수
              */
             override fun beforeTextChanged(s: CharSequence?, start: Int, before: Int, after: Int) {
                 mBinding.tvCompareBefore.text = s
@@ -30,7 +30,7 @@ class CompareActivity: Activity() {
 
             /**
              * 텍스트 변경 시
-             * s:변경된 문자열, start:커서 시작 위치, before:변경 전 단어 수, after:변경 후 문자 수
+             * s:변경된 문자열, start:커서 시작 위치, before:변경 전 문자 수, after:변경 후 문자 수
              */
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, after: Int) {
                 mBinding.tvCompareAfter.text = s
