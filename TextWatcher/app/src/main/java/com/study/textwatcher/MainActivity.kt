@@ -1,5 +1,6 @@
 package com.study.textwatcher
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -37,20 +38,5 @@ class MainActivity : AppCompatActivity() {
                 mBinding.vMain.setBackgroundColor(Color.BLACK)
             }
         }
-
-        mBinding.etMain.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
-            }
-
-        })
     }
 }

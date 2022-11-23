@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/et_compare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ct_compare_before"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/et_compare"
+        app:layout_constraintEnd_toEndOf="@id/et_compare"
+        app:layout_constraintTop_toBottomOf="@id/et_compare">
+
+        <TextView
+            android:id="@+id/tv_compare_before_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/beforeTextChanged_desc"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_compare_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before_desc"
+            tools:text="beforeTextChanged" />
+
+        <TextView
+            android:id="@+id/tv_compare_before_start_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_desc"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toStartOf="@id/tv_compare_before"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before" />
+
+        <TextView
+            android:id="@+id/tv_compare_before_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="13dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_compare_before_start_desc"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tv_compare_before_before_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/before_desc"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="60dp"
+            app:layout_constraintStart_toStartOf="@id/tv_compare_before"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before" />
+
+        <TextView
+            android:id="@+id/tv_compare_before_before_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toEndOf="@id/tv_compare_before_before_desc"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tv_compare_before_after_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/after_desc"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="130dp"
+            app:layout_constraintStart_toStartOf="@id/tv_compare_before"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before" />
+
+        <TextView
+            android:id="@+id/tv_compare_before_after_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toEndOf="@id/tv_compare_before_after_desc"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_before"
+            tools:text="10" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ct_compare_after"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/et_compare"
+        app:layout_constraintEnd_toEndOf="@id/et_compare"
+        app:layout_constraintTop_toBottomOf="@id/ct_compare_before">
+
+        <TextView
+            android:id="@+id/tv_compare_after_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/onTextChanged_desc"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_compare_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after_desc"
+            tools:text="onTextChanged" />
+
+        <TextView
+            android:id="@+id/tv_compare_after_start_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_desc"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toStartOf="@id/tv_compare_after"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after" />
+
+        <TextView
+            android:id="@+id/tv_compare_after_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="13dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_compare_after_start_desc"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tv_compare_after_before_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/before_desc"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="60dp"
+            app:layout_constraintStart_toStartOf="@id/tv_compare_after"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after" />
+
+        <TextView
+            android:id="@+id/tv_compare_after_before_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toEndOf="@id/tv_compare_after_before_desc"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tv_compare_after_after_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/after_desc"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="130dp"
+            app:layout_constraintStart_toStartOf="@id/tv_compare_after"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after" />
+
+        <TextView
+            android:id="@+id/tv_compare_after_after_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toEndOf="@id/tv_compare_after_after_desc"
+            app:layout_constraintTop_toBottomOf="@id/tv_compare_after"
+            tools:text="10" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn_compare_intent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intent_compare"
+        android:textStyle="bold"
+        android:backgroundTint="#705952"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <EditText
         android:id="@+id/et_main"
@@ -14,8 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:background="@null"
-        android:maxLength="6"
-        android:inputType="number"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="가나다라"/>

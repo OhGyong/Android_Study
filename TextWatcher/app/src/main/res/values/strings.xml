@@ -3,4 +3,12 @@
 
     <string name="auth_num_success">번호가 일치합니다.</string>
     <string name="auth_num_fail">번호가 틀렸습니다.</string>
+
+    <string name="intent_compare">메서드 비교하기</string>
+
+    <string name="beforeTextChanged_desc">beforeTextChanged</string>
+    <string name="onTextChanged_desc">onTextChanged</string>
+    <string name="start_desc">start:</string>
+    <string name="before_desc">before:</string>
+    <string name="after_desc">after:</string>
 </resources>
