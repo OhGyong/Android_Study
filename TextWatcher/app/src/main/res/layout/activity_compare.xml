@@ -78,7 +78,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_compare_before" />
 
         <TextView
-            android:id="@+id/tv_compare_before_before_count"
+            android:id="@+id/tv_compare_before_before"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp"
@@ -99,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_compare_before" />
 
         <TextView
-            android:id="@+id/tv_compare_before_after_count"
+            android:id="@+id/tv_compare_before_after"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp"
@@ -171,7 +171,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_compare_after" />
 
         <TextView
-            android:id="@+id/tv_compare_after_before_count"
+            android:id="@+id/tv_compare_after_before"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp"
@@ -192,7 +192,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_compare_after" />
 
         <TextView
-            android:id="@+id/tv_compare_after_after_count"
+            android:id="@+id/tv_compare_after_after"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp"
@@ -202,9 +202,4 @@
             tools:text="10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
