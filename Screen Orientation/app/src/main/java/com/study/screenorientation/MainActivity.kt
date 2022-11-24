@@ -11,8 +11,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn = findViewById<Button>(R.id.btn_main)
+        println(requestedOrientation)
+        println("---")
+        println(resources.configuration.orientation)
+        println("---")
+        println(Configuration.ORIENTATION_PORTRAIT)
+        println(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        println("---")
+        println(Configuration.ORIENTATION_LANDSCAPE)
+        println(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
 
+        val btn = findViewById<Button>(R.id.btn_main)
         btn.setOnClickListener {
             requestedOrientation = if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
                 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
