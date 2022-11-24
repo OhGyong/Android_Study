@@ -1,5 +1,6 @@
 package com.study.foldablephoneuihandling
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
@@ -110,5 +111,16 @@ class MainActivity : AppCompatActivity() {
             value,
             resources?.displayMetrics
         ).toInt()
+    }
+
+
+    /**
+     * 화면 재구성 시 ui 적용
+     */
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        getDeviceType()
+        setBtnSize()
     }
 }
