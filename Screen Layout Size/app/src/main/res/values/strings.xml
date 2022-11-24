@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Screen Layout Size</string>
-
-    <string name="small">초소형 기기</string>
-    <string name="normal">일반 기기</string>
-    <string name="large">7인치 넘는 기기</string>
-    <string name="x_large">10인치 넘는 기기</string>
-    <string name="unknown">알 수 없는 기기</string>
-</resources>
