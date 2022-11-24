@@ -54,10 +54,9 @@ class MainActivity : AppCompatActivity() {
         mBinding.btnDnc.setOnClickListener {
             // 복호화 작업
             try {
-                val byteArrayDecText = Base64.decode(encText, Base64.DEFAULT)
                 cipherInstance.init(Cipher.DECRYPT_MODE, keySpec, IvParameterSpec(iv))
+                val byteArrayDecText = Base64.decode(encText, Base64.DEFAULT)
                 mBinding.tvDec.text = String(cipherInstance.doFinal(byteArrayDecText))
-
             } catch (e: Exception) {
                 // TODO : 복호화 실패 알림?
             }
