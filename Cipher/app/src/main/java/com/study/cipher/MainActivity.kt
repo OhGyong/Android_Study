@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             val byteArrayEncText = cipherInstance.doFinal(mBinding.etMain.text.toString().toByteArray())
             encText = String(Base64.encode(byteArrayEncText, Base64.DEFAULT))
             mBinding.tvEnc.text = encText
-
         }
 
         /**
