@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Screen Layout Size</string>
+    <string name="app_name">ScreenLayout Size</string>
 
     <string name="small">초소형 기기</string>
     <string name="normal">일반 기기</string>
