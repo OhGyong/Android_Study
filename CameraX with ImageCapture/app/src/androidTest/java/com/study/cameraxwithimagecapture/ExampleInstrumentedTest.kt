@@ -1,4 +1,4 @@
-package com.study.cameraxwithcapture
+package com.study.cameraxwithimagecapture
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.study.cameraxwithcapture"
+        applicationId "com.study.cameraxwithimagecapture"
         minSdk 23
         targetSdk 33
         versionCode 1

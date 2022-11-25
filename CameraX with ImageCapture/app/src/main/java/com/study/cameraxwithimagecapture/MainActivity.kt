@@ -1,4 +1,4 @@
-package com.study.cameraxwithcapture
+package com.study.cameraxwithimagecapture
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.study.cameraxwithcapture.databinding.ActivityMainBinding
+import com.study.cameraxwithimagecapture.databinding.ActivityMainBinding
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
