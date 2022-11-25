@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PermissionProcessing</string>
+    <string name="app_name">Permission Processing</string>
     <string name="permission_check">권한체크</string>
     <string name="one_by_one_process">개별 처리</string>
 </resources>
