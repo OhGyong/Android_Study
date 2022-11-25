@@ -10,7 +10,7 @@
 - [EncryptedSharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/EncryptedSharedPreferences) : EncryptedSharedPreferences로 암호화 하는 방법<br/>
 - [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
 - [Expandable Recyclerview](https://github.com/OhGyong/Android_Study/tree/master/ExpandableRecyclerView) : Expandable Recyclerview 사용 방법<br/>
-- [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/PermissionProcessing) : 안드로이드 권한 처리 방법<br/>
+- [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/Permission%20Processing) : 안드로이드 권한 처리 방법<br/>
 - [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
 - [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerViewDragAndDrop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
 - [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/RecyclerviewClickListenerInActivity) : RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법<br/>
