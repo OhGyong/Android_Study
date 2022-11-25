@@ -5,7 +5,7 @@
 - [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) : BottomNavigation 사용 방법<br/>
 - [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) : BottomSheetDialog 사용 방법<br/>
 - [CameraX with ImageCapture](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20ImageCapture) : CameraX와 ImageCapture를 이용한 화면 캡처(촬영) 사용 방법<br/>
-- [CameraX with PreviewView]https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) : CamreaX와 PreviewView를 이용한 미리보기 사용 방법<br/>
+- [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) : CamreaX와 PreviewView를 이용한 미리보기 사용 방법<br/>
 - [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) : Cipher로 암호화와 복호와 해보기<br/>
 - [EncryptedSharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/EncryptedSharedPreferences) : EncryptedSharedPreferences로 암호화 하는 방법<br/>
 - [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
