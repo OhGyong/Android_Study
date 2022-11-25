@@ -16,7 +16,7 @@
 - [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/RecyclerviewClickListenerInActivity) : RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법<br/>
 - [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList 형태로 데이터 저장하는 방법<br/>
 - [Screen Orientation](https://github.com/OhGyong/Android_Study/tree/master/Screen%20Orientation) : 화면 회전 시키는 방법<br/>
-- [ScreenLayout Size] : Screen Size로 폰과 태블릿 구분하기<br/>
+- [ScreenLayout Size](https://github.com/OhGyong/Android_Study/tree/master/ScreenLayout%20Size) : Screen Size로 폰과 태블릿 구분하기<br/>
 - [SearchList with SharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/SearchList%20with%20SharedPreferences) : SharedPreferences로 검색 리스트 만들기<br/>
 - [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList로 저장하는 방법<br/>
 - [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithOneFragment) : Fragment 하나로 탭 레이아웃 재활용하는 방법<br/>
