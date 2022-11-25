@@ -6,13 +6,21 @@
 - [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) : BottomSheetDialog 사용 방법<br/>
 - [CameraX with Capture](https://github.com/OhGyong/Android_Study/tree/master/CameraXwithCapture) : CameraX를 이용한 화면 캡처(촬영) 사용 방법<br/>
 - [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraXwithPreviewView) : CamreaX와 PreviewView를 이용한 미리보기 사용 방법<br/>
+- [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) : Cipher로 암호화와 복호와 해보기<br/>
+- [EncryptedSharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/EncryptedSharedPreferences) : EncryptedSharedPreferences로 암호화 하는 방법<br/>
+- [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
 - [Expandable Recyclerview](https://github.com/OhGyong/Android_Study/tree/master/ExpandableRecyclerView) : Expandable Recyclerview 사용 방법<br/>
 - [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/PermissionProcessing) : 안드로이드 권한 처리 방법<br/>
-- [RecyclerView with Retrofit](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
+- [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
 - [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerViewDragAndDrop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
 - [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/RecyclerviewClickListenerInActivity) : RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법<br/>
 - [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList 형태로 데이터 저장하는 방법<br/>
+- [Screen Orientation](https://github.com/OhGyong/Android_Study/tree/master/Screen%20Orientation) : 화면 회전 시키는 방법<br/>
+- [ScreenLayout Size] : Screen Size로 폰과 태블릿 구분하기<br/>
+- [SearchList with SharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/SearchList%20with%20SharedPreferences) : SharedPreferences로 검색 리스트 만들기<br/>
+- [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList로 저장하는 방법<br/>
 - [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithOneFragment) : Fragment 하나로 탭 레이아웃 재활용하는 방법<br/>
 - [TabLayout with ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/TabLayoutWithViewPager) : ViewPager로 탭 레이아웃 사용하는 방법<br/>
+- [TextWatcher](https://github.com/OhGyong/Android_Study/tree/master/TextWatcher) : TextWatcher로 텍스트 변경될 때마다 이벤트 처리하기<br/>
 - [ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) : ViewPager2 사용 방법<br/>
-- [SearchList with SharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/SearchList%20with%20SharedPreferences) : SharedPreferences로 검색 리스트 만들기
+
