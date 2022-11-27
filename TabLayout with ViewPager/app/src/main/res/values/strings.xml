@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TabLayoutWithViewPager</string>
+    <string name="app_name">TabLayout with ViewPager</string>
 
     <string name="first">첫번째</string>
     <string name="second">두번째</string>
