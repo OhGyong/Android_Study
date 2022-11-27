@@ -1,8 +1,8 @@
-package com.example.tablayoutwithonefragment
+package com.study.tablayoutwithonefragment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.tablayoutwithonefragment.databinding.ActivityMainBinding
+import com.study.tablayoutwithonefragment.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {

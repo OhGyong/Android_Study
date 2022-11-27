@@ -1,11 +1,11 @@
-package com.example.tablayoutwithonefragment
+package com.study.tablayoutwithonefragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tablayoutwithonefragment.databinding.FragmentMainBinding
+import com.study.tablayoutwithonefragment.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
     private lateinit var mBinding: FragmentMainBinding

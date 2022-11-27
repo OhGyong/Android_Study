@@ -1,4 +1,4 @@
-package com.example.tablayoutwithonefragment
+package com.study.tablayoutwithonefragment
 
 import org.junit.Test
 
