@@ -12,7 +12,7 @@
 - [Expandable Recyclerview](https://github.com/OhGyong/Android_Study/tree/master/ExpandableRecyclerView) : Expandable Recyclerview 사용 방법<br/>
 - [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/Permission%20Processing) : 안드로이드 권한 처리 방법<br/>
 - [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
-- [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerViewDragAndDrop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
+- [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Drag%20and%20Drop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
 - [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/Recyclerview%20ClickListener%20in%20Activity) : RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법<br/>
 - [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList 형태로 데이터 저장하는 방법<br/>
 - [Screen Orientation](https://github.com/OhGyong/Android_Study/tree/master/Screen%20Orientation) : 화면 회전 시키는 방법<br/>
