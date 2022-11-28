@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAddView(tv: TextView) {
-        (tv.parent as ViewGroup).removeView(tv) // textView의 부모 뷰를 제거
+        (tv.parent as ViewGroup).removeView(tv) // textView의 부모 뷰 그룹에서 textView 제거
         mBinding.llMain.addView(tv) // LinearLayout에 textView 추가
         tv.visibility = View.VISIBLE
     }
