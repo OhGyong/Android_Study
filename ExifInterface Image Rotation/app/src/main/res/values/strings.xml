@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ExifInterface Image Rotation</string>
+
+    <string name="btn_desc">이미지 불러오기</string>
 </resources>
