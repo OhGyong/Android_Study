@@ -1,5 +1,6 @@
 - [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) : Retrofit2 사용 방법 <br/>
 - [Activity와 Fragment 무엇을 사용해야하는가](https://github.com/OhGyong/Android_Study/tree/master/Activity%EC%99%80%20Fragment%20%EB%AC%B4%EC%97%87%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%EA%B0%80) : Activity, Fragment 정리 <br/>
+- [AddView](https://ogyong.tistory.com/25) : addView로 Layout에 View 추가하기<br/>
 - [Android Design Patterns](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns) : Android에서 사용하는 디자인 패턴 정리 <br/>
 - [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) : FCM 사용 방법 <br/>
 - [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) : BottomNavigation 사용 방법<br/>
@@ -8,13 +9,12 @@
 - [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) : CamreaX와 PreviewView를 이용한 미리보기 사용 방법<br/>
 - [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) : Cipher로 암호화와 복호와 해보기<br/>
 - [EncryptedSharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/EncryptedSharedPreferences) : EncryptedSharedPreferences로 암호화 하는 방법<br/>
-- [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
 - [Expandable Recyclerview](https://github.com/OhGyong/Android_Study/tree/master/ExpandableRecyclerView) : Expandable Recyclerview 사용 방법<br/>
+- [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
 - [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/Permission%20Processing) : 안드로이드 권한 처리 방법<br/>
-- [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
 - [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Drag%20and%20Drop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
+- [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
 - [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/Recyclerview%20ClickListener%20in%20Activity) : RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법<br/>
-- [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList 형태로 데이터 저장하는 방법<br/>
 - [Screen Orientation](https://github.com/OhGyong/Android_Study/tree/master/Screen%20Orientation) : 화면 회전 시키는 방법<br/>
 - [ScreenLayout Size](https://github.com/OhGyong/Android_Study/tree/master/ScreenLayout%20Size) : Screen Size로 폰과 태블릿 구분하기<br/>
 - [SearchList with SharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/SearchList%20with%20SharedPreferences) : SharedPreferences로 검색 리스트 만들기<br/>
