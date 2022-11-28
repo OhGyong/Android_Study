@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">AddView</string>
 
-    <string name="add_desc">추가</string>
+    <string name="add_1">첫번째 추가</string>
+    <string name="add_2">두번째 추가</string>
+    <string name="add_3">세번째 추가</string>
 
     <string name="text_1">첫번째</string>
     <string name="text_2">두번째</string>
