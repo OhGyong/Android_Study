@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.study.exifinterfaceimagerotation">
 
-    <!--  카메라 권한  -->
+    <!--  갤러리 권한  -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
