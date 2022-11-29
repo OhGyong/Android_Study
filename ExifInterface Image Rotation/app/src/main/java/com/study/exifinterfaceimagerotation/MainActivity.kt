@@ -107,10 +107,12 @@ class MainActivity : AppCompatActivity() {
 
 
                 try {
-                    val inputStream = contentResolver.openInputStream(uri)
-                    val exif = ExifInterface(inputStream!!)
+                    // uri와 연결된 콘텐츠에 대한 스트림을 연다.
+                    // → uri를 이용해 이미지 데이터를 onpenInputStream으로 얻는다.
+                    var inputStream = contentResolver.openInputStream(uri) ?: return@registerForActivityResult
 
-                    inputStream.close()
+                    // 이미지 파일을 읽기 위해 ExifInterface에 InputStream 정보를 넘겨줌
+                    val exif = ExifInterface(inputStream)
 
                     // 회전 정보 알아내기
                     var orientation =
@@ -121,13 +123,23 @@ class MainActivity : AppCompatActivity() {
                         ExifInterface.ORIENTATION_ROTATE_270 -> orientation = 270
                     }
 
-                    // 화면이 회전되었을 때 matrix로 회전한 각도만큼 회전.
-                    // 회전한 새 이미지 생성 후 캐시에 저장
-                    if(orientation >= 90){
-                        val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(uri))
+                    // 180도 이상 회전된 이미지를 90도로 맞춰줌
+                    if(orientation >= 180){
 
+                        // InputStream은 사용할 경우 0을 반환하기 때문에 재정의를 해줘야한다.
+                        inputStream = contentResolver.openInputStream(uri) ?: return@registerForActivityResult
+
+                        // InputStream을 Bitmap으로 디코딩 (Bitmap을 생성)
+                        val bitmap = BitmapFactory.decodeStream(inputStream)
+
+                        // InputStream을 닫고 연결된 모든 리소스를 해제
+                        inputStream.close()
+
+                        // Matrix를 이용해 이미지 회전 → 90도로 고정
                         val matrix = Matrix()
                         matrix.setRotate(90f, bitmap.width.toFloat(), bitmap.height.toFloat())
+
+                        // 회전한 Matrix 정보로 새 Bitmap 생성
                         val newImg = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
 
                         // 캐시에 임시 파일 생성
@@ -136,7 +148,7 @@ class MainActivity : AppCompatActivity() {
                             "newImage.jpg"
                         )
 
-                        // 파일 데이터 입력
+                        // 임시 파일에 이미지를 저장하면서 새로운 uri 경로를 얻어옴
                         val outputStream = FileOutputStream(cacheFile)
                         newImg.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
                         outputStream.close()
@@ -147,7 +159,7 @@ class MainActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
 
-
+                // 수정본 이미지 등록
                 Glide.with(this)
                     .load(uri)
                     .apply(
