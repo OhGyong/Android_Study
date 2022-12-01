@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         mBinding.btnTop.setOnClickListener {
             setConstraint("TOP")
-
         }
 
         mBinding.btnMiddle.setOnClickListener {
