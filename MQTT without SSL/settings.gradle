@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "MQTT with Local"
+rootProject.name = "MQTT without SSL"
 include ':app'
