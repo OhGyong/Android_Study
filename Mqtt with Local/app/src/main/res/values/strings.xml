@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mqtt with Local</string>
+
+    <string name="send">전송</string>
 </resources>
