@@ -32,9 +32,6 @@ class MainActivity : AppCompatActivity() {
         // MqttConnectOptions는 Mqtt의 Client가 서버에 연결하는 방법을 제어하는 클래스
         // 연결 결과 콜백 → callbackConnectResult
         mqttClient.connect(MqttConnectOptions(), null, callbackConnectResult)
-
-        mqttCallBack()
-        sendMessageMqtt()
     }
 
 
@@ -44,9 +41,10 @@ class MainActivity : AppCompatActivity() {
     private var callbackConnectResult = object : IMqttActionListener {
         override fun onSuccess(asyncActionToken: IMqttToken?) {
             println("성공 $asyncActionToken")
-
             // 연결에 성공하면 해당 토픽 구독
             mqttClient.subscribe(topic, 1)
+            mqttCallBack()
+            sendMessageMqtt()
         }
 
         override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {
