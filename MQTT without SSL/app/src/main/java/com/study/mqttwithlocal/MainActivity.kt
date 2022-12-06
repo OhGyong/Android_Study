@@ -7,7 +7,7 @@ import info.mqtt.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 
 class MainActivity : AppCompatActivity() {
-    private val serverUri:String = "tcp://local_ogyong@broker.emqx.io:1883"  //서버 IP
+    private val serverUri:String = "tcp://ip 입력:1883"  //서버 IP
     private val topic:String = "o_gyong test"	// 토픽
 
     private var sendText = ""
