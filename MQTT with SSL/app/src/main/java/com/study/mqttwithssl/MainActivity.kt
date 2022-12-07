@@ -20,9 +20,6 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManagerFactory
 
 class MainActivity : AppCompatActivity() {
-//    private val serverIP:String = "tcp://local_gyoh@broker.emqx.io:1883"  //서버 IP
-//    private val topic:String = "test"	// 토픽
-
     // ssl 인증을 해야할 때 URI는 tcp가 아닌 ssl 이어야 함.
     private val serverUri: String = "ssl://ip 입력:포트 입력"  //서버 IP
     private val topic:String = "o_gyong test"	// 토픽
