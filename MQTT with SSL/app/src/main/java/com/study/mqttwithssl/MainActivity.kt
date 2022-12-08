@@ -83,12 +83,12 @@ class MainActivity : AppCompatActivity() {
         val pemContent = keyPemReader.readPemObject().content
         keyPemReader.close() // PemReader 종료(초기화)
 
-        // PemReader로 구한 ByteArray를 PKCS #8 표준에 따라 인코딩
-        // → PKCS #8는 일반적으로 PEM base64 인코딩 형식으로 변환된다고 함
+        // PemReader로 구한 key 내용으로 키 스펙을 생성
+        // → PKCS #8는 일반적으로 PEM base64로 인코딩 된 값을 반환함
         val keySpecPKCS8 = PKCS8EncodedKeySpec(pemContent)
 
-        // 암호화 된 키를 기본 키로 변환하기 위해 KeyFactory 사용
-        // → RSA로 암호화 되어있기 때문에 RSA 알고리즘을 전달하여 KeyFactory 객체 반환
+        // 암호화 된 키를 개인 키로 변환하기 위해 KeyFactory 사용
+        // → RSA로 암호화 되어있기 때문에 RSA 알고리즘을 전달
         val keyFactory = KeyFactory.getInstance("RSA")
 
         // 인코딩 된 keySpec을 받아서 개인 키를 생성
