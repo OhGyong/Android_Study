@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DrawerLayout</string>
+
+    <!--  image desc  -->
+    <string name="icon_close_desc">icon close</string>
+    <string name="icon_home_desc">icon home</string>
+    <string name="icon_noti_desc">icon noti</string>
+    <string name="icon_setting_desc">icon setting</string>
+
+    <!--  drawer  -->
+    <string name="home_desc">홈</string>
+    <string name="noti_desc">알림</string>
+    <string name="setting_desc">설정</string>
 </resources>
