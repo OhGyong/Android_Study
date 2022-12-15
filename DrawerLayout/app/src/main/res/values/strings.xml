@@ -11,5 +11,8 @@
     <string name="home_desc">홈</string>
     <string name="noti_desc">알림</string>
     <string name="setting_desc">설정</string>
+
+    <!--  main  -->
+    <string name="open_desc">열기</string>
     
 </resources>
