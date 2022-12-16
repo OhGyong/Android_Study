@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 val totalCount =
                     recyclerView.adapter?.itemCount?.minus(1)
 
+                // 페이징 처리
                 if(rvPosition == totalCount) {
                     page++
                     if(page == 2) {
@@ -42,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                         sampleList.addAll(resources.getStringArray(R.array.third_page).toList() as ArrayList<String>)
                         mAdapter.setList(resources.getStringArray(R.array.third_page).toList() as ArrayList<String>)
                     }
-                    println(sampleList)
                 }
             }
         })
