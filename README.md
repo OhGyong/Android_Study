@@ -6,7 +6,7 @@
 - [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) : BottomNavigation 사용 방법<br/>
 - [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) : BottomSheetDialog 사용 방법<br/>
 - [CameraX with ImageCapture](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20ImageCapture) : CameraX와 ImageCapture를 이용한 화면 캡처(촬영) 사용 방법<br/>
-- [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) : CamreaX와 PreviewView를 이용한 미리보기 사용 방법<br/>
+- [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) : CameraX와 PreviewView를 이용한 미리보기 사용 방법<br/>
 - [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) : Cipher로 암호화와 복호와 해보기<br/>
 - [ConstraintSet](https://github.com/OhGyong/Android_Study/tree/master/ConstraintSet) : ConstraintSet으로 View의 제약조건 수정하기<br/>
 - [DrawerLayout](https://github.com/OhGyong/Android_Study/tree/master/DrawerLayout) : DrawerLayout으로 Side Navigation 구현하기<br/>
