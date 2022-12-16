@@ -1,3 +1,3 @@
-https://user-images.githubusercontent.com/52282493/208008929-9025a6ef-e522-4a79-847d-6dfb7bc7f9bd.mp4
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/52282493/208008980-df54f93e-2ae7-41af-8ea5-c4ef8526cd97.gif)
 
 [내용 설명](https://ogyong.tistory.com/31)
