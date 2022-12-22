@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="60dp"
+    android:layout_width="100dp"
     android:layout_height="wrap_content" >
 
     <TextView
@@ -14,10 +14,20 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1번" />
+
+    <ImageView
+        android:id="@+id/iv_item_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_remove"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintTop_toTopOf="@id/tv_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tv_item" />
 
     <View
         android:layout_width="match_parent"
