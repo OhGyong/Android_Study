@@ -5,13 +5,29 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.study.recyclerviewpaginationremoveitem.databinding.ListItemMainBinding
 
+interface CustomListenerInterface {
+    fun removeListener(position: Int)
+}
+
 class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
     private val mList = ArrayList<String>()
+    private var onRemoveListener: CustomListenerInterface? = null
+
+    fun removeListener(pOnClick: CustomListenerInterface) {
+        this.onRemoveListener = pOnClick
+    }
 
 
     inner class ViewHolder(private val mBinding : ListItemMainBinding): RecyclerView.ViewHolder(mBinding.root) {
         fun bind(listData: String) {
             mBinding.tvItem.text = listData
+
+            // 클릭하고자 하는 view의 리스너에 데이터 전달
+            if(adapterPosition != RecyclerView.NO_POSITION){
+                mBinding.ivItemRemove.setOnClickListener {
+                    onRemoveListener?.removeListener(adapterPosition)
+                }
+            }
         }
     }
 
@@ -35,5 +51,10 @@ class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
     fun setList(notifyList: ArrayList<String>) {
         mList.addAll(notifyList)
         notifyItemRangeChanged(0, mList.size)
+    }
+
+    fun removeItem(position: Int) {
+        mList.removeAt(position)
+        notifyItemRemoved(position)
     }
 }

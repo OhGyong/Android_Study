@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mAdapter : ActivityAdapter
     private var page = 1
 
+    private var sampleList = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         setAdapter()
 
-        val sampleList = resources.getStringArray(R.array.first_page).toList() as ArrayList<String>
+        sampleList = resources.getStringArray(R.array.first_page).toList() as ArrayList<String>
         mAdapter.setList(sampleList)
 
         mBinding.rvMain.addOnScrollListener(object: RecyclerView.OnScrollListener(){
@@ -51,5 +53,12 @@ class MainActivity : AppCompatActivity() {
     private fun setAdapter() {
         mAdapter = ActivityAdapter()
         mBinding.rvMain.adapter = mAdapter
+
+        mAdapter.removeListener(object: CustomListenerInterface{
+            override fun removeListener(position: Int) {
+                sampleList.removeAt(position)
+                mAdapter.removeItem(position)
+            }
+        })
     }
 }
