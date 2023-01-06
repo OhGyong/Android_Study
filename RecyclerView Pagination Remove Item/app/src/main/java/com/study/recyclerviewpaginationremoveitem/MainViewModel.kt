@@ -15,19 +15,19 @@ class MainViewModel: ViewModel() {
 
     fun getSampleListSize(db: SampleDatabase) {
         viewModelScope.launch(Dispatchers.IO) {
-            sampleListSizeObserve.postValue(db.gridViewDao().getListSize())
+            sampleListSizeObserve.postValue(db.getSampleDao().getListSize())
         }
     }
 
     fun getSampleList(db: SampleDatabase, page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            sampleListObserve.postValue(db.gridViewDao().getList(page) as ArrayList<SampleData>)
+            sampleListObserve.postValue(db.getSampleDao().getList(page) as ArrayList<SampleData>)
         }
     }
 
     fun setItemDelete(db: SampleDatabase, id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            itemDeleteObserve.postValue(db.gridViewDao().itemDelete(id))
+            itemDeleteObserve.postValue(db.getSampleDao().itemDelete(id))
         }
     }
 }
