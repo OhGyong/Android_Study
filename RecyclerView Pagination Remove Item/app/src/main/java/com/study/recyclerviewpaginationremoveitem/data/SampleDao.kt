@@ -21,5 +21,5 @@ interface SampleDao {
      * 아이템 삭제
      */
     @Query("DELETE FROM sample WHERE id = :id")
-    fun deleteData(id: Int)
+    fun itemDelete(id: Int)
 }
