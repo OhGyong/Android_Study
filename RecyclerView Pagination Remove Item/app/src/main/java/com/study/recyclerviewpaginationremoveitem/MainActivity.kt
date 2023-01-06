@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mAdapter : ActivityAdapter
     private lateinit var mSampleDB : SampleDatabase
 
-    private var sampleList = ArrayList<SampleData>()
     private var page = 1
     private var listSize = 0
     private var deleteItem: SampleData? = null
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeLiveData() {
         mViewModel.sampleListSizeObserve.observe(this) {
             println("리스트 사이즈 호출 결과 : $it")
+
             if(it == 0 || it == null) {
                 return@observe
             }
@@ -55,14 +55,12 @@ class MainActivity : AppCompatActivity() {
                 return@observe
             }
 
-            sampleList.addAll(it)
             mAdapter.setList(it)
         }
 
         mViewModel.itemDeleteObserve.observe(this) {
             println("아이템 삭제 호출")
 
-            sampleList.remove(deleteItem)
             mAdapter.removeItem(deleteItem!!)
         }
     }
@@ -83,15 +81,13 @@ class MainActivity : AppCompatActivity() {
                 super.onScrolled(recyclerView, dx, dy)
 
                 // 리사이클러뷰 아이템 위치 찾기, 아이템 위치가 완전히 보일때 호출됨
-                val rvPosition =
-                    (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition()
+                val rvPosition = (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition()
 
                 // 리사이클러뷰 아이템 총 개수 (index 접근 이기 때문에 -1)
-                val totalCount =
-                    recyclerView.adapter?.itemCount?.minus(1)
+                val totalCount =  recyclerView.adapter?.itemCount?.minus(1)
 
                 // 페이징 처리
-                if(rvPosition == totalCount && listSize != totalCount && sampleList.isNotEmpty()) {
+                if(rvPosition == totalCount && listSize != totalCount && listSize!=0) {
                     mViewModel.getSampleList(mSampleDB, ++page)
                 }
             }
