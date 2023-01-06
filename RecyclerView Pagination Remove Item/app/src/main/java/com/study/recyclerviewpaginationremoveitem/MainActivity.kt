@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private var sampleList = ArrayList<SampleData>()
     private var page = 1
     private var listSize = 0
-
+    private var deleteItem: SampleData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +55,15 @@ class MainActivity : AppCompatActivity() {
                 return@observe
             }
 
-            sampleList = it
-            mAdapter.setList(sampleList)
+            sampleList.addAll(it)
+            mAdapter.setList(it)
+        }
+
+        mViewModel.itemDeleteObserve.observe(this) {
+            println("아이템 삭제 호출")
+
+            sampleList.remove(deleteItem)
+            mAdapter.removeItem(deleteItem!!)
         }
     }
 
@@ -65,9 +72,9 @@ class MainActivity : AppCompatActivity() {
         mBinding.rvMain.adapter = mAdapter
 
         mAdapter.removeListener(object: CustomListenerInterface{
-            override fun removeListener(position: Int) {
-                sampleList.removeAt(position)
-                mAdapter.removeItem(position)
+            override fun removeListener(position: Int, sampleData: SampleData) {
+                mViewModel.setItemDelete(mSampleDB, sampleData.id)
+                deleteItem = sampleData
             }
         })
 

@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 class MainViewModel: ViewModel() {
     val sampleListSizeObserve: MutableLiveData<Int> = MutableLiveData()
     val sampleListObserve: MutableLiveData<ArrayList<SampleData>> = MutableLiveData()
+    val itemDeleteObserve: MutableLiveData<Unit> = MutableLiveData()
 
     fun getSampleListSize(db: SampleDatabase) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -21,6 +22,12 @@ class MainViewModel: ViewModel() {
     fun getSampleList(db: SampleDatabase, page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             sampleListObserve.postValue(db.gridViewDao().getList(page) as ArrayList<SampleData>)
+        }
+    }
+
+    fun setItemDelete(db: SampleDatabase, id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            itemDeleteObserve.postValue(db.gridViewDao().itemDelete(id))
         }
     }
 }

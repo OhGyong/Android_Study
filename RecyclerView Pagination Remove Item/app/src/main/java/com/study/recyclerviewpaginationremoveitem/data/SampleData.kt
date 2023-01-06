@@ -9,5 +9,5 @@ data class SampleData(
     @ColumnInfo(name = "title") val title: String
 ) {
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
+    var id: Int = 0
 }

@@ -7,7 +7,7 @@ import com.study.recyclerviewpaginationremoveitem.data.SampleData
 import com.study.recyclerviewpaginationremoveitem.databinding.ListItemMainBinding
 
 interface CustomListenerInterface {
-    fun removeListener(position: Int)
+    fun removeListener(position: Int, sampleData: SampleData)
 }
 
 class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
@@ -26,7 +26,7 @@ class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
             // 클릭하고자 하는 view의 리스너에 데이터 전달
             if(adapterPosition != RecyclerView.NO_POSITION){
                 mBinding.ivItemRemove.setOnClickListener {
-                    onRemoveListener?.removeListener(adapterPosition)
+                    onRemoveListener?.removeListener(adapterPosition, listData)
                 }
             }
         }
@@ -54,8 +54,10 @@ class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
         notifyItemRangeChanged(0, mList.size)
     }
 
-    fun removeItem(position: Int) {
-        mList.removeAt(position)
-        notifyItemRemoved(position)
+    fun removeItem(sampleData: SampleData) {
+        val deleteIndex = mList.indexOf(sampleData)
+        mList.remove(sampleData)
+
+        notifyItemRemoved(deleteIndex)
     }
 }
