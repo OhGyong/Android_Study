@@ -3,6 +3,7 @@ package com.study.recyclerviewpaginationremoveitem
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.study.recyclerviewpaginationremoveitem.data.SampleData
 import com.study.recyclerviewpaginationremoveitem.databinding.ListItemMainBinding
 
 interface CustomListenerInterface {
@@ -10,7 +11,7 @@ interface CustomListenerInterface {
 }
 
 class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
-    private val mList = ArrayList<String>()
+    private val mList = ArrayList<SampleData>()
     private var onRemoveListener: CustomListenerInterface? = null
 
     fun removeListener(pOnClick: CustomListenerInterface) {
@@ -19,8 +20,8 @@ class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
 
 
     inner class ViewHolder(private val mBinding : ListItemMainBinding): RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(listData: String) {
-            mBinding.tvItem.text = listData
+        fun bind(listData: SampleData) {
+            mBinding.tvItem.text = listData.title
 
             // 클릭하고자 하는 view의 리스너에 데이터 전달
             if(adapterPosition != RecyclerView.NO_POSITION){
@@ -48,7 +49,7 @@ class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
         return mList.size
     }
 
-    fun setList(notifyList: ArrayList<String>) {
+    fun setList(notifyList: ArrayList<SampleData>) {
         mList.addAll(notifyList)
         notifyItemRangeChanged(0, mList.size)
     }
