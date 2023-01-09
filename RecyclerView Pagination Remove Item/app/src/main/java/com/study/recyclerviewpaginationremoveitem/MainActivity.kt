@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         mViewModel.itemDeleteObserve.observe(this) {
             println("아이템 삭제 호출")
 
+            listSize--
             mAdapter.removeItem(deleteItem!!)
         }
     }
