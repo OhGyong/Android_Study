@@ -88,7 +88,8 @@ class MainActivity : AppCompatActivity() {
 
                 // 페이징 처리
                 if(rvPosition == totalCount && listSize != totalCount && listSize!=0) {
-                    mViewModel.getSampleList(mSampleDB, ++page)
+                    page++
+                    mViewModel.getSampleListSize(mSampleDB)
                 }
             }
         })
