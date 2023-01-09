@@ -17,8 +17,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mSampleDB : SampleDatabase
 
     private var page = 1
-    private var listSize = 0
+    private var isPageLast = false
     private var deleteItem: SampleData? = null
+    private var isDelete = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 return@observe
             }
 
-            listSize = it-1
+            getIsLastPage(it) // 마지막 페이지인지 판별
             mViewModel.getSampleList(mSampleDB, page)
         }
 
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         mViewModel.itemDeleteObserve.observe(this) {
             println("아이템 삭제 호출")
 
-            listSize--
+            isDelete = true
             mAdapter.removeItem(deleteItem!!)
         }
     }
@@ -88,11 +89,33 @@ class MainActivity : AppCompatActivity() {
                 val totalCount =  recyclerView.adapter?.itemCount?.minus(1)
 
                 // 페이징 처리
-                if(rvPosition == totalCount && listSize != totalCount && listSize!=0) {
+                if(rvPosition==totalCount && !isPageLast && totalCount>=0) {
                     page++
                     mViewModel.getSampleListSize(mSampleDB)
                 }
             }
         })
+    }
+
+    /**
+     * 마지막 페이지인지 판별하는 메서드
+     */
+    private fun getIsLastPage(dbSize: Int) {
+        val rvPageSplit = (mAdapter.itemCount / 10.0f).toString().split(".")
+        val dbPageSplit = (dbSize / 10.0f).toString().split(".")
+
+        val rvPage = if(rvPageSplit[1] == "0") {
+            rvPageSplit[0].toInt()
+        }else {
+            (rvPageSplit[0].toInt())+1
+        }
+
+        val dbPage = if(dbPageSplit[1] == "0") {
+            dbPageSplit[0].toInt()
+        }else {
+            (dbPageSplit[0].toInt())+1
+        }
+
+        isPageLast = rvPage == dbPage
     }
 }
