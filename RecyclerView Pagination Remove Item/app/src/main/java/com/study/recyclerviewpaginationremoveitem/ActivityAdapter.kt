@@ -54,6 +54,11 @@ class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
         notifyItemRangeChanged(0, mList.size)
     }
 
+    fun addLastData(sampleData: SampleData) {
+        mList.add(sampleData)
+        notifyItemInserted(mList.size-1)
+    }
+
     fun removeItem(sampleData: SampleData) {
         val deleteIndex = mList.indexOf(sampleData)
         mList.remove(sampleData)

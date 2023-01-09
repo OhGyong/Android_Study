@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mSampleDB : SampleDatabase
 
     private var page = 1
-    private var isPageLast = false
+    private var isLastPage = false
+    private var isDeleteCall = false
     private var deleteItem: SampleData? = null
-    private var isDelete = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,14 +56,23 @@ class MainActivity : AppCompatActivity() {
                 return@observe
             }
 
-            mAdapter.setList(it)
+            if(isDeleteCall && !isLastPage) {
+                isDeleteCall = false
+                mAdapter.addLastData(it.last())
+            }else {
+                mAdapter.setList(it)
+            }
         }
 
         mViewModel.itemDeleteObserve.observe(this) {
             println("아이템 삭제 호출")
 
-            isDelete = true
+            isDeleteCall = true
             mAdapter.removeItem(deleteItem!!)
+
+            if(!isLastPage) {
+                mViewModel.getSampleListSize(mSampleDB)
+            }
         }
     }
 
@@ -89,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                 val totalCount =  recyclerView.adapter?.itemCount?.minus(1)
 
                 // 페이징 처리
-                if(rvPosition==totalCount && !isPageLast && totalCount>=0) {
+                if(rvPosition==totalCount && !isLastPage && totalCount>=0) {
                     page++
                     mViewModel.getSampleListSize(mSampleDB)
                 }
@@ -116,6 +125,6 @@ class MainActivity : AppCompatActivity() {
             (dbPageSplit[0].toInt())+1
         }
 
-        isPageLast = rvPage == dbPage
+        isLastPage = rvPage == dbPage
     }
 }
