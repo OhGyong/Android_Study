@@ -1,9 +1,9 @@
-package com.study.recyclerviewpaginationremoveitem.repository
+package com.study.paging3.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.study.recyclerviewpaginationremoveitem.data.SampleDao
-import com.study.recyclerviewpaginationremoveitem.data.SampleData
+import com.study.paging3.data.SampleDao
+import com.study.paging3.data.SampleData
 
 class SamplePagingSource(private val dao: SampleDao): PagingSource<Int, SampleData>() {
     /**

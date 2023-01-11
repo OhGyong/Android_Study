@@ -1,4 +1,4 @@
-package com.study.recyclerviewpaginationremoveitem.data
+package com.study.paging3.data
 
 import androidx.room.Dao
 import androidx.room.Query

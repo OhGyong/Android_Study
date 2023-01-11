@@ -1,10 +1,10 @@
-package com.study.recyclerviewpaginationremoveitem.repository
+package com.study.paging3.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.study.recyclerviewpaginationremoveitem.data.SampleDao
-import com.study.recyclerviewpaginationremoveitem.data.SampleData
+import com.study.paging3.data.SampleDao
+import com.study.paging3.data.SampleData
 import kotlinx.coroutines.flow.Flow
 
 class SampleRepository {
