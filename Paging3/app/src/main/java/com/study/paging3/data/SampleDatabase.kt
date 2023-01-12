@@ -4,8 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.study.paging3.data.SampleDao
-import com.study.paging3.data.SampleData
 
 @Database(entities = [SampleData::class], version = 1)
 abstract class SampleDatabase: RoomDatabase() {
@@ -26,7 +24,5 @@ abstract class SampleDatabase: RoomDatabase() {
                 context.applicationContext,
                 SampleDatabase::class.java, "sample_database"
             ).build()
-
-
     }
 }

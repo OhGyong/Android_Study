@@ -1,6 +1,5 @@
 package com.study.paging3.repository
 
-import androidx.paging.LoadType
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.study.paging3.data.SampleData
