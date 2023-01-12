@@ -2,67 +2,37 @@ package com.study.paging3
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import com.study.paging3.data.SampleData
 import com.study.paging3.databinding.ListItemMainBinding
 
-interface CustomListenerInterface {
-    fun removeListener(position: Int, sampleData: SampleData)
-}
+class ActivityAdapter: PagingDataAdapter<SampleData, SampleViewHolder>(ARTICLE_DIFF_CALLBACK) {
 
-class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
-    private val mList = ArrayList<SampleData>()
-    private var onRemoveListener: CustomListenerInterface? = null
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder =
+        SampleViewHolder(
+            ListItemMainBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
 
-    fun removeListener(pOnClick: CustomListenerInterface) {
-        this.onRemoveListener = pOnClick
-    }
-
-
-    inner class ViewHolder(private val mBinding : ListItemMainBinding): RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(listData: SampleData) {
-            mBinding.tvItem.text = listData.title
-
-            // 클릭하고자 하는 view의 리스너에 데이터 전달
-            if(bindingAdapterPosition != RecyclerView.NO_POSITION){
-                mBinding.ivItemRemove.setOnClickListener {
-                    onRemoveListener?.removeListener(bindingAdapterPosition, listData)
-                }
-            }
+    override fun onBindViewHolder(holder: SampleViewHolder, position: Int) {
+        println("onBindViewHolder $holder")
+        val item = getItem(position)
+        if(item != null) {
+            holder.bind(item)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ListItemMainBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-        return ViewHolder(binding)
-    }
+    companion object {
+        private val ARTICLE_DIFF_CALLBACK = object : DiffUtil.ItemCallback<SampleData>() {
+            override fun areItemsTheSame(oldItem: SampleData, newItem: SampleData): Boolean =
+                oldItem.id == newItem.id
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(mList[position])
-    }
-
-    override fun getItemCount(): Int {
-        return mList.size
-    }
-
-    fun setList(notifyList: ArrayList<SampleData>) {
-        mList.addAll(notifyList)
-        notifyItemRangeChanged(0, mList.size)
-    }
-
-    fun addLastData(sampleData: SampleData) {
-        mList.add(sampleData)
-        notifyItemInserted(mList.size-1)
-    }
-
-    fun removeItem(sampleData: SampleData) {
-        val deleteIndex = mList.indexOf(sampleData)
-        mList.remove(sampleData)
-
-        notifyItemRemoved(deleteIndex)
+            override fun areContentsTheSame(oldItem: SampleData, newItem: SampleData): Boolean =
+                oldItem == newItem
+        }
     }
 }

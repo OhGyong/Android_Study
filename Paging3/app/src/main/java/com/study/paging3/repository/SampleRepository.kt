@@ -1,17 +1,21 @@
 package com.study.paging3.repository
 
+import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.study.paging3.data.SampleDao
 import com.study.paging3.data.SampleData
+import com.study.paging3.data.SampleDatabase
 import kotlinx.coroutines.flow.Flow
 
 class SampleRepository {
-    fun getSampleData(sampleDao: SampleDao): Flow<PagingData<SampleData>> {
+    fun getSamplePagingSource(): Flow<PagingData<SampleData>> {
         return Pager(
-            config = PagingConfig(pageSize = 10),
-            pagingSourceFactory = { SamplePagingSource(sampleDao) }
+            config =  PagingConfig(
+                pageSize = 10,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { SamplePagingSource()}
         ).flow
     }
 }

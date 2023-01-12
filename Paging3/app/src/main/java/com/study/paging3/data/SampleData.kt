@@ -8,6 +8,6 @@ import androidx.room.PrimaryKey
 data class SampleData(
     @ColumnInfo(name = "title") val title: String
 ) {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true) @ColumnInfo
     var id: Int = 0
 }
