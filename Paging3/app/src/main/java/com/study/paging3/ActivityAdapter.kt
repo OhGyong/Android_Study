@@ -19,7 +19,6 @@ class ActivityAdapter: PagingDataAdapter<SampleData, SampleViewHolder>(ARTICLE_D
         )
 
     override fun onBindViewHolder(holder: SampleViewHolder, position: Int) {
-        println("onBindViewHolder $holder")
         val item = getItem(position)
         if(item != null) {
             holder.bind(item)

@@ -1,5 +1,6 @@
 package com.study.paging3.repository
 
+import androidx.paging.LoadType
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.study.paging3.data.SampleData
@@ -17,26 +18,22 @@ class SamplePagingSource(): PagingSource<Int, SampleData>() {
      * 스크롤 할 때마다 데이터를 비동기적으로 가져옴
      */
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SampleData> {
-        println("load 호출")
         // 시작 페이지
         val position = params.key ?: STARTING_PAGE
         return try {
             // 다음 페이지
             val nextKey = position + (params.loadSize / 10)
             var data: List<SampleData>? = null
-
             runBlocking {
                 CoroutineScope(Dispatchers.IO).launch {
                     data = SampleDatabase.sampleDB!!.getSampleDao().getList(position)
                 }
             }.join()
 
-
-            println("data $data")
             LoadResult.Page(
                 data = data!!,
                 prevKey = if (position == STARTING_PAGE) null else position - 1,
-                nextKey = nextKey
+                nextKey = if(data.isNullOrEmpty()) null else position+1
             )
         } catch (exception: IOException) {
             LoadResult.Error(exception)

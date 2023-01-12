@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 //        }
         lifecycleScope.launch {
             mViewModel.getContent().collectLatest {
-                println("home $it")
                 mAdapter.submitData(lifecycle, it)
             }
         }
