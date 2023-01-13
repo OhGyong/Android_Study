@@ -17,7 +17,7 @@ class SampleRepository {
                 pageSize = 10,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { SamplePagingSource()}
+            pagingSourceFactory = { SamplePagingSource() }
         ).flow
     }
 }
