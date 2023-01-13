@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         setAdapter()
 
+        /**
+         * collectLatest로 수집한 데이터를 어댑터에 전달 (collect를 써도 정상동작 함)
+         * submitData가 suspend 함수이기 때문에 코루틴을 사용함.
+         */
         lifecycleScope.launch {
             mViewModel.getContent().collectLatest {
                 mAdapter.submitData(lifecycle, it)
