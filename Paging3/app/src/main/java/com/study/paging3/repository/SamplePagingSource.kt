@@ -33,6 +33,10 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
                 }
             }.join()
 
+            println("page : $page")
+            println(data)
+            println("------")
+
             // 반환할 데이터
             LoadResult.Page(
                 data = data!!,
