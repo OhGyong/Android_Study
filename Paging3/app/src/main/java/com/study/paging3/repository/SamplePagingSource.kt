@@ -11,7 +11,7 @@ import kotlinx.coroutines.runBlocking
 import java.io.IOException
 
 /**
- * 데이터 식별자와 데이터를 사용하여 데이터를 로드하는 곳
+ * 데이터 식별자와 데이터 타입을 통해 DB의 데이터를 로드하는 곳
  */
 class SamplePagingSource: PagingSource<Int, SampleData>() {
     /**
