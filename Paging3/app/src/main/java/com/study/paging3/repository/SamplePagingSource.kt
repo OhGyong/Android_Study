@@ -34,13 +34,14 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
             }.join()
 
             println("page : $page")
+            println("loadSize: ${params.loadSize}")
             println(data)
             println("------")
 
             // 반환할 데이터
             LoadResult.Page(
                 data = data!!,
-                prevKey = if (page == STARTING_PAGE) null else page - 1,
+                prevKey = if (page == STARTING_PAGE) null else page-1,
                 nextKey = if(data.isNullOrEmpty()) null else page+1
             )
         } catch (e: IOException) {
@@ -54,7 +55,6 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
      * 현재 목록을 대체할 새 데이터를 로드할 때 사용
      */
     override fun getRefreshKey(state: PagingState<Int, SampleData>): Int? {
-        //
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
