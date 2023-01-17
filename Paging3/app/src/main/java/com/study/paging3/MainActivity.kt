@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAdapter() {
         mAdapter = ActivityAdapter()
-        mBinding.rvMain.adapter = mAdapter
+        mBinding.rvMain.adapter = mAdapter.withLoadStateFooter(
+            footer = SampleLoadStateAdapter()
+        )
         mBinding.rvMain.layoutManager =LinearLayoutManager(mBinding.rvMain.context)
     }
 }
