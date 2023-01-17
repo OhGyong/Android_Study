@@ -16,7 +16,7 @@ import com.study.paging3.databinding.ListItemMainBinding
  * 백그라운드 스레드에서 DiffUtil을 사용하여 데이터를 정제하고
  * 데이터를 불러오기 때문에 UI가 부드럽게 나타난다.
  */
-class ActivityAdapter: PagingDataAdapter<SampleData, SampleViewHolder>(ARTICLE_DIFF_CALLBACK) {
+class SampleAdapter: PagingDataAdapter<SampleData, SampleViewHolder>(ARTICLE_DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder =
         SampleViewHolder(

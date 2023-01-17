@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var mBinding : ActivityMainBinding
     private lateinit var mViewModel : MainViewModel
-    private lateinit var mAdapter : ActivityAdapter
+    private lateinit var mAdapter : SampleAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
-        mAdapter = ActivityAdapter()
+        mAdapter = SampleAdapter()
         mBinding.rvMain.adapter = mAdapter.withLoadStateFooter(
             footer = SampleLoadStateAdapter()
         )
