@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.study.paging3.data.SampleData
 import com.study.paging3.databinding.ListItemMainBinding
 
@@ -16,7 +17,13 @@ import com.study.paging3.databinding.ListItemMainBinding
  * 백그라운드 스레드에서 DiffUtil을 사용하여 데이터를 정제하고
  * 데이터를 불러오기 때문에 UI가 부드럽게 나타난다.
  */
-class SampleAdapter: PagingDataAdapter<SampleData, SampleViewHolder>(ARTICLE_DIFF_CALLBACK) {
+class SampleAdapter: PagingDataAdapter<SampleData, SampleAdapter.SampleViewHolder>(ARTICLE_DIFF_CALLBACK) {
+
+    inner class SampleViewHolder(private val mBinding : ListItemMainBinding): RecyclerView.ViewHolder(mBinding.root) {
+        fun bind(listData: SampleData) {
+            mBinding.tvItem.text = listData.title
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder =
         SampleViewHolder(
