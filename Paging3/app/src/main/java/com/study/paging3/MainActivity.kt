@@ -2,8 +2,10 @@ package com.study.paging3
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.study.paging3.data.SampleData
 import com.study.paging3.data.SampleDatabase
@@ -37,12 +39,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         /**
+         * PagingDataAdapter의 로드 상태를 전달받아 refresh가 로딩 상태이면 로딩 화면 띄우도록 처리
+         */
+        lifecycleScope.launch {
+            mAdapter.loadStateFlow.collect { loadState ->
+                mBinding.pbMainLoading.isVisible = loadState.refresh is LoadState.Loading
+            }
+        }
+
+        /**
          * 아이템 삭제 이후 PagingDataAdapter의
          * refresh를 호출하여 UI 갱신
          */
         mViewModel.itemDeleteObserve.observe(this) {
             mAdapter.refresh()
         }
+
     }
 
     private fun setAdapter() {
