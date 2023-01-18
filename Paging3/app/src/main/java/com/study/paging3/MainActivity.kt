@@ -43,6 +43,6 @@ class MainActivity : AppCompatActivity() {
        mBinding.rvMain.adapter = mAdapter.withLoadStateFooter(
             footer = SampleLoadStateAdapter()
         )
-        mBinding.rvMain.layoutManager =LinearLayoutManager(mBinding.rvMain.context)
+        mBinding.rvMain.layoutManager = LinearLayoutManager(mBinding.rvMain.context)
     }
 }
