@@ -31,8 +31,7 @@ class SampleLoadStateAdapter : LoadStateAdapter<SampleLoadStateAdapter.SampleLoa
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): SampleLoadStateViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item_footer, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_footer, parent, false)
         val binding = ListItemFooterBinding.bind(view)
         return SampleLoadStateViewHolder(binding)
     }
