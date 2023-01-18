@@ -22,7 +22,7 @@ class SampleLoadStateAdapter : LoadStateAdapter<SampleLoadStateAdapter.SampleLoa
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(loadState: LoadState) {
-            binding.pbLoading.isVisible = loadState is LoadState.Loading
+            binding.pbItemLoading.isVisible = loadState is LoadState.Loading
         }
     }
 
