@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAdapter() {
         mAdapter = SampleAdapter()
-        mBinding.rvMain.adapter = mAdapter.withLoadStateFooter(
+
+        // PagingDataAdapter에 LoadStateAdapter를 연결하여 로딩 view 추가
+       mBinding.rvMain.adapter = mAdapter.withLoadStateFooter(
             footer = SampleLoadStateAdapter()
         )
         mBinding.rvMain.layoutManager =LinearLayoutManager(mBinding.rvMain.context)
