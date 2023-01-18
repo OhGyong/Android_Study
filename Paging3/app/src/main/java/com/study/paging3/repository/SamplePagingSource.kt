@@ -4,10 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.study.paging3.data.SampleData
 import com.study.paging3.data.SampleDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import java.io.IOException
 
 /**
@@ -21,7 +18,7 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
         // 시작 페이지
         // 처음에 null 값인 것을 고려하여 시작 값 부여
         val page = params.key ?: STARTING_PAGE
-
+        delay(2000)
         return try {
             var data: List<SampleData>? = null
 
