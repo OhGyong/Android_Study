@@ -52,6 +52,7 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
      * 현재 목록을 대체할 새 데이터를 로드할 때 사용
      */
     override fun getRefreshKey(state: PagingState<Int, SampleData>): Int? {
+        println("getRefreshKey $state")
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)

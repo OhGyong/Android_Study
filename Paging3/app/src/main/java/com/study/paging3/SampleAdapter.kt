@@ -18,10 +18,16 @@ import com.study.paging3.databinding.ListItemMainBinding
  * 데이터를 불러오기 때문에 UI가 부드럽게 나타난다.
  */
 class SampleAdapter: PagingDataAdapter<SampleData, SampleAdapter.SampleViewHolder>(ARTICLE_DIFF_CALLBACK) {
+    interface CustomListenerInterface {
+        fun removeListener(position: Int, sampleData: SampleData)
+    }
 
     inner class SampleViewHolder(private val mBinding : ListItemMainBinding): RecyclerView.ViewHolder(mBinding.root) {
         fun bind(listData: SampleData) {
             mBinding.tvItem.text = listData.title
+            mBinding.ivItemRemove.setOnClickListener {
+                onRemoveListener?.removeListener(bindingAdapterPosition, listData)
+            }
         }
     }
 
@@ -40,6 +46,12 @@ class SampleAdapter: PagingDataAdapter<SampleData, SampleAdapter.SampleViewHolde
             holder.bind(item)
         }
     }
+
+    private var onRemoveListener: CustomListenerInterface? = null
+    fun removeListener(pOnClick: CustomListenerInterface) {
+        this.onRemoveListener = pOnClick
+    }
+
 
     companion object {
         private val ARTICLE_DIFF_CALLBACK = object : DiffUtil.ItemCallback<SampleData>() {

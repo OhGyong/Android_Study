@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.study.paging3.data.SampleData
 import com.study.paging3.data.SampleDatabase
 import com.study.paging3.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.collectLatest
@@ -34,6 +35,14 @@ class MainActivity : AppCompatActivity() {
                 mAdapter.submitData(lifecycle, it)
             }
         }
+
+        /**
+         * 아이템 삭제 이후 PagingDataAdapter의
+         * refresh를 호출하여 UI 갱신
+         */
+        mViewModel.itemDeleteObserve.observe(this) {
+            mAdapter.refresh()
+        }
     }
 
     private fun setAdapter() {
@@ -43,6 +52,13 @@ class MainActivity : AppCompatActivity() {
         mBinding.rvMain.adapter = mAdapter.withLoadStateFooter(
             footer = SampleLoadStateAdapter()
         )
+
         mBinding.rvMain.layoutManager = LinearLayoutManager(mBinding.rvMain.context)
+
+        mAdapter.removeListener(object : SampleAdapter.CustomListenerInterface {
+            override fun removeListener(position: Int, sampleData: SampleData) {
+                mViewModel.setItemDelete(sampleData.id)
+            }
+        })
     }
 }
