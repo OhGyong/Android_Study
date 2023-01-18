@@ -48,8 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         /**
-         * 아이템 삭제 이후 PagingDataAdapter의
-         * refresh를 호출하여 UI 갱신
+         * 아이템 삭제 이후 PagingDataAdapter의 refresh를 호출하여 UI 갱신
          */
         mViewModel.itemDeleteObserve.observe(this) {
             mAdapter.refresh()
