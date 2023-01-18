@@ -50,6 +50,8 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
 
     /**
      * 현재 목록을 대체할 새 데이터를 로드할 때 사용
+     * - anchorPosition : 가장 최근에 액세스한 인덱스
+     * - closestPageToPosition : anchorPosition을 토대로 가장 가까운 페이지를 다시 호출
      */
     override fun getRefreshKey(state: PagingState<Int, SampleData>): Int? {
         println("getRefreshKey $state")
