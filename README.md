@@ -15,7 +15,7 @@
 - [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
 - [MQTT with SSL](https://github.com/OhGyong/Android_Study/tree/master/MQTT%20with%20SSL) : MQTT + SSL + MQTTX 사용해보기<br/>
 - [MQTT without SSL](https://github.com/OhGyong/Android_Study/tree/master/MQTT%20without%20SSL) : MQTT + MQTTX 사용해보기<br/>
-- [Paging3](https://github.com/OhGyong/Android_Study/tree/master/Paging3) : Paging3 + Room + Flow 사용하기<br/>
+- [Paging3](https://github.com/OhGyong/Android_Study/tree/master/Paging3) : Paging3 + Room + Flow, 로딩 처리 <br/>
 - [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/Permission%20Processing) : 안드로이드 권한 처리 방법<br/>
 - [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Drag%20and%20Drop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
 - [RecyclerView Pagination Remove Item](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Pagination%20Remove%20Item) : RecyclerView에서 페이징+삭제 처리하기(with Room)<br/>
