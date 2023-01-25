@@ -245,7 +245,7 @@ Task에 있는 Activity의 정보로 뒤로 가기 또는 홈에서 앱으로 �
 ![task 1](https://user-images.githubusercontent.com/52282493/214497570-9ac72225-39ea-4060-a6eb-1dd4eaefdfe1.PNG)<br/>
 
 Task의 특징 중 하나는 다른 Process의 Activity 정보를 담을 수 있다는 것이다.<br/>
-예를 하나 들어보자.<br/
+예를 하나 들어보자.<br/>
 기기에 갤러리 앱과 카메라 앱이 있다.<br/>
 갤러리 앱에서 사진촬영 버튼을 눌렀더니 카메라 앱이 켜졌다.<br/>
 카메라 앱이 켜진 상태에서 뒤로 가기 또는 홈 버튼을 누르고 갤러리 앱으로 돌아오면 카메라 앱 화면이 보인다.<br/>
