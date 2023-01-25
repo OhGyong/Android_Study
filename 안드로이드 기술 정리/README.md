@@ -236,10 +236,13 @@ Activity의 생명주기에 영향을 받기 때문에 현재의 Context와 분�
 `Task`는 애플리케이션에서 실행되는 프로세스를 관리하는 **작업** 단위를 말하고<br/>
 `Processs`는 애플리케이션의 실행 단위를 말한다.
 
-Task가 하는 일이 정확히 뭘까?<br/>
-애플리케이션이 실행되면 Process 하나가 생성되고, 이 Process는 여러 Activity들을 처리하게 된다.<br/>
-Task는 서로 다른 애플리케이션에서 Process의 Activity 정보를 스택처럼 저장한다.<br/>
-그리고 이 과정에 있어서 Intent가 도움을 준다.<br/>
+애플리케이션이 실행되면 Task와 Process가 하나씩 생성된다.<br/>
+Process가 생성되면서 애플리케이션의 Activity들을 처리하게 되고, Task에 활성화된 Activity의 정보가 Stack 형태로 쌓이게 된다.<br/>
+Task에 있는 Activity의 정보로 뒤로 가기 또는 홈에서 앱으로 돌아왔을 때 마지막에 활성화되어있던 Activity로 돌아갈 수 있다.
+
+애플리케이션이 실행되면 Task와 Process가 하나씩 생성된다고 했는데, 다른 애플리케이션을 실행하면 어떻게 될까?<br/>
+다른 애플리케이션을 실행하면 새로운 Task와 Process가 생성된다.<br/>
+![task 1](https://user-images.githubusercontent.com/52282493/214497570-9ac72225-39ea-4060-a6eb-1dd4eaefdfe1.PNG)
 
 예를 하나 들어보자.<br/>
 갤러리 앱과 카메라 앱이 있다.<br/>
