@@ -252,3 +252,16 @@ Task의 특징 중 하나는 다른 Process의 Activity 정보를 담을 수 있
 두 개의 앱이 실행되고 있지만 마치 하나의 앱처럼 동작한다.<br/>
 서로 다른 두 Process의 Activity 정보를 Task가 관리하기 때문에 가능하다.<br/>
 Activity 정보를 담고 있는 Task가 하나의 작업(앱)으로 처리되는 것이다.
+
+<br/><br/>
+
+---
+## Looper, Handler, Message Queue
+
+### Looper
+Thread에 대한 메시지(또는 Runnable 객체)를 Message Queue에 담고 Handler에 전달하는 클래스.<br/>
+하나의 Thread에 하나의 Looper가 존재하며, 만들어 줘야한다. (Main Thread는 자동으로 Looper를 생성함)
+
+### Handler
+Looper로부터 받은 메시지(또는 Runnable 객체)를 처리하거나 받아서 Message Queue에 담는다.<br/>
+스레드 간의 통신을 담당한다고 보면된다.
