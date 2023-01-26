@@ -21,7 +21,11 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
         val page = params.key ?: STARTING_PAGE
         delay(2000)
         return try {
-            val data: List<SampleData> = SampleDatabase.sampleDB!!.getSampleDao().getList(page)
+            var data: List<SampleData>? = null
+
+            SampleDatabase.sampleDB!!.withTransaction {
+                data = SampleDatabase.sampleDB!!.getSampleDao().getList(page)
+            }
 
             println("page : $page")
             println("loadSize: ${params.loadSize}")
@@ -32,7 +36,7 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
             LoadResult.Page(
                 data = data!!,
                 prevKey = if (page == STARTING_PAGE) null else page-1,
-                nextKey = if(data.isEmpty()) null else page+1
+                nextKey = if(data.isNullOrEmpty()) null else page+1
             )
         } catch (e: IOException) {
             LoadResult.Error(e)
