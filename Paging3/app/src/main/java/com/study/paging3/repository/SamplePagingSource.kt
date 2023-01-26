@@ -2,6 +2,7 @@ package com.study.paging3.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import androidx.room.withTransaction
 import com.study.paging3.data.SampleData
 import com.study.paging3.data.SampleDatabase
 import kotlinx.coroutines.*
@@ -20,13 +21,7 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
         val page = params.key ?: STARTING_PAGE
         delay(2000)
         return try {
-            var data: List<SampleData>? = null
-
-            // page 값에 따른 list 호출
-            // join을 사용해서 list 값을 저장
-            CoroutineScope(Dispatchers.IO).launch {
-                data = SampleDatabase.sampleDB!!.getSampleDao().getList(page)
-            }.join()
+            val data: List<SampleData> = SampleDatabase.sampleDB!!.getSampleDao().getList(page)
 
             println("page : $page")
             println("loadSize: ${params.loadSize}")
@@ -37,7 +32,7 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
             LoadResult.Page(
                 data = data!!,
                 prevKey = if (page == STARTING_PAGE) null else page-1,
-                nextKey = if(data.isNullOrEmpty()) null else page+1
+                nextKey = if(data.isEmpty()) null else page+1
             )
         } catch (e: IOException) {
             LoadResult.Error(e)
