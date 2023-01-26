@@ -24,10 +24,8 @@ class SamplePagingSource: PagingSource<Int, SampleData>() {
 
             // page 값에 따른 list 호출
             // join을 사용해서 list 값을 저장
-            runBlocking {
-                CoroutineScope(Dispatchers.IO).launch {
-                    data = SampleDatabase.sampleDB!!.getSampleDao().getList(page)
-                }
+            CoroutineScope(Dispatchers.IO).launch {
+                data = SampleDatabase.sampleDB!!.getSampleDao().getList(page)
             }.join()
 
             println("page : $page")
