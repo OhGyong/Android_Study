@@ -230,3 +230,38 @@ Activity의 생명주기에 영향을 받기 때문에 현재의 Context와 분�
 `클린 아키텍처`라는 개념은 Robert C.Martin이 [블로그](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)에 글을 올리면서 알려지게 되었다. 클린 아키텍처는 프로젝트를 계층을 두어 관심사를 분리하고, 분리된 각 계층이 각자의 역할을 갖고 서로 어떻게 의존하는지가 핵심이다. 클린 아키텍처가 도입된 프로젝트는 만들어야 할 클래스가 많아지지만 각 클래스의 코드는 간결해지고 가독성이 좋아진다. 또한 새로운 기능이나 내부 로직이 변경되어야 하는 이벤트가 생길 때 쉽게 처리할 수 있다. 
 
 ![image](https://user-images.githubusercontent.com/52282493/162902763-c4d41491-e653-4467-a0da-f494bb7e86b3.png)
+
+---
+## Task와 Process
+`Task`는 애플리케이션에서 실행되는 프로세스를 관리하는 **작업** 단위를 말하고<br/>
+`Processs`는 애플리케이션의 실행 단위를 말한다.
+
+애플리케이션이 실행되면 Task와 Process가 하나씩 생성된다.<br/>
+Process가 생성되면서 애플리케이션의 Activity들을 처리하게 되고, Task에 활성화된 Activity의 정보가 Stack 형태로 쌓이게 된다.<br/>
+Task에 있는 Activity의 정보로 뒤로 가기 또는 홈에서 앱으로 돌아왔을 때 마지막에 활성화되어있던 Activity로 돌아갈 수 있다.
+
+애플리케이션이 실행되면 Task와 Process가 하나씩 생성된다고 했는데, 다른 애플리케이션을 실행하면 어떻게 될까?<br/>
+다른 애플리케이션을 실행하면 새로운 Task와 Process가 생성된다.<br/>
+![task 1](https://user-images.githubusercontent.com/52282493/214497570-9ac72225-39ea-4060-a6eb-1dd4eaefdfe1.PNG)<br/>
+
+Task의 특징 중 하나는 다른 Process의 Activity 정보를 담을 수 있다는 것이다.<br/>
+
+예를 하나 들어보자.<br/>
+기기에 갤러리 앱과 카메라 앱이 있다. 갤러리 앱에서 사진촬영 버튼을 눌렀더니 카메라 앱이 켜졌다.<br/>
+카메라 앱이 켜진 상태에서 뒤로 가기 또는 홈 버튼을 누르고 갤러리 앱으로 돌아오면 카메라 앱 화면이 보인다.<br/>
+두 개의 앱이 실행되고 있지만 마치 하나의 앱처럼 동작한다.<br/>
+서로 다른 두 Process의 Activity 정보를 Task가 관리하기 때문에 가능하다.<br/>
+Activity 정보를 담고 있는 Task가 하나의 작업(앱)으로 처리되는 것이다.
+
+<br/><br/>
+
+---
+## Looper, Handler, Message Queue
+
+### Looper
+Thread에 대한 메시지(또는 Runnable 객체)를 Message Queue에 담고 Handler에 전달하는 클래스.<br/>
+하나의 Thread에 하나의 Looper가 존재하며, 만들어 줘야한다. (Main Thread는 자동으로 Looper를 생성함)
+
+### Handler
+Looper로부터 받은 메시지(또는 Runnable 객체)를 처리하거나 받아서 Message Queue에 담는다.<br/>
+스레드 간의 통신을 담당한다고 보면된다.
