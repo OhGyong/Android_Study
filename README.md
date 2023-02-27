@@ -1,4 +1,4 @@
-- [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) <br> 
+- [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) <br>
 Retrofit2 사용 방법
 
 <br/>
@@ -13,33 +13,146 @@ Android에서 사용하는 디자인 패턴 정리
 
 <br/>
 
-- [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) : FCM 사용 방법 <br/>
-- [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) : BottomNavigation 사용 방법<br/>
-- [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) : BottomSheetDialog 사용 방법<br/>
-- [CameraX with ImageCapture](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20ImageCapture) : CameraX와 ImageCapture를 이용한 화면 캡처(촬영) 사용 방법<br/>
-- [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) : CameraX와 PreviewView를 이용한 미리보기 사용 방법<br/>
-- [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) : Cipher로 암호화와 복호와 해보기<br/>
-- [ConstraintSet](https://github.com/OhGyong/Android_Study/tree/master/ConstraintSet) : ConstraintSet으로 View의 제약조건 수정하기<br/>
-- [DrawerLayout](https://github.com/OhGyong/Android_Study/tree/master/DrawerLayout) : DrawerLayout으로 Side Navigation 구현하기<br/>
-- [EncryptedSharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/EncryptedSharedPreferences) : EncryptedSharedPreferences로 암호화 하는 방법<br/>
-- [ExifInterface Image Rotation](https://github.com/OhGyong/Android_Study/tree/master/ExifInterface%20Image%20Rotation) : ExifInterface와 Matrix로 이미지 회전 시키는 방법<>
-- [Expandable Recyclerview](https://github.com/OhGyong/Android_Study/tree/master/ExpandableRecyclerView) : Expandable Recyclerview 사용 방법<br/>
-- [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) : 폴더블 기기 UI 처리<br/>
-- [MQTT with SSL](https://github.com/OhGyong/Android_Study/tree/master/MQTT%20with%20SSL) : MQTT + SSL + MQTTX 사용해보기<br/>
-- [MQTT without SSL](https://github.com/OhGyong/Android_Study/tree/master/MQTT%20without%20SSL) : MQTT + MQTTX 사용해보기<br/>
-- [Paging3](https://github.com/OhGyong/Android_Study/tree/master/Paging3) : Paging3 + Room + Flow, 로딩 처리 <br/>
-- [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/Permission%20Processing) : 안드로이드 권한 처리 방법<br/>
-- [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Drag%20and%20Drop) : RecyclerView 드래그 앤 드랍 사용 방법<br/>
-- [RecyclerView Pagination Remove Item](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Pagination%20Remove%20Item) : RecyclerView에서 페이징+삭제 처리하기(with Room)<br/>
-- [RecyclerView Pagination](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Pagination) : RecyclerView에서 페이징 처리하기<br/>
-- [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) : Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법<br/>
-- [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/Recyclerview%20ClickListener%20in%20Activity) : RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법<br/>
-- [Screen Orientation](https://github.com/OhGyong/Android_Study/tree/master/Screen%20Orientation) : 화면 회전 시키는 방법<br/>
-- [ScreenLayout Size](https://github.com/OhGyong/Android_Study/tree/master/ScreenLayout%20Size) : Screen Size로 폰과 태블릿 구분하기<br/>
-- [SearchList with SharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/SearchList%20with%20SharedPreferences) : SharedPreferences로 검색 리스트 만들기<br/>
-- [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) : SharedPreferences에 ArrayList로 저장하는 방법<br/>
-- [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayout%20with%20OneFragment) : Fragment 하나로 탭 레이아웃 재활용하는 방법<br/>
-- [TabLayout with ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/TabLayout%20with%20ViewPager) : ViewPager로 탭 레이아웃 사용하는 방법<br/>
-- [TextWatcher](https://github.com/OhGyong/Android_Study/tree/master/TextWatcher) : TextWatcher로 텍스트 변경될 때마다 이벤트 처리하기<br/>
-- [ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) : ViewPager2 사용 방법<br/>
+- [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) <br/>
+FCM 사용 방법
+
+ <br/>
+
+- [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) <br/>
+BottomNavigation 사용 방법
+
+<br/>
+
+- [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) <br/>
+BottomSheetDialog 사용 방법
+
+<br/>
+
+- [CameraX with ImageCapture](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20ImageCapture) <br/>
+CameraX와 ImageCapture를 이용한 화면 캡처(촬영) 사용 방법
+
+<br/>
+
+- [CameraX with PreviewView](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20PreviewView) <br/>
+CameraX와 PreviewView를 이용한 미리보기 사용 방법
+
+<br/>
+
+- [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) <br/>
+Cipher로 암호화와 복호와 해보기
+
+<br/>
+
+- [ConstraintSet](https://github.com/OhGyong/Android_Study/tree/master/ConstraintSet) <br/>
+ConstraintSet으로 View의 제약조건 수정하기
+
+<br/>
+
+- [DrawerLayout](https://github.com/OhGyong/Android_Study/tree/master/DrawerLayout) <br/>
+DrawerLayout으로 Side Navigation 구현하기
+
+<br/>
+
+- [EncryptedSharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/EncryptedSharedPreferences) <br/>
+EncryptedSharedPreferences로 암호화 하는 방법
+
+<br/>
+
+- [ExifInterface Image Rotation](https://github.com/OhGyong/Android_Study/tree/master/ExifInterface%20Image%20Rotation) <br/>
+ExifInterface와 Matrix로 이미지 회전 시키는 방법
+
+<br/>
+
+- [Expandable Recyclerview](https://github.com/OhGyong/Android_Study/tree/master/ExpandableRecyclerView) <br/>
+Expandable Recyclerview 사용 방법
+
+<br/>
+
+- [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) <br/>
+폴더블 기기 UI 처리
+
+<br/>
+
+- [MQTT with SSL](https://github.com/OhGyong/Android_Study/tree/master/MQTT%20with%20SSL) <br/>
+MQTT + SSL + MQTTX 사용해보기
+
+<br/>
+
+- [MQTT without SSL](https://github.com/OhGyong/Android_Study/tree/master/MQTT%20without%20SSL) <br/>
+MQTT + MQTTX 사용해보기
+
+<br/>
+
+- [Paging3](https://github.com/OhGyong/Android_Study/tree/master/Paging3) <br/>
+Paging3 + Room + Flow, 로딩 처리
+
+<br/>
+
+- [Permission Processing](https://github.com/OhGyong/Android_Study/tree/master/Permission%20Processing) <br/>
+안드로이드 권한 처리 방법
+
+<br/>
+
+- [RecyclerView Drag and Drop](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Drag%20and%20Drop) <br/>
+RecyclerView 드래그 앤 드랍 사용 방법
+
+<br/>
+
+- [RecyclerView Pagination Remove Item](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Pagination%20Remove%20Item) <br/>
+RecyclerView에서 페이징+삭제 처리하기(with Room)
+
+<br/>
+
+- [RecyclerView Pagination](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20Pagination) <br/>
+RecyclerView에서 페이징 처리하기
+
+<br/>
+
+- [RecyclerView with Retrofit(MVVM)](https://github.com/OhGyong/Android_Study/tree/master/RecyclerView%20with%20Retrofit%20(MVVM)) <br/>
+Retrofit2으로 데이터 받아서 Recyclerview에 표시하는 방법
+
+<br/>
+
+- [RecyclerView ClickListener in Activity](https://github.com/OhGyong/Android_Study/tree/master/Recyclerview%20ClickListener%20in%20Activity) <br/>
+RecyclerView 클릭 이벤트 액티비티에서 처리하는 방법
+
+<br/>
+
+- [Screen Orientation](https://github.com/OhGyong/Android_Study/tree/master/Screen%20Orientation) <br/>
+화면 회전 시키는 방법
+
+<br/>
+
+- [ScreenLayout Size](https://github.com/OhGyong/Android_Study/tree/master/ScreenLayout%20Size) <br/>
+Screen Size로 폰과 태블릿 구분하기
+
+<br/>
+
+- [SearchList with SharedPreferences](https://github.com/OhGyong/Android_Study/tree/master/SearchList%20with%20SharedPreferences) <br/>
+SharedPreferences로 검색 리스트 만들기
+
+<br/>
+
+- [SharedPreferences Save as ArrayList](https://github.com/OhGyong/Android_Study/tree/master/SharedPreferences%20Save%20as%20ArrayList) <br/>
+SharedPreferences에 ArrayList로 저장하는 방법
+
+<br/>
+
+- [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayout%20with%20OneFragment) <br/>
+Fragment 하나로 탭 레이아웃 재활용하는 방법
+
+<br/>
+
+- [TabLayout with ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/TabLayout%20with%20ViewPager) <br/>
+ViewPager로 탭 레이아웃 사용하는 방법
+
+<br/>
+
+- [TextWatcher](https://github.com/OhGyong/Android_Study/tree/master/TextWatcher) <br/>
+TextWatcher로 텍스트 변경될 때마다 이벤트 처리하기
+
+<br/>
+
+- [ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) <br/>
+ViewPager2 사용 방법
 
