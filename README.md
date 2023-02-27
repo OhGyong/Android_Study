@@ -1,6 +1,18 @@
-- [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) : Retrofit2 사용 방법 <br/>
-- [AddView](https://github.com/OhGyong/Android_Study/tree/master/AddView) : addView로 Layout에 View 추가하기<br/>
-- [Android Design Patterns](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns) : Android에서 사용하는 디자인 패턴 정리 <br/>
+- [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) <br> 
+Retrofit2 사용 방법
+
+<br/>
+
+- [AddView](https://github.com/OhGyong/Android_Study/tree/master/AddView) <br>
+addView로 Layout에 View 추가하기
+
+<br/>
+
+- [Android Design Patterns](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns) <br> 
+Android에서 사용하는 디자인 패턴 정리
+
+<br/>
+
 - [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) : FCM 사용 방법 <br/>
 - [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) : BottomNavigation 사용 방법<br/>
 - [BottomSheetDialog](https://github.com/OhGyong/Android_Study/tree/master/BottomSheetDialog) : BottomSheetDialog 사용 방법<br/>
