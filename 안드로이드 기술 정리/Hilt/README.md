@@ -14,7 +14,7 @@ DI를 구현하면 아래와 같은 이점을 얻을 수 있다.<br/>
 관심사 분리는 계층 구조의 각 클래스가 하나의 정의된 기능을 갖는 것이 원칙이다.<br/>
 클래스 간의 종속성은 그래프로 표시될 수 있고 그래프에서 각 클래스는 종속된 클래스에 연결된다.
 
-![image](https://user-images.githubusercontent.com/52282493/224609440-8ba4d758-957c-4cb9-8a31-99bdc92c764c.png)
+![image](https://user-images.githubusercontent.com/52282493/224609440-8ba4d758-957c-4cb9-8a31-99bdc92c764c.png)<br/>
 [종속 항목 수동 삽입 항목에 첨부된 이미지]
 
 <br/>
