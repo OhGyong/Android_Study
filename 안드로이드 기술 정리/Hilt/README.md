@@ -81,6 +81,7 @@ https://developer.android.com/codelabs/android-hilt?hl=ko#0 를 보면서
 
 ## @Inject
 - @Inject 주석을 사용하여 Hilt에서 삽입하려는 다른 유형의 인스턴스를 필드에 삽입하도록 할 수 있음. (필드 삽입)
+- 종속 항목 제공 방법을 알리는 용도.
 
 <br/>
 
@@ -109,3 +110,9 @@ ex) 빌더를 사용하여 인스턴스를 생성해야 하는 OkHttpClient는 �
       Hilt 구성요소는 컨테이너로 간주할 수 있으며 구성요소 전체 목록은 [여기](https://developer.android.com/training/dependency-injection/hilt-android?hl=ko#generated-components)를 참고.
     - ApplicationComponent는 deprecated가 되어 SingletonComponent를 사용해야 함.
   - ### @Provides
+    - Hilt 모듈에 있는 함수에 @Provides 주석을 달아 Hilt에 생성자가 삽입될 수 없는 유형의 제공 방법을 알려 줄 수 있다.
+    - 이 주석이 있는 함수 본문은 Hilt에서 이 유형의 인스턴스를 제공해야 할 때마다 실행됨
+
+## @Binds
+- 인터페이스에 사용할 구현을 Hilt에 알리려면 Hilt 모듈 내 함수에 @Binds 주석을 사용하면 됨.
+- 이 주석은 추상 함수에 달아야 함.
