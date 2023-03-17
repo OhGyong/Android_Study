@@ -116,3 +116,14 @@ ex) 빌더를 사용하여 인스턴스를 생성해야 하는 OkHttpClient는 �
 ## @Binds
 - 인터페이스에 사용할 구현을 Hilt에 알리려면 Hilt 모듈 내 함수에 @Binds 주석을 사용하면 됨.
 - 이 주석은 추상 함수에 달아야 함.
+
+
+---
+
+https://developer.android.com/training/dependency-injection/hilt-jetpack?hl=ko
+
+Hilt에는 다른 Jetpack 라이브러리의 클래스를 제공하기 위한 확장 프로그램이 포함되어 있음.<br/>
+-> ViewModel, Navigation, Compose, WorkManager
+
+## @HiltViewModel
+해당 주석으로 ViewModel 객체의 생성자에서 @Inject 주석을 사용하여 ViewModel을 제공.
