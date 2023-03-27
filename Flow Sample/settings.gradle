@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Flow with Room"
+rootProject.name = "Flow Sample"
 include ':app'

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.study.flowwithroom'
+    namespace 'com.study.flowsample'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.study.flowwithroom"
+        applicationId "com.study.flowsample"
         minSdk 24
         targetSdk 33
         versionCode 1
