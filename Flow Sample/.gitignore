@@ -9,5 +9,3 @@
 .cxx
 local.properties
 gradle.properties
-build/kotlin/sessions
-build/reports
