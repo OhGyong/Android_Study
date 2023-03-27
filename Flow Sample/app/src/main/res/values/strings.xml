@@ -1,13 +1,3 @@
 <resources>
     <string name="app_name">Flow Sample</string>
-
-    <string name="insert">insert</string>
-    <string name="update">update</string>
-    <string name="delete">delete</string>
-
-    <string name="arrow_text">→</string>
-
-    <string name="et_hint">enter name</string>
-    <string name="et_target_hint">enter target</string>
-
 </resources>
