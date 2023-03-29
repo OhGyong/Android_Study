@@ -2,6 +2,7 @@ package com.study.flowsample.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.study.flowsample.data.Sample
 import com.study.flowsample.repository.SampleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -15,12 +16,7 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
 //    val sampleData: StateFlow<List<String>> = _sampleData
     val sampleData = _sampleData.asStateFlow()
 
-
-    /**
-     * 두 가지 호출 방식
-     */
-
-    fun callSelect(){
+    fun callSelect() {
         viewModelScope.launch {
             sampleRepository.callSelect().collectLatest { it ->
                 _sampleData.emit(it)
@@ -33,5 +29,17 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
         return sampleRepository.callSelect().stateIn(
             scope = viewModelScope, started = SharingStarted.WhileSubscribed(1000), initialValue = emptyList()
         )
+    }
+
+    fun callInsert(sample: Sample) {
+        sampleRepository.callInsert(sample)
+    }
+
+    fun callDelete(name: String) {
+        sampleRepository.callDelete(name)
+    }
+
+    fun callUpdate(originName: String, changeName: String) {
+        sampleRepository.callUpdate(originName, changeName)
     }
 }
