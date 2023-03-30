@@ -5,7 +5,7 @@
     <string name="update">update</string>
     <string name="delete">delete</string>
 
-    <string name="to">to</string>
+    <string name="arrow_text">→</string>
 
     <string name="et_hint">enter name</string>
     <string name="et_target_hint">enter target</string>
