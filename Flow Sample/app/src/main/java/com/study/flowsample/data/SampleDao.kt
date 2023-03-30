@@ -19,4 +19,9 @@ interface SampleDao {
 
     @Query("UPDATE sample_db SET name=:changeName WHERE name=:originName")
     fun updateSample(originName: String, changeName: String)
+
+    //////////////////
+
+    @Query("SELECT * FROM sample_db")
+    fun selectAll2(): List<String>
 }
