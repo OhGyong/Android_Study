@@ -59,8 +59,12 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
      * update 호출
      */
     fun callUpdate(originName: String, changeName: String) {
-
-        sampleRepository.callUpdate(originName, changeName)
+        viewModelScope.launch {
+            val result = sampleRepository.callUpdate(originName, changeName)
+            if(result.failure != null) {
+                println("에러 발생 : ${result.failure}")
+            }
+        }
     }
 
     //////////////////
