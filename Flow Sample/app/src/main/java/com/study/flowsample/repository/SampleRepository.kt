@@ -44,4 +44,22 @@ class SampleRepository @Inject constructor(private val sampleDao: SampleDao) {
             sampleDao.updateSample(originName, changeName)
         }
     }
+
+    //////////////////
+
+    fun callSelect2(): List<String> {
+        return sampleDao.selectAll2()
+    }
+
+    suspend fun callSelect3(): List<String> {
+        var list = emptyList<String>()
+        CoroutineScope(Dispatchers.IO).launch {
+            list = sampleDao.selectAll2()
+        }.join()
+        return list
+    }
+
+    fun callSelect4(): Flow<List<String>> {
+        return sampleDao.selectAll()
+    }
 }
