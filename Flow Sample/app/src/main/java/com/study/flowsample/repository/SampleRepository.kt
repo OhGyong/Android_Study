@@ -2,6 +2,7 @@ package com.study.flowsample.repository
 
 import com.study.flowsample.data.Sample
 import com.study.flowsample.data.SampleDao
+import com.study.flowsample.data.SampleResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -39,10 +40,16 @@ class SampleRepository @Inject constructor(private val sampleDao: SampleDao) {
     /**
      * update 호출
      */
-    fun callUpdate(originName: String, changeName: String) {
+    suspend fun callUpdate(originName: String, changeName: String) : SampleResult {
+        val sampleResult = SampleResult()
         CoroutineScope(Dispatchers.IO).launch {
-            sampleDao.updateSample(originName, changeName)
-        }
+            try {
+                sampleResult.success = sampleDao.updateSample(originName, changeName)
+            } catch (e: Exception) {
+                sampleResult.failure = e
+            }
+        }.join()
+        return sampleResult
     }
 
     //////////////////
