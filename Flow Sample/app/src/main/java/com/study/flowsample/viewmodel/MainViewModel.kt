@@ -24,7 +24,8 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
      */
     fun callSelect() {
         viewModelScope.launch {
-            sampleRepository.callSelect().collectLatest { it ->
+            sampleRepository.callSelect().collectLatest {
+                println("StateFlow 호출")
                 _sampleData.emit(it)
             }
         }
@@ -98,5 +99,8 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
      * 값의 변화에 따라 호출됨
      * 이전 데이터에 상관없이 모든 값을 발행
      */
-    fun callSelect4(): Flow<List<String>> = sampleRepository.callSelect4()
+    fun callSelect4(): Flow<List<String>> {
+        println("Flow 호출")
+        return sampleRepository.callSelect4()
+    }
 }
