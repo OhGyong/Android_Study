@@ -1,4 +1,4 @@
-package com.study.flowsample
+package com.study.flowsample.ui
 
 import android.content.Context
 import android.os.Bundle
