@@ -68,6 +68,11 @@ Expandable Recyclerview 사용 방법
 
 <br/>
 
+- [Flow Sample](https://github.com/OhGyong/Android_Study/tree/master/Flow%20Sample) <br/>
+Room을 이용하여 Flow와 StateFlow의 차이 알아보기 (+Hilt)
+
+<br/>
+
 - [Foldable Phone UI Handling](https://github.com/OhGyong/Android_Study/tree/master/Foldable%20Phone%20UI%20Handling) <br/>
 폴더블 기기 UI 처리
 
