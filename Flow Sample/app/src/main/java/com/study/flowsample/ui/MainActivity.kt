@@ -1,4 +1,4 @@
-package com.study.flowsample
+package com.study.flowsample.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.study.flowsample.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
          * 이전 데이터와 비교하여 같을 경우 collect 되지 않음. 새로운 데이터일 경우에만 collect
          */
         CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.sampleData.collect {
+            mViewModel.sampleData.collectLatest {
                 println("callSelect1 $it")
                 mBinding.tvName.text = it.toString()
             }
