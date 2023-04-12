@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">SplashScreen Sample</string>
-
-    <string name="icon_plane">splash plane</string>
-    <string name="main_text">Activity</string>
 </resources>
