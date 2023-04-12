@@ -3,8 +3,9 @@ package com.example.splashscreensample
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 class SplashActivity: AppCompatActivity() {
 
@@ -12,10 +13,14 @@ class SplashActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        Handler().postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }, 1500)
+        }, 2000)
+
+//
+//        startActivity(Intent(this, MainActivity::class.java))
+//        finish()
     }
 
 }

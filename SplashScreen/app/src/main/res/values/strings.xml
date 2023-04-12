@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SplashScreen Sample</string>
+
+    <string name="icon_plane">splash plane</string>
 </resources>
