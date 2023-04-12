@@ -11,14 +11,6 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/icon_plane</item>
         <!-- Customize your theme here. -->
-    </style>
-
-    <!--  Splash Theme  -->
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
     </style>
 </resources>
