@@ -20,51 +20,50 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val content: View = findViewById(android.R.id.content)
-//        content.viewTreeObserver.addOnPreDrawListener(
-//            object : ViewTreeObserver.OnPreDrawListener {
-//                override fun onPreDraw(): Boolean {
-//                    return if (!mViewModel.isLoading.value) {
-//                        content.viewTreeObserver.removeOnPreDrawListener(this)
-//
-//                        true
-//                    } else {
-//                        false
-//                    }
-//                }
-//            }
-//        )
-
-        splashScreen.setOnExitAnimationListener { splashScreenView ->
-            ObjectAnimator.ofFloat(
-                splashScreenView,
-                View.TRANSLATION_Y,
-                0f,
-                -splashScreenView.height.toFloat()
-            ).run {
-                interpolator = AnticipateInterpolator()
-                duration = 1000
-                doOnEnd { splashScreenView.remove() }
-                start()
-                addListener(object : Animator.AnimatorListener{
-                    override fun onAnimationStart(p0: Animator) {
+        val content: View = findViewById(android.R.id.content)
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    return if (!mViewModel.isLoading.value) {
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                        true
+                    } else {
+                        false
                     }
-
-                    override fun onAnimationEnd(p0: Animator) {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                        startActivity(intent)
-                        finish()
-                    }
-
-                    override fun onAnimationCancel(p0: Animator) {
-                    }
-
-                    override fun onAnimationRepeat(p0: Animator) {
-                    }
-
-                })
+                }
             }
-        }
+        )
+
+//        splashScreen.setOnExitAnimationListener { splashScreenView ->
+//            ObjectAnimator.ofFloat(
+//                splashScreenView,
+//                View.TRANSLATION_Y,
+//                0f,
+//                -splashScreenView.height.toFloat()
+//            ).run {
+//                interpolator = AnticipateInterpolator()
+//                duration = 1000
+//                doOnEnd { splashScreenView.remove() }
+//                start()
+//                addListener(object : Animator.AnimatorListener{
+//                    override fun onAnimationStart(p0: Animator) {
+//                    }
+//
+//                    override fun onAnimationEnd(p0: Animator) {
+//                        val intent = Intent(applicationContext, MainActivity::class.java)
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+//                        startActivity(intent)
+//                        finish()
+//                    }
+//
+//                    override fun onAnimationCancel(p0: Animator) {
+//                    }
+//
+//                    override fun onAnimationRepeat(p0: Animator) {
+//                    }
+//
+//                })
+//            }
+//        }
     }
 }
