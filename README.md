@@ -143,6 +143,11 @@ SharedPreferences에 ArrayList로 저장하는 방법
 
 <br/>
 
+- [SplashScreen](https://github.com/OhGyong/Android_Study/tree/master/SplashScreen) <br/>
+SplashScreen 사용하기  
+
+<br/>
+
 - [TabLayout with OneFragment](https://github.com/OhGyong/Android_Study/tree/master/TabLayout%20with%20OneFragment) <br/>
 Fragment 하나로 탭 레이아웃 재활용하는 방법
 
