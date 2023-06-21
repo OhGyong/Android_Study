@@ -4,7 +4,6 @@ import android.os.ParcelUuid
 
 data class DeviceData (
     val name: String,
-    val uuid1: String,
-    val uuid2: String,
+    val uuid: String,
     val address: String
 )
