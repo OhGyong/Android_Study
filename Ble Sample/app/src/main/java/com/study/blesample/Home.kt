@@ -5,11 +5,13 @@ import android.annotation.SuppressLint
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
+import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.ParcelUuid
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -47,6 +49,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.study.blesample.ui.theme.ScanItemTypography
+
 
 @Composable
 fun Home() {
@@ -203,6 +206,14 @@ fun checkPermission(context: Context): Boolean {
 
 @SuppressLint("MissingPermission")
 fun startBleScan(scanCallback: ScanCallback, bluetoothLeScanner: BluetoothLeScanner) {
+//    val scanFilter: ScanFilter = ScanFilter.Builder()
+//        .setDeviceName("DeviceName")
+//        .setDeviceAddress("DeviceAddress")
+//        .setServiceUuid(ParcelUuid(serviceUuid))
+//        .setManufacturerData(manufacturerId, manufacturerData, manufacturerDataMask)
+//        .setServiceData(serviceUuid, serviceData)
+//        .build()
+
     val scanSettings = ScanSettings.Builder()
         .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
         .build()
