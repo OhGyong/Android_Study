@@ -52,7 +52,6 @@ import com.study.blesample.ui.theme.ScanItemTypography
 fun Home() {
     val scanList = remember { mutableStateListOf<DeviceData>() }
 
-
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -68,7 +67,6 @@ fun ScanButton(scanList: SnapshotStateList<DeviceData>) {
     val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
     val bluetoothAdapter = bluetoothManager.adapter
     val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
-
 
     val launcher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -101,7 +99,6 @@ fun ScanButton(scanList: SnapshotStateList<DeviceData>) {
             println("onScanFailed  $errorCode")
         }
     }
-
 
     var isScanning by remember{ mutableStateOf(false) }
 

@@ -12,10 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import com.study.blesample.ui.theme.BleSampleTheme
 
@@ -48,11 +45,9 @@ class MainActivity : ComponentActivity() {
         }
 
         if(Build.VERSION.SDK_INT >= 31){
-            // 블루투스와 카메라 권한이 허용되었는지 체크
             if(permissionArray.all{ ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED}){
                 Toast.makeText(this, "권한 확인", Toast.LENGTH_SHORT).show()
             }
-            // 권한 요청
             else{
                 requestPermissionLauncher.launch(permissionArray)
             }
