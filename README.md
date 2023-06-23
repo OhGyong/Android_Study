@@ -16,7 +16,13 @@ Android에서 사용하는 디자인 패턴 정리
 - [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) <br/>
 FCM 사용 방법
 
- <br/>
+<br/>
+
+- [Ble Sample](https://github.com/OhGyong/Android_Study/tree/master/Ble%20Sample) <br/>
+Ble Scan 하는 방법
+
+<br/>
+
 
 - [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) <br/>
 BottomNavigation 사용 방법
