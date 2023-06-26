@@ -5,13 +5,11 @@ import android.annotation.SuppressLint
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
-import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.ParcelUuid
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -143,40 +141,45 @@ fun ScanList(scanList: SnapshotStateList<DeviceData>) {
             .padding(horizontal = 20.dp)
     ) {
         items(scanList) { topic->
-            var expanded by remember { mutableStateOf(false) }
+            ScanItem(topic)
+        }
+    }
+}
 
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF569097)
-                ),
-                modifier = Modifier.padding(vertical = 4.dp)
-            ) {
-                Row(modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(3.dp)
-                    .padding(start = 2.dp)
-                ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(text = topic.name)
+@Composable
+fun ScanItem(topic: DeviceData) {
+    var expanded by remember { mutableStateOf(false) }
 
-                        if(expanded) {
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(text = "UUID\n>> ${topic.uuid}", style = ScanItemTypography.bodySmall)
-                            Spacer(modifier = Modifier.height(2.dp))
-                            Text(text = "Address\n>> ${topic.address}", style = ScanItemTypography.bodySmall)
-                        }
-                    }
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF569097)
+        ),
+        modifier = Modifier.padding(vertical = 4.dp)
+    ) {
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(3.dp)
+            .padding(start = 2.dp)
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = topic.name)
 
-                    IconButton(onClick = { expanded=!expanded }) {
-                        Icon(
-                            imageVector = if(expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                            contentDescription = if(expanded){
-                                stringResource(id = R.string.show_less)
-                            } else {
-                                stringResource(id = R.string.show_more)
-                            })
-                    }
+                if(expanded) {
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(text = "UUID\n>> ${topic.uuid}", style = ScanItemTypography.bodySmall)
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(text = "Address\n>> ${topic.address}", style = ScanItemTypography.bodySmall)
                 }
+            }
+
+            IconButton(onClick = { expanded=!expanded }) {
+                Icon(
+                    imageVector = if(expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    contentDescription = if(expanded){
+                        stringResource(id = R.string.show_less)
+                    } else {
+                        stringResource(id = R.string.show_more)
+                    })
             }
         }
     }
