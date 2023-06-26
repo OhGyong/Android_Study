@@ -2,7 +2,11 @@ package com.study.blesample
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothGatt
+import android.bluetooth.BluetoothGattCallback
 import android.bluetooth.BluetoothManager
+import android.bluetooth.BluetoothProfile
 import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
@@ -11,6 +15,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
@@ -30,6 +35,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -51,24 +57,28 @@ import com.study.blesample.ui.theme.ScanItemTypography
 
 @Composable
 fun Home() {
-    val scanList = remember { mutableStateListOf<DeviceData>() }
-
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        ScanButton(scanList)
-        ScanList(scanList)
-    }
-}
-
-@Composable
-@SuppressLint("MissingPermission")
-fun ScanButton(scanList: SnapshotStateList<DeviceData>) {
     val context = LocalContext.current
     val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
     val bluetoothAdapter = bluetoothManager.adapter
     val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
 
+    val scanList = remember { mutableStateListOf<DeviceData>() }
+
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        ScanButton(context, bluetoothLeScanner, scanList)
+        ScanList(context, bluetoothAdapter, bluetoothLeScanner, scanList)
+    }
+}
+
+@Composable
+@SuppressLint("MissingPermission")
+fun ScanButton(
+    context: Context,
+    bluetoothLeScanner: BluetoothLeScanner,
+    scanList: SnapshotStateList<DeviceData>
+) {
     val launcher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) {
@@ -90,6 +100,7 @@ fun ScanButton(scanList: SnapshotStateList<DeviceData>) {
                     uuid,
                     result.device.address?: "null"
                 )
+
                 if(!scanList.contains(scanItem)) {
                     scanList.add(scanItem)
                 }
@@ -134,27 +145,53 @@ fun ScanButton(scanList: SnapshotStateList<DeviceData>) {
 }
 
 @Composable
-fun ScanList(scanList: SnapshotStateList<DeviceData>) {
+fun ScanList(
+    context: Context,
+    bluetoothAdapter: BluetoothAdapter,
+    bluetoothLeScanner: BluetoothLeScanner,
+    scanList: SnapshotStateList<DeviceData>
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 20.dp)
     ) {
         items(scanList) { topic->
-            ScanItem(topic)
+            ScanItem(context, bluetoothAdapter, bluetoothLeScanner, topic)
         }
     }
 }
 
+@SuppressLint("MissingPermission")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScanItem(topic: DeviceData) {
+fun ScanItem(
+    context: Context,
+    bluetoothAdapter: BluetoothAdapter,
+    bluetoothLeScanner: BluetoothLeScanner,
+    topic: DeviceData
+) {
     var expanded by remember { mutableStateOf(false) }
+    var bluetoothGatt: BluetoothGatt? = null
 
     Card(
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF569097)
         ),
-        modifier = Modifier.padding(vertical = 4.dp)
+        modifier = Modifier.padding(vertical = 4.dp),
+        onClick = {
+//            bluetoothLeScanner.stopScan()
+            try{
+                bluetoothAdapter
+                    .getRemoteDevice(topic.address+"c")
+                    .connectGatt(context, false, gattCallback)
+
+            } catch (e: Exception) {
+                // todo : connect 실패 처리
+                Toast.makeText(context, "연결 실패", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     ) {
         Row(modifier = Modifier
             .fillMaxWidth()
@@ -185,6 +222,44 @@ fun ScanItem(topic: DeviceData) {
     }
 }
 
+private val gattCallback = object : BluetoothGattCallback() {
+    @SuppressLint("MissingPermission")
+    override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
+        super.onConnectionStateChange(gatt, status, newState)
+        if (newState == BluetoothProfile.STATE_CONNECTED) {
+            // 연결 성공
+            println("연결 성공")
+            gatt?.discoverServices()
+        } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+            // 연결 끊김
+            // 필요한 처리 작업 수행
+            println("연결 끊김")
+        }
+    }
+
+    override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
+        super.onServicesDiscovered(gatt, status)
+        println("onServicesDiscovered")
+    }
+}
+
+@SuppressLint("MissingPermission")
+fun startBleScan(scanCallback: ScanCallback, bluetoothLeScanner: BluetoothLeScanner) {
+//    val scanFilter: ScanFilter = ScanFilter.Builder()
+//        .setDeviceName("DeviceName")
+//        .setDeviceAddress("DeviceAddress")
+//        .setServiceUuid(ParcelUuid(serviceUuid))
+//        .setManufacturerData(manufacturerId, manufacturerData, manufacturerDataMask)
+//        .setServiceData(serviceUuid, serviceData)
+//        .build()
+
+    val scanSettings = ScanSettings.Builder()
+        .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
+        .build()
+
+    bluetoothLeScanner.startScan(null, scanSettings, scanCallback)
+}
+
 fun checkPermission(context: Context): Boolean {
     val permissionArray = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         arrayOf(
@@ -205,23 +280,6 @@ fun checkPermission(context: Context): Boolean {
         return permissionArray.all{ ContextCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED}
     }
     return true
-}
-
-@SuppressLint("MissingPermission")
-fun startBleScan(scanCallback: ScanCallback, bluetoothLeScanner: BluetoothLeScanner) {
-//    val scanFilter: ScanFilter = ScanFilter.Builder()
-//        .setDeviceName("DeviceName")
-//        .setDeviceAddress("DeviceAddress")
-//        .setServiceUuid(ParcelUuid(serviceUuid))
-//        .setManufacturerData(manufacturerId, manufacturerData, manufacturerDataMask)
-//        .setServiceData(serviceUuid, serviceData)
-//        .build()
-
-    val scanSettings = ScanSettings.Builder()
-        .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
-        .build()
-
-    bluetoothLeScanner.startScan(null, scanSettings, scanCallback)
 }
 
 private val permissionArray = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
