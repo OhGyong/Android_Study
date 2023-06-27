@@ -53,7 +53,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.study.blesample.ui.theme.ScanItemTypography
-
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun Home() {
@@ -61,31 +62,9 @@ fun Home() {
     val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
     val bluetoothAdapter = bluetoothManager.adapter
     val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
-
     val scanList = remember { mutableStateListOf<DeviceData>() }
-
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        ScanButton(context, bluetoothLeScanner, scanList)
-        ScanList(context, bluetoothAdapter, bluetoothLeScanner, scanList)
-    }
-}
-
-@Composable
-@SuppressLint("MissingPermission")
-fun ScanButton(
-    context: Context,
-    bluetoothLeScanner: BluetoothLeScanner,
-    scanList: SnapshotStateList<DeviceData>
-) {
-    val launcher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
-    ) {
-        // todo : 권한 결과 처리
-    }
-
     val scanCallback: ScanCallback = object : ScanCallback() {
+        @SuppressLint("MissingPermission")
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             Log.d("onScanResult", result.toString())
             if(result.device.name != null) {
@@ -112,6 +91,50 @@ fun ScanButton(
         }
     }
 
+    val gattCallback = object : BluetoothGattCallback() {
+        @SuppressLint("MissingPermission")
+        override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
+            super.onConnectionStateChange(gatt, status, newState)
+            if (newState == BluetoothProfile.STATE_CONNECTED) {
+                // 연결 성공
+                gatt?.discoverServices()
+            } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                // 연결 끊김
+            }
+        }
+
+        @SuppressLint("MissingPermission")
+        override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
+            super.onServicesDiscovered(gatt, status)
+            MainScope().launch {
+                Toast.makeText(context, " ${gatt?.device?.name} 연결 성공", Toast.LENGTH_SHORT).show()
+            }.cancel()
+        }
+    }
+
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        ScanButton(context, bluetoothLeScanner, scanList, scanCallback)
+        ScanList(context, bluetoothAdapter, bluetoothLeScanner, scanList, scanCallback, gattCallback)
+    }
+}
+
+@Composable
+@SuppressLint("MissingPermission")
+fun ScanButton(
+    context: Context,
+    bluetoothLeScanner: BluetoothLeScanner,
+    scanList: SnapshotStateList<DeviceData>,
+    scanCallback: ScanCallback,
+
+    ) {
+    val launcher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) {
+        // todo : 권한 결과 처리
+    }
+
     var isScanning by remember{ mutableStateOf(false) }
 
     Button(
@@ -124,6 +147,7 @@ fun ScanButton(
         onClick = {
             if(!isScanning) {
                 if (checkPermission(context)) {
+                    scanList.clear()
                     startBleScan(scanCallback, bluetoothLeScanner)
                 } else {
                     launcher.launch(permissionArray)
@@ -149,7 +173,9 @@ fun ScanList(
     context: Context,
     bluetoothAdapter: BluetoothAdapter,
     bluetoothLeScanner: BluetoothLeScanner,
-    scanList: SnapshotStateList<DeviceData>
+    scanList: SnapshotStateList<DeviceData>,
+    scanCallback: ScanCallback,
+    gattCallback: BluetoothGattCallback
 ) {
     LazyColumn(
         modifier = Modifier
@@ -157,7 +183,7 @@ fun ScanList(
             .padding(horizontal = 20.dp)
     ) {
         items(scanList) { topic->
-            ScanItem(context, bluetoothAdapter, bluetoothLeScanner, topic)
+            ScanItem(context, bluetoothAdapter, bluetoothLeScanner, scanCallback, gattCallback, topic)
         }
     }
 }
@@ -169,10 +195,11 @@ fun ScanItem(
     context: Context,
     bluetoothAdapter: BluetoothAdapter,
     bluetoothLeScanner: BluetoothLeScanner,
+    scanCallback: ScanCallback,
+    gattCallback: BluetoothGattCallback,
     topic: DeviceData
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var bluetoothGatt: BluetoothGatt? = null
 
     Card(
         colors = CardDefaults.cardColors(
@@ -180,10 +207,10 @@ fun ScanItem(
         ),
         modifier = Modifier.padding(vertical = 4.dp),
         onClick = {
-//            bluetoothLeScanner.stopScan()
+            bluetoothLeScanner.stopScan(scanCallback)
             try{
                 bluetoothAdapter
-                    .getRemoteDevice(topic.address+"c")
+                    .getRemoteDevice(topic.address)
                     .connectGatt(context, false, gattCallback)
 
             } catch (e: Exception) {
@@ -219,27 +246,6 @@ fun ScanItem(
                     })
             }
         }
-    }
-}
-
-private val gattCallback = object : BluetoothGattCallback() {
-    @SuppressLint("MissingPermission")
-    override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
-        super.onConnectionStateChange(gatt, status, newState)
-        if (newState == BluetoothProfile.STATE_CONNECTED) {
-            // 연결 성공
-            println("연결 성공")
-            gatt?.discoverServices()
-        } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
-            // 연결 끊김
-            // 필요한 처리 작업 수행
-            println("연결 끊김")
-        }
-    }
-
-    override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
-        super.onServicesDiscovered(gatt, status)
-        println("onServicesDiscovered")
     }
 }
 
