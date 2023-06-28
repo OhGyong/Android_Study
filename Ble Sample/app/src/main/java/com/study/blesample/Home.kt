@@ -47,7 +47,6 @@ import com.study.blesample.ui.theme.ScanItemTypography
 fun Home() {
     val context = LocalContext.current
     val scanList = remember { mutableStateListOf<DeviceData>() }
-
     val bleManager = BleManager(context, scanList)
 
     Column(
