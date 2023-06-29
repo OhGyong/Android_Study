@@ -1,4 +1,4 @@
-package com.study.blesample
+package com.study.blesample.ble
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothGatt
@@ -12,6 +12,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.runtime.snapshots.SnapshotStateList
+import com.study.blesample.DeviceData
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
