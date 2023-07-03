@@ -1,4 +1,4 @@
-package com.study.blesample
+package com.study.blesample.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -29,6 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -41,20 +42,32 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavHostController
+import com.study.blesample.BleInterface
+import com.study.blesample.DeviceData
+import com.study.blesample.R
 import com.study.blesample.ble.BleManager
 import com.study.blesample.ui.theme.ScanItemTypography
 
 @Composable
-fun Home() {
+fun ScanScreen(navController: NavHostController) {
     val context = LocalContext.current
     val scanList = remember { mutableStateListOf<DeviceData>() }
     val bleManager = BleManager(context, scanList)
 
+    bleManager.onServiceDiscovered(object : BleInterface{
+        override fun onServiceDiscovered() {
+            navController.navigate("ConnectScreen")
+        }
+    })
+
+    val isScanning = remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        ScanButton(context,bleManager)
-        ScanList(bleManager, scanList)
+        ScanButton(context,bleManager, isScanning)
+        ScanList(bleManager, scanList, isScanning)
     }
 }
 
@@ -62,15 +75,14 @@ fun Home() {
 @SuppressLint("MissingPermission")
 fun ScanButton(
     context: Context,
-    bleManager: BleManager
-    ) {
+    bleManager: BleManager,
+    isScanning: MutableState<Boolean>
+) {
     val launcher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) {
         // todo : 권한 결과 처리
     }
-
-    var isScanning by remember{ mutableStateOf(false) }
 
     Button(
         modifier = Modifier
@@ -80,7 +92,7 @@ fun ScanButton(
         shape = RoundedCornerShape(2.dp),
         colors = ButtonDefaults.buttonColors(Color(0xFF1D8821)),
         onClick = {
-            if(!isScanning) {
+            if(!isScanning.value) {
                 if (checkPermission(context)) {
                     bleManager.startBleScan()
                 } else {
@@ -89,11 +101,11 @@ fun ScanButton(
             } else {
                 bleManager.stopBleScan()
             }
-            isScanning =!isScanning
+            isScanning.value =!isScanning.value
         }
     ) {
         Text(
-            text = if (!isScanning) {
+            text = if (!isScanning.value) {
                 stringResource(id = R.string.scan)
             } else {
                 stringResource(id = R.string.stop)
@@ -106,6 +118,7 @@ fun ScanButton(
 fun ScanList(
     bleManager: BleManager,
     scanList: SnapshotStateList<DeviceData>,
+    isScanning: MutableState<Boolean>,
 ) {
     LazyColumn(
         modifier = Modifier
@@ -113,7 +126,7 @@ fun ScanList(
             .padding(horizontal = 20.dp)
     ) {
         items(scanList) { topic->
-            ScanItem(bleManager, topic)
+            ScanItem(bleManager, topic, isScanning)
         }
     }
 }
@@ -123,7 +136,8 @@ fun ScanList(
 @Composable
 fun ScanItem(
     bleManager: BleManager,
-    deviceData: DeviceData
+    deviceData: DeviceData,
+    isScanning: MutableState<Boolean>
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -134,6 +148,7 @@ fun ScanItem(
         modifier = Modifier.padding(vertical = 4.dp),
         onClick = {
             bleManager.stopBleScan()
+            isScanning.value = !isScanning.value
             try{
                 bleManager.startBleConnectGatt(deviceData)
             } catch (e: Exception) {

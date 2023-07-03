@@ -14,6 +14,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.study.blesample.ui.ConnectScreen
+import com.study.blesample.ui.ScanScreen
 import com.study.blesample.ui.theme.BleSampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +44,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Home()
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = "ScanScreen") {
+                        composable(route = "ScanScreen") { ScanScreen(navController) }
+                        composable(route = "ConnectScreen") { ConnectScreen() }
+                    }
                 }
             }
         }
