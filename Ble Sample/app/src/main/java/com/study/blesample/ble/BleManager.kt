@@ -17,13 +17,12 @@ import com.study.blesample.DeviceData
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class BleManager(
-    private val context: Context,
-    private val scanList: SnapshotStateList<DeviceData>
-) {
+class BleManager(private val context: Context) {
     private val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
     private val bluetoothAdapter = bluetoothManager.adapter
     private val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
+    private var scanList: SnapshotStateList<DeviceData>? = null
+    private var scanResultListener: BleInterface? = null
 
     private val scanCallback: ScanCallback = object : ScanCallback() {
         @SuppressLint("MissingPermission")
@@ -42,8 +41,8 @@ class BleManager(
                     result.device.address?: "null"
                 )
 
-                if(!scanList.contains(scanItem)) {
-                    scanList.add(scanItem)
+                if(!scanList!!.contains(scanItem)) {
+                    scanList!!.add(scanItem)
                 }
             }
         }
@@ -77,7 +76,7 @@ class BleManager(
 
     @SuppressLint("MissingPermission")
     fun startBleScan() {
-        scanList.clear()
+        scanList?.clear()
 
 //        val scanFilter: ScanFilter = ScanFilter.Builder()
 //            .setDeviceName("DeviceName")
@@ -106,7 +105,9 @@ class BleManager(
             .connectGatt(context, false, gattCallback)
     }
 
-    var scanResultListener: BleInterface? = null
+    fun setScanList(pScanList: SnapshotStateList<DeviceData>) {
+        scanList = pScanList
+    }
 
     fun onServiceDiscovered(pScanResultListener: BleInterface) {
         scanResultListener = pScanResultListener

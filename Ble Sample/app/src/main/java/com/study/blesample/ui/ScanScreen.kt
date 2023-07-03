@@ -50,18 +50,17 @@ import com.study.blesample.ble.BleManager
 import com.study.blesample.ui.theme.ScanItemTypography
 
 @Composable
-fun ScanScreen(navController: NavHostController) {
-    val context = LocalContext.current
+fun ScanScreen(navController: NavHostController, bleManager: BleManager) {
     val scanList = remember { mutableStateListOf<DeviceData>() }
-    val bleManager = BleManager(context, scanList)
+    val isScanning = remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    bleManager.setScanList(scanList)
 
     bleManager.onServiceDiscovered(object : BleInterface{
         override fun onServiceDiscovered() {
             navController.navigate("ConnectScreen")
         }
     })
-
-    val isScanning = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier.fillMaxSize()
