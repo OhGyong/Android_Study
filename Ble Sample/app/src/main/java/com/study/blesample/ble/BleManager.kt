@@ -23,6 +23,7 @@ class BleManager(private val context: Context) {
     private val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
     private var scanList: SnapshotStateList<DeviceData>? = null
     private var scanResultListener: BleInterface? = null
+    var bleGatt: BluetoothGatt? = null
 
     private val scanCallback: ScanCallback = object : ScanCallback() {
         @SuppressLint("MissingPermission")
@@ -68,6 +69,7 @@ class BleManager(private val context: Context) {
         override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
             super.onServicesDiscovered(gatt, status)
             MainScope().launch {
+                bleGatt = gatt
                 Toast.makeText(context, " ${gatt?.device?.name} 연결 성공", Toast.LENGTH_SHORT).show()
                 scanResultListener?.onServiceDiscovered()
             }.cancel()
