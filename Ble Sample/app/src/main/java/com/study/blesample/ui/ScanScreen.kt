@@ -53,12 +53,24 @@ import com.study.blesample.ui.theme.ScanItemTypography
 fun ScanScreen(navController: NavHostController, bleManager: BleManager) {
     val scanList = remember { mutableStateListOf<DeviceData>() }
     val isScanning = remember { mutableStateOf(false) }
+    var isCallOnServiceDiscovered by remember { mutableStateOf(false) }
     val context = LocalContext.current
     bleManager.setScanList(scanList)
 
     bleManager.onServiceDiscovered(object : BleInterface{
         override fun onServiceDiscovered() {
-            navController.navigate("ConnectScreen")
+            if(!isCallOnServiceDiscovered) {
+                navController.navigate("ConnectScreen")
+                isCallOnServiceDiscovered = true
+            }
+        }
+
+        override fun onConnectedStateObserve(isConnected: Boolean) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onConnectedDataObserve(data: String) {
+            TODO("Not yet implemented")
         }
     })
 
