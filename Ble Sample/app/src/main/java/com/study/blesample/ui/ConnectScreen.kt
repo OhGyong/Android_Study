@@ -14,26 +14,23 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.study.blesample.BleInterface
+import com.study.blesample.DeviceData
 import com.study.blesample.ble.BleManager
 
 @SuppressLint("MissingPermission")
 @Composable
-fun ConnectScreen(bleManager: BleManager) {
-    val isConnecting = remember { mutableStateOf(true) }
+fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
+    val deviceData = navController.previousBackStackEntry?.savedStateHandle?.get<DeviceData>("deviceData")
+    val isConnecting = remember { mutableStateOf(false) }
     val connectedData = remember { mutableStateOf("") }
 
     bleManager.onConnectedStateObserve(object : BleInterface{
-        override fun onServiceDiscovered() {
-            TODO("Not yet implemented")
-        }
-
         override fun onConnectedStateObserve(isConnected: Boolean) {
             isConnecting.value = isConnected
         }
@@ -49,13 +46,13 @@ fun ConnectScreen(bleManager: BleManager) {
             .padding(10.dp)
     ) {
         Text(
-            text = bleManager.bleGatt!!.device.name,
+            text = deviceData?.name ?: "Null",
             style = TextStyle(
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold
             )
         )
-        ConnectButton(bleManager, isConnecting)
+        ConnectButton(bleManager, isConnecting, deviceData)
         Text(
             modifier = Modifier.padding(top = 5.dp),
             text = connectedData.value,
@@ -68,7 +65,11 @@ fun ConnectScreen(bleManager: BleManager) {
 }
 @SuppressLint("MissingPermission")
 @Composable
-fun ConnectButton(bleManager: BleManager, isConnecting: MutableState<Boolean>) {
+fun ConnectButton(
+    bleManager: BleManager,
+    isConnecting: MutableState<Boolean>,
+    deviceData: DeviceData?
+) {
     Row(
         Modifier
             .fillMaxWidth()
@@ -80,7 +81,9 @@ fun ConnectButton(bleManager: BleManager, isConnecting: MutableState<Boolean>) {
                 .padding(end = 2.dp),
             shape = RoundedCornerShape(2.dp),
             enabled = !isConnecting.value,
-            onClick = { bleManager.bleGatt!!.connect() }
+            onClick = {
+                bleManager.startBleConnectGatt(deviceData?:DeviceData("", "", ""))
+            }
         ) {
             Text(text = "Connect")
         }
@@ -95,11 +98,4 @@ fun ConnectButton(bleManager: BleManager, isConnecting: MutableState<Boolean>) {
             Text(text = "Disconnect")
         }
     }
-}
-
-@Composable
-@Preview
-fun ConnectScreenPreView() {
-    val bleManager = BleManager(LocalContext.current)
-    ConnectScreen(bleManager)
 }

@@ -22,7 +22,6 @@ class BleManager(private val context: Context) {
     private val bluetoothAdapter = bluetoothManager.adapter
     private val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
     private var scanList: SnapshotStateList<DeviceData>? = null
-    private var scanResultListener: BleInterface? = null
     private var connectedStateObserver: BleInterface? = null
     var bleGatt: BluetoothGatt? = null
 
@@ -84,7 +83,6 @@ class BleManager(private val context: Context) {
                 MainScope().launch {
                     bleGatt = gatt
                     Toast.makeText(context, " ${gatt?.device?.name} 연결 성공", Toast.LENGTH_SHORT).show()
-                    scanResultListener?.onServiceDiscovered()
                     connectedStateObserver?.onConnectedStateObserve(true)
                     connectedStateObserver?.onConnectedDataObserve("onServicesDiscovered GATT_SUCCESS")
                 }.cancel()
@@ -125,10 +123,6 @@ class BleManager(private val context: Context) {
 
     fun setScanList(pScanList: SnapshotStateList<DeviceData>) {
         scanList = pScanList
-    }
-
-    fun onServiceDiscovered(pScanResultListener: BleInterface) {
-        scanResultListener = pScanResultListener
     }
 
     fun onConnectedStateObserve(pConnectedStateObserver: BleInterface) {

@@ -43,7 +43,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavHostController
-import com.study.blesample.BleInterface
 import com.study.blesample.DeviceData
 import com.study.blesample.R
 import com.study.blesample.ble.BleManager
@@ -53,32 +52,14 @@ import com.study.blesample.ui.theme.ScanItemTypography
 fun ScanScreen(navController: NavHostController, bleManager: BleManager) {
     val scanList = remember { mutableStateListOf<DeviceData>() }
     val isScanning = remember { mutableStateOf(false) }
-    var isCallOnServiceDiscovered by remember { mutableStateOf(false) }
     val context = LocalContext.current
     bleManager.setScanList(scanList)
-
-    bleManager.onServiceDiscovered(object : BleInterface{
-        override fun onServiceDiscovered() {
-            if(!isCallOnServiceDiscovered) {
-                navController.navigate("ConnectScreen")
-                isCallOnServiceDiscovered = true
-            }
-        }
-
-        override fun onConnectedStateObserve(isConnected: Boolean) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onConnectedDataObserve(data: String) {
-            TODO("Not yet implemented")
-        }
-    })
 
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
         ScanButton(context,bleManager, isScanning)
-        ScanList(bleManager, scanList, isScanning)
+        ScanList(navController, bleManager, scanList)
     }
 }
 
@@ -127,9 +108,9 @@ fun ScanButton(
 
 @Composable
 fun ScanList(
+    navController: NavHostController,
     bleManager: BleManager,
-    scanList: SnapshotStateList<DeviceData>,
-    isScanning: MutableState<Boolean>,
+    scanList: SnapshotStateList<DeviceData>
 ) {
     LazyColumn(
         modifier = Modifier
@@ -137,7 +118,7 @@ fun ScanList(
             .padding(horizontal = 20.dp)
     ) {
         items(scanList) { topic->
-            ScanItem(bleManager, topic, isScanning)
+            ScanItem(navController, bleManager, topic)
         }
     }
 }
@@ -146,9 +127,9 @@ fun ScanList(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScanItem(
+    navController: NavHostController,
     bleManager: BleManager,
     deviceData: DeviceData,
-    isScanning: MutableState<Boolean>
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -159,14 +140,8 @@ fun ScanItem(
         modifier = Modifier.padding(vertical = 4.dp),
         onClick = {
             bleManager.stopBleScan()
-            if(isScanning.value) {
-                isScanning.value = !isScanning.value
-            }
-            try{
-                bleManager.startBleConnectGatt(deviceData)
-            } catch (e: Exception) {
-                // todo : connect 실패 처리
-            }
+            navController.currentBackStackEntry?.savedStateHandle?.set(key = "deviceData", value = deviceData)
+            navController.navigate("ConnectScreen")
 
         }
     ) {

@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "ScanScreen") {
                         composable(route = "ScanScreen") { ScanScreen(navController, bleManager) }
-                        composable(route = "ConnectScreen") { ConnectScreen(bleManager) }
+                        composable(route = "ConnectScreen") { ConnectScreen(navController, bleManager) }
                     }
                 }
             }
