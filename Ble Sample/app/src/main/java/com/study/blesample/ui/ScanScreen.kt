@@ -147,7 +147,9 @@ fun ScanItem(
         modifier = Modifier.padding(vertical = 4.dp),
         onClick = {
             bleManager.stopBleScan()
-            isScanning.value = !isScanning.value
+            if(isScanning.value) {
+                isScanning.value = !isScanning.value
+            }
             try{
                 bleManager.startBleConnectGatt(deviceData)
             } catch (e: Exception) {
