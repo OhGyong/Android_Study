@@ -64,12 +64,23 @@ class BleManager(private val context: Context) {
                 // GATT 서버에서 사용 가능한 서비스들을 비동기적으로 탐색
                 Log.d("BleManager", "연결 성공")
                 gatt?.discoverServices()
-                connectedStateObserver?.onConnectedDataObserve("onConnectionStateChange STATE_CONNECTED")
+                connectedStateObserver?.onConnectedStateObserve(
+                    true,
+                    "onConnectionStateChange:  STATE_CONNECTED"
+                            + "\n"
+                            + "---"
+                            + "\n"
+                )
             } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                 // 연결 끊김
                 Log.d("BleManager", "연결 해제")
-                connectedStateObserver?.onConnectedStateObserve(false)
-                connectedStateObserver?.onConnectedDataObserve("onConnectionStateChange STATE_DISCONNECTED")
+                connectedStateObserver?.onConnectedStateObserve(
+                    false,
+                    "onConnectionStateChange:  STATE_DISCONNECTED"
+                            + "\n"
+                            + "---"
+                            + "\n"
+                )
             }
         }
 
@@ -83,8 +94,14 @@ class BleManager(private val context: Context) {
                 MainScope().launch {
                     bleGatt = gatt
                     Toast.makeText(context, " ${gatt?.device?.name} 연결 성공", Toast.LENGTH_SHORT).show()
-                    connectedStateObserver?.onConnectedStateObserve(true)
-                    connectedStateObserver?.onConnectedDataObserve("onServicesDiscovered GATT_SUCCESS")
+                    connectedStateObserver?.onConnectedStateObserve(
+                        true,
+                        "onServicesDiscovered:  GATT_SUCCESS"
+                                + "\n"
+                                + gatt?.device
+                                + "\n"
+                                + "---"
+                    )
                 }.cancel()
             }
         }

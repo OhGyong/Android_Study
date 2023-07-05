@@ -31,11 +31,8 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
     val connectedData = remember { mutableStateOf("") }
 
     bleManager.onConnectedStateObserve(object : BleInterface{
-        override fun onConnectedStateObserve(isConnected: Boolean) {
+        override fun onConnectedStateObserve(isConnected: Boolean, data: String) {
             isConnecting.value = isConnected
-        }
-
-        override fun onConnectedDataObserve(data: String) {
             connectedData.value = connectedData.value + "\n" + data
         }
     })
@@ -82,7 +79,7 @@ fun ConnectButton(
             shape = RoundedCornerShape(2.dp),
             enabled = !isConnecting.value,
             onClick = {
-                bleManager.startBleConnectGatt(deviceData?:DeviceData("", "", ""))
+                bleManager.startBleConnectGatt(deviceData?: DeviceData("", "", ""))
             }
         ) {
             Text(text = "Connect")
