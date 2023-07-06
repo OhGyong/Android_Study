@@ -1,11 +1,13 @@
 package com.study.blesample.ui
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,13 +15,16 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,6 +32,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
 import com.study.blesample.BleInterface
 import com.study.blesample.DeviceData
@@ -45,7 +51,9 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
             connectedData.value = connectedData.value + "\n" + data
         }
     })
-
+    var declarationDialogState by remember {
+        mutableStateOf(false)
+    }
     Column(
         Modifier
             .fillMaxSize()
@@ -55,6 +63,9 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
             Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+            if (declarationDialogState) {
+               InfoDialog() {declarationDialogState = false}
+            }
             Text(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 text = deviceData?.name ?: "Null",
@@ -64,7 +75,9 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
                 )
             )
             IconButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                          declarationDialogState = true
+                },
             ){
                 Icon(
                     imageVector = Icons.TwoTone.Info,
@@ -88,6 +101,37 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
         )
     }
 }
+
+@Composable
+fun InfoDialog(onChangeState: ()-> Unit) {
+    Dialog(onDismissRequest = onChangeState) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth().padding(50.dp).height(120.dp)
+                .background(Color.White),
+            verticalArrangement = Arrangement.SpaceBetween
+
+        ) {
+            Text(
+                modifier = Modifier.padding(5.dp),
+                fontWeight = FontWeight.Bold,
+                text =
+                "- Service UUID" + "\n" +
+                        "      Characteristic UUID"
+
+            )
+            Button(
+                modifier= Modifier.align(Alignment.CenterHorizontally),
+                shape = RoundedCornerShape(2.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFF1D8821)),
+                onClick = onChangeState
+            ) {
+                Text(text = "close")
+            }
+        }
+    }
+}
+
 @SuppressLint("MissingPermission")
 @Composable
 fun ConnectButton(
@@ -105,6 +149,7 @@ fun ConnectButton(
                 .weight(1f)
                 .padding(end = 2.dp),
             shape = RoundedCornerShape(2.dp),
+            colors = ButtonDefaults.buttonColors(Color(0xFF1D8821)),
             enabled = !isConnecting.value,
             onClick = {
                 bleManager.startBleConnectGatt(deviceData?: DeviceData("", "", ""))
@@ -117,6 +162,7 @@ fun ConnectButton(
                 .weight(1f)
                 .padding(start = 2.dp),
             shape = RoundedCornerShape(2.dp),
+            colors = ButtonDefaults.buttonColors(Color(0xFF1D8821)),
             enabled = isConnecting.value,
             onClick = { bleManager.bleGatt!!.disconnect() }
         ) {
@@ -124,3 +170,4 @@ fun ConnectButton(
         }
     }
 }
+
