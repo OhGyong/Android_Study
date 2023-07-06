@@ -69,7 +69,6 @@ class BleManager(private val context: Context) {
                     "onConnectionStateChange:  STATE_CONNECTED"
                             + "\n"
                             + "---"
-                            + "\n"
                 )
             } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                 // 연결 끊김
@@ -94,13 +93,18 @@ class BleManager(private val context: Context) {
                 MainScope().launch {
                     bleGatt = gatt
                     Toast.makeText(context, " ${gatt?.device?.name} 연결 성공", Toast.LENGTH_SHORT).show()
+                    var sendText = "onServicesDiscovered:  GATT_SUCCESS" + "\n" + "                         ↓" + "\n"
+
+                    for(service in gatt?.services!!) {
+                        sendText += "- " + service.uuid.toString() + "\n"
+                        for(characteristics in service.characteristics) {
+                            sendText += "       " + characteristics.uuid.toString() + "\n"
+                        }
+                    }
+                    sendText += "---"
                     connectedStateObserver?.onConnectedStateObserve(
                         true,
-                        "onServicesDiscovered:  GATT_SUCCESS"
-                                + "\n"
-                                + gatt?.device
-                                + "\n"
-                                + "---"
+                        sendText
                     )
                 }.cancel()
             }

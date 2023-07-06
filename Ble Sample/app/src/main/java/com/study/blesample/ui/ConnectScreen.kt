@@ -1,12 +1,16 @@
 package com.study.blesample.ui
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.gestures.ScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,11 +54,13 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
             )
         )
         ConnectButton(bleManager, isConnecting, deviceData)
+
+        val scroll = rememberScrollState(0)
         Text(
-            modifier = Modifier.padding(top = 5.dp),
+            modifier = Modifier.padding(top = 5.dp).verticalScroll(scroll),
             text = connectedData.value,
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 14.sp,
             )
 
         )
