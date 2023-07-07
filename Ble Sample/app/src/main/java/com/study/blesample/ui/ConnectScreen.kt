@@ -2,7 +2,9 @@ package com.study.blesample.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -71,7 +74,7 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
                 text = deviceData?.name ?: "Null",
                 style = TextStyle(
                     fontSize = 25.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.SemiBold
                 )
             )
             IconButton(
@@ -104,11 +107,18 @@ fun ConnectScreen(navController: NavHostController, bleManager: BleManager) {
 
 @Composable
 fun InfoDialog(onChangeState: ()-> Unit) {
-    Dialog(onDismissRequest = onChangeState) {
+    Dialog(
+        onDismissRequest = onChangeState
+    ) {
         Column(
             modifier = Modifier
-                .fillMaxWidth().padding(50.dp).height(120.dp)
-                .background(Color.White),
+                .fillMaxWidth()
+                .padding(50.dp)
+                .height(120.dp)
+                .background(
+                    Color.White,
+                    shape = RoundedCornerShape(2.dp)
+                ),
             verticalArrangement = Arrangement.SpaceBetween
 
         ) {
@@ -126,7 +136,7 @@ fun InfoDialog(onChangeState: ()-> Unit) {
                 colors = ButtonDefaults.buttonColors(Color(0xFF1D8821)),
                 onClick = onChangeState
             ) {
-                Text(text = "close")
+                Text(text = "Close")
             }
         }
     }
