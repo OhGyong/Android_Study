@@ -78,7 +78,6 @@ class BleManager(private val context: Context) {
                     "onConnectionStateChange:  STATE_DISCONNECTED"
                             + "\n"
                             + "---"
-                            + "\n"
                 )
             }
         }
