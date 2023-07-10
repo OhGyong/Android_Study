@@ -19,10 +19,9 @@ FCM 사용 방법
 <br/>
 
 - [Ble Sample](https://github.com/OhGyong/Android_Study/tree/master/Ble%20Sample) <br/>
-Ble Scan 하는 방법
+Ble Scan/Connection 하는 방법 + Compose 사용
 
 <br/>
-
 
 - [BottomNavigation](https://github.com/OhGyong/Android_Study/tree/master/BottomNaviagtion) <br/>
 BottomNavigation 사용 방법
