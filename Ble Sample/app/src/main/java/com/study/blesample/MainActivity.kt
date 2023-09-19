@@ -21,7 +21,10 @@ import com.study.blesample.ble.BleManager
 import com.study.blesample.ui.ConnectScreen
 import com.study.blesample.ui.ScanScreen
 import com.study.blesample.ui.theme.BleSampleTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.qualifiers.ApplicationContext
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val permissionArray = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         arrayOf(
@@ -45,7 +48,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val bleManager = BleManager(this)
+                    val bleManager = BleManager(applicationContext)
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "ScanScreen") {
                         composable(route = "ScanScreen") { ScanScreen(navController, bleManager) }

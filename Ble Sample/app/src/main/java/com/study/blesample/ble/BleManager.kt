@@ -16,8 +16,13 @@ import com.study.blesample.BleInterface
 import com.study.blesample.DeviceData
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class BleManager(private val context: Context) {
+@Singleton
+class BleManager @Inject constructor(
+    private val context: Context
+) {
     private val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
     private val bluetoothAdapter = bluetoothManager.adapter
     private val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
