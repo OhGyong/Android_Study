@@ -12,13 +12,19 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.study.blesample.ble.BleManager
+import com.study.blesample.ui.ConnectScreen
+import com.study.blesample.ui.ScanScreen
 import com.study.blesample.ui.theme.BleSampleTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.qualifiers.ApplicationContext
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val permissionArray = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         arrayOf(
@@ -42,17 +48,20 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Home()
+                    val bleManager = BleManager(applicationContext)
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = "ScanScreen") {
+                        composable(route = "ScanScreen") { ScanScreen(navController, bleManager) }
+                        composable(route = "ConnectScreen") { ConnectScreen(navController, bleManager) }
+                    }
                 }
             }
         }
 
         if(Build.VERSION.SDK_INT >= 31){
-            // 블루투스와 카메라 권한이 허용되었는지 체크
             if(permissionArray.all{ ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED}){
                 Toast.makeText(this, "권한 확인", Toast.LENGTH_SHORT).show()
             }
-            // 권한 요청
             else{
                 requestPermissionLauncher.launch(permissionArray)
             }

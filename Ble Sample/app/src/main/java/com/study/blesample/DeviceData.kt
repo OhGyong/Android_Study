@@ -1,10 +1,11 @@
 package com.study.blesample
 
-import android.os.ParcelUuid
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class DeviceData (
     val name: String,
-    val uuid1: String,
-    val uuid2: String,
+    val uuid: String,
     val address: String
-)
+): Parcelable
