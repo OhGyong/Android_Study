@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -5,16 +7,27 @@ plugins {
 
 android {
     namespace = "com.study.buildconfigmanagekey"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.study.buildconfigmanagekey"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "API_KEY_1",
+            gradleLocalProperties(rootDir).getProperty("API_KEY_1") ?: ""
+        )
+
+        fun key(pKey:String): String = gradleLocalProperties(rootDir).getProperty(pKey) ?: ""
+        buildConfigField("String", "API_KEY_2", key("API_KEY_2"))
+
+        manifestPlaceholders["NAVER_CLIENT_ID"] = key("NAVER_CLIENT_ID")
     }
 
     buildTypes {
@@ -32,6 +45,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 }
 
