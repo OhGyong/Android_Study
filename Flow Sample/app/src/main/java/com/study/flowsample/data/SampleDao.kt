@@ -19,11 +19,6 @@ interface ColdDao {
 
     @Query("UPDATE cold_db SET data=:changeData WHERE data=:originData")
     fun updateCold(originData: String, changeData: String)
-
-    //////////////////
-
-    @Query("SELECT * FROM cold_db")
-    fun selectAll2(): List<String>
 }
 
 @Dao

@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
      * Hot Flow
      */
     private var _hotData = MutableStateFlow<List<String>>(emptyList())
-    val hotData = _hotData
+    val hotData: StateFlow<List<String>> = _hotData
 
     fun selectHot() {
         viewModelScope.launch {

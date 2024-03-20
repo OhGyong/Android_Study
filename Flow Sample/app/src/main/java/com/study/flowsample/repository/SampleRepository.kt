@@ -21,9 +21,7 @@ class SampleRepository @Inject constructor(
     /**
      * Cold Flow
      */
-    fun selectCold() : Flow<List<String>> {
-        return coldDao.selectCold()
-    }
+    fun selectCold() : Flow<List<String>>  = coldDao.selectCold()
 
     fun insertCold(coldEntity: ColdEntity) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -78,23 +76,5 @@ class SampleRepository @Inject constructor(
             }
         }.join()
         return sampleResult
-    }
-
-    //////////////////
-
-    fun callSelect2(): List<String> {
-        return coldDao.selectAll2()
-    }
-
-    suspend fun callSelect3(): List<String> {
-        var list = emptyList<String>()
-        CoroutineScope(Dispatchers.IO).launch {
-            list = coldDao.selectAll2()
-        }.join()
-        return list
-    }
-
-    fun callSelect4(): Flow<List<String>> {
-        return coldDao.selectCold()
     }
 }
