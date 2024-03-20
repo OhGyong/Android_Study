@@ -7,21 +7,36 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface SampleDao {
-    @Query("SELECT * FROM sample_db")
-    fun selectAll(): Flow<List<String>>
+interface ColdDao {
+    @Query("SELECT * FROM cold_db")
+    fun selectCold(): Flow<List<String>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertSample(name: Sample)
+    fun insertCold(data: ColdEntity)
 
-    @Query("DELETE FROM sample_db WHERE name=:name")
-    fun deleteSample(name: String)
+    @Query("DELETE FROM cold_db WHERE data=:data")
+    fun deleteCold(data: String)
 
-    @Query("UPDATE sample_db SET name=:changeName WHERE name=:originName")
-    fun updateSample(originName: String, changeName: String)
+    @Query("UPDATE cold_db SET data=:changeData WHERE data=:originData")
+    fun updateCold(originData: String, changeData: String)
 
     //////////////////
 
-    @Query("SELECT * FROM sample_db")
+    @Query("SELECT * FROM cold_db")
     fun selectAll2(): List<String>
+}
+
+@Dao
+interface HotDao {
+    @Query("SELECT * FROM hot_db")
+    fun selectHot(): Flow<List<String>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertHot(data: HotEntity)
+
+    @Query("DELETE FROM hot_db WHERE data=:data")
+    fun deleteHot(data: String)
+
+    @Query("UPDATE hot_db SET data=:changeData WHERE data=:originData")
+    fun updateHot(originData: String, changeData: String)
 }

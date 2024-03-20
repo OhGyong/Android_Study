@@ -10,4 +10,7 @@
     <string name="et_hint">enter name</string>
     <string name="et_target_hint">enter target</string>
 
+    <string name="cold_flow">Cold Flow: </string>
+    <string name="hot_flow">\  Hot Flow: </string>
+
 </resources>

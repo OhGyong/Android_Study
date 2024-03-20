@@ -2,8 +2,10 @@ package com.study.flowsample.di
 
 import android.content.Context
 import androidx.room.Room
-import com.study.flowsample.data.SampleDao
-import com.study.flowsample.data.SampleDatabase
+import com.study.flowsample.data.ColdDao
+import com.study.flowsample.data.ColdDatabase
+import com.study.flowsample.data.HotDao
+import com.study.flowsample.data.HotDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,15 +18,28 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    fun provideDao(sampleDatabase: SampleDatabase) : SampleDao {
-        return sampleDatabase.sampleDao()
+    fun provideColdDao(coldDatabase: ColdDatabase) : ColdDao {
+        return coldDatabase.coldDao()
     }
 
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context) =
+    fun provideColdDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(
             context,
-            SampleDatabase::class.java, "sample_db"
+            ColdDatabase::class.java, "cold_db"
+        ).build()
+
+    @Provides
+    fun provideHotDao(hotDatabase: HotDatabase) : HotDao {
+        return hotDatabase.hotDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideHotDatabase(@ApplicationContext context: Context) =
+        Room.databaseBuilder(
+            context,
+            HotDatabase::class.java, "hot_db"
         ).build()
 }

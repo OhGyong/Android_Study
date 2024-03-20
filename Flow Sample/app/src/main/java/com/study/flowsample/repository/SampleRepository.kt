@@ -1,7 +1,9 @@
 package com.study.flowsample.repository
 
-import com.study.flowsample.data.Sample
-import com.study.flowsample.data.SampleDao
+import com.study.flowsample.data.ColdEntity
+import com.study.flowsample.data.ColdDao
+import com.study.flowsample.data.HotDao
+import com.study.flowsample.data.HotEntity
 import com.study.flowsample.data.SampleResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,40 +13,66 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SampleRepository @Inject constructor(private val sampleDao: SampleDao) {
-    /**
-     * select 호출
-     */
-    fun callSelect() : Flow<List<String>> {
-        return sampleDao.selectAll()
-    }
+class SampleRepository @Inject constructor(
+    private val coldDao: ColdDao,
+    private val hotDao: HotDao
+) {
 
     /**
-     * insert 호출
+     * Cold Flow
      */
-    fun callInsert(sample: Sample) {
+    fun selectCold() : Flow<List<String>> {
+        return coldDao.selectCold()
+    }
+
+    fun insertCold(coldEntity: ColdEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            sampleDao.insertSample(sample)
+            coldDao.insertCold(coldEntity)
         }
     }
 
-    /**
-     * delete 호출
-     */
-    fun callDelete(name: String) {
+    fun deleteCold(data: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            sampleDao.deleteSample(name)
+            coldDao.deleteCold(data)
         }
     }
 
-    /**
-     * update 호출
-     */
-    suspend fun callUpdate(originName: String, changeName: String) : SampleResult {
+    suspend fun updateCold(originData: String, changeData: String) : SampleResult {
         val sampleResult = SampleResult()
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                sampleResult.success = sampleDao.updateSample(originName, changeName)
+                sampleResult.success = coldDao.updateCold(originData, changeData)
+            } catch (e: Exception) {
+                sampleResult.failure = e
+            }
+        }.join()
+        return sampleResult
+    }
+
+    /**
+     * Hot Flow
+     */
+    fun selectHot() : Flow<List<String>> {
+        return hotDao.selectHot()
+    }
+
+    fun insertHot(hotEntity: HotEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            hotDao.insertHot(hotEntity)
+        }
+    }
+
+    fun deleteHot(data: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            hotDao.deleteHot(data)
+        }
+    }
+
+    suspend fun updateHot(originData: String, changeData: String) : SampleResult {
+        val sampleResult = SampleResult()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                sampleResult.success = hotDao.updateHot(originData, changeData)
             } catch (e: Exception) {
                 sampleResult.failure = e
             }
@@ -55,18 +83,18 @@ class SampleRepository @Inject constructor(private val sampleDao: SampleDao) {
     //////////////////
 
     fun callSelect2(): List<String> {
-        return sampleDao.selectAll2()
+        return coldDao.selectAll2()
     }
 
     suspend fun callSelect3(): List<String> {
         var list = emptyList<String>()
         CoroutineScope(Dispatchers.IO).launch {
-            list = sampleDao.selectAll2()
+            list = coldDao.selectAll2()
         }.join()
         return list
     }
 
     fun callSelect4(): Flow<List<String>> {
-        return sampleDao.selectAll()
+        return coldDao.selectCold()
     }
 }
