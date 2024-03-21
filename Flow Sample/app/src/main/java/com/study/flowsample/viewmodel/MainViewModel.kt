@@ -49,6 +49,15 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
         }
     }
 
+    fun selectHot2(): StateFlow<List<String>> {
+        // stateIn으로 StateFlow로 변환
+        return sampleRepository.selectHot().stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(1000),
+            initialValue = emptyList()
+        )
+    }
+
     fun insertHot(hotEntity: HotEntity) {
         sampleRepository.insertHot(hotEntity)
     }

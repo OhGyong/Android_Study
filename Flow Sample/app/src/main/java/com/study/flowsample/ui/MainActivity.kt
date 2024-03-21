@@ -38,9 +38,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Hot Flow
-        mViewModel.selectHot()
+//        mViewModel.selectHot()
+//        CoroutineScope(Dispatchers.Main).launch {
+//            mViewModel.hotData.collectLatest {
+//                println("HotFlow $it")
+//                mBinding.tvHot.text = it.toString()
+//            }
+//        }
+
+        // Hot Flow
         CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.hotData.collectLatest {
+            mViewModel.selectHot2().collectLatest {
                 println("HotFlow $it")
                 mBinding.tvHot.text = it.toString()
             }
