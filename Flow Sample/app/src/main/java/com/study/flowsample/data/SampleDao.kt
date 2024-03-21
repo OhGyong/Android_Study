@@ -18,7 +18,7 @@ interface ColdDao {
     fun deleteCold(data: String)
 
     @Query("UPDATE cold_db SET data=:changeData WHERE data=:originData")
-    fun updateCold(originData: String, changeData: String)
+    suspend fun updateCold(originData: String, changeData: String)
 }
 
 @Dao
@@ -33,5 +33,5 @@ interface HotDao {
     fun deleteHot(data: String)
 
     @Query("UPDATE hot_db SET data=:changeData WHERE data=:originData")
-    fun updateHot(originData: String, changeData: String)
+    suspend fun updateHot(originData: String, changeData: String)
 }

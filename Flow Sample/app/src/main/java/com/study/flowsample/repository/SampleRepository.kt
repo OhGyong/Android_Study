@@ -37,13 +37,11 @@ class SampleRepository @Inject constructor(
 
     suspend fun updateCold(originData: String, changeData: String) : SampleResult {
         val sampleResult = SampleResult()
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                sampleResult.success = coldDao.updateCold(originData, changeData)
-            } catch (e: Exception) {
-                sampleResult.failure = e
-            }
-        }.join()
+        try {
+            sampleResult.success = coldDao.updateCold(originData, changeData)
+        } catch (e: Exception) {
+            sampleResult.failure = e
+        }
         return sampleResult
     }
 
@@ -66,13 +64,11 @@ class SampleRepository @Inject constructor(
 
     suspend fun updateHot(originData: String, changeData: String) : SampleResult {
         val sampleResult = SampleResult()
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                sampleResult.success = hotDao.updateHot(originData, changeData)
-            } catch (e: Exception) {
-                sampleResult.failure = e
-            }
-        }.join()
+        try {
+            sampleResult.success = hotDao.updateHot(originData, changeData)
+        } catch (e: Exception) {
+            sampleResult.failure = e
+        }
         return sampleResult
     }
 }
