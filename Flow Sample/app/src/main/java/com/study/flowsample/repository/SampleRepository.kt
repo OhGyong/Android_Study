@@ -21,7 +21,7 @@ class SampleRepository @Inject constructor(
     /**
      * Cold Flow
      */
-    fun selectCold() : Flow<List<String>>  = coldDao.selectCold()
+    fun selectCold() : Flow<List<String>> = coldDao.selectCold()
 
     fun insertCold(coldEntity: ColdEntity) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -50,9 +50,7 @@ class SampleRepository @Inject constructor(
     /**
      * Hot Flow
      */
-    fun selectHot() : Flow<List<String>> {
-        return hotDao.selectHot()
-    }
+    fun selectHot() : Flow<List<String>> = hotDao.selectHot()
 
     fun insertHot(hotEntity: HotEntity) {
         CoroutineScope(Dispatchers.IO).launch {
