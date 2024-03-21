@@ -38,21 +38,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Hot Flow
-//        mViewModel.selectHot()
-//        CoroutineScope(Dispatchers.Main).launch {
-//            mViewModel.hotData.collectLatest {
-//                println("HotFlow $it")
-//                mBinding.tvHot.text = it.toString()
-//            }
-//        }
-
-        // Hot Flow
+        mViewModel.selectHot()
         CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.selectHot2().collectLatest {
+            mViewModel.hotData.collectLatest {
                 println("HotFlow $it")
                 mBinding.tvHot.text = it.toString()
             }
         }
+
+        // Hot Flow
+//        CoroutineScope(Dispatchers.Main).launch {
+//            mViewModel.selectHot2().collectLatest {
+//                println("HotFlow $it")
+//                mBinding.tvHot.text = it.toString()
+//            }
+//        }
     }
 
     override fun onStart() {
@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             mViewModel.insertCold(ColdEntity(mBinding.inInsert.etInsert.text.toString()))
             mViewModel.insertHot(HotEntity(mBinding.inInsert.etInsert.text.toString()))
             btnSuccess(mBinding.inInsert.etInsert)
+            println("-------")
         }
 
         // delete 버튼
