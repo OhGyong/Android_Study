@@ -6,8 +6,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.study.flowsample.data.ColdEntity
-import com.study.flowsample.data.HotEntity
+import com.study.flowsample.data.FlowEntity
+import com.study.flowsample.data.StateFlowEntity
 import com.study.flowsample.databinding.ActivityMainBinding
 import com.study.flowsample.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,28 +29,28 @@ class MainActivity : AppCompatActivity() {
 
         inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        // Cold Flow
+        // Flow
         CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.selectCold().collectLatest {
-                println("ColdFlow $it")
-                mBinding.tvCold.text = it.toString()
+            mViewModel.selectFlow().collectLatest {
+                println("     Flow: $it")
+                mBinding.tvFlow.text = it.toString()
             }
         }
 
-        // Hot Flow
-        mViewModel.selectHot()
+        // StateFlow
+        mViewModel.selectStateFlow()
         CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.hotData.collectLatest {
-                println("HotFlow $it")
-                mBinding.tvHot.text = it.toString()
+            mViewModel.stateFlowData.collectLatest {
+                println("StateFlow: $it")
+                mBinding.tvStateFlow.text = it.toString()
             }
         }
 
-        // Hot Flow
+        // StateFlow
 //        CoroutineScope(Dispatchers.Main).launch {
-//            mViewModel.selectHot2().collectLatest {
-//                println("HotFlow $it")
-//                mBinding.tvHot.text = it.toString()
+//            mViewModel.selectStateFlow2().collectLatest {
+//                println("StateFlow: $it")
+//                mBinding.tvStateFlow.text = it.toString()
 //            }
 //        }
     }
@@ -60,25 +60,25 @@ class MainActivity : AppCompatActivity() {
 
         // insert 버튼
         mBinding.inInsert.btnInsert.setOnClickListener {
-            mViewModel.insertCold(ColdEntity(mBinding.inInsert.etInsert.text.toString()))
-            mViewModel.insertHot(HotEntity(mBinding.inInsert.etInsert.text.toString()))
+            mViewModel.insertFlow(FlowEntity(mBinding.inInsert.etInsert.text.toString()))
+            mViewModel.insertStateFlow(StateFlowEntity(mBinding.inInsert.etInsert.text.toString()))
             btnSuccess(mBinding.inInsert.etInsert)
             println("-------")
         }
 
         // delete 버튼
         mBinding.inDelete.btnDelete.setOnClickListener {
-            mViewModel.deleteCold(mBinding.inDelete.etDelete.text.toString())
-            mViewModel.deleteHot(mBinding.inDelete.etDelete.text.toString())
+            mViewModel.deleteFlow(mBinding.inDelete.etDelete.text.toString())
+            mViewModel.deleteStateFlow(mBinding.inDelete.etDelete.text.toString())
             btnSuccess(mBinding.inDelete.etDelete)
         }
 
         // update 버튼
         mBinding.inUpdate.btnUpdate.setOnClickListener {
-            mViewModel.updateCold(
+            mViewModel.updateFlow(
                 mBinding.inUpdate.etOrigin.text.toString(), mBinding.inUpdate.etChange.text.toString()
             )
-            mViewModel.updateHot(
+            mViewModel.updateStateFlow(
                 mBinding.inUpdate.etOrigin.text.toString(), mBinding.inUpdate.etChange.text.toString()
             )
             btnSuccess(mBinding.inUpdate.etOrigin)

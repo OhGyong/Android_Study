@@ -4,12 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "cold_db")
-data class ColdEntity(
+@Entity(tableName = "flow_db")
+data class FlowEntity(
     @PrimaryKey @ColumnInfo(name = "data") val data: String
 )
 
-@Entity(tableName = "hot_db")
-data class HotEntity(
+@Entity(tableName = "state_flow_db")
+data class StateFlowEntity(
     @PrimaryKey @ColumnInfo(name = "data") val data: String
 )

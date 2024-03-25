@@ -1,9 +1,9 @@
 package com.study.flowsample.repository
 
-import com.study.flowsample.data.ColdEntity
-import com.study.flowsample.data.ColdDao
-import com.study.flowsample.data.HotDao
-import com.study.flowsample.data.HotEntity
+import com.study.flowsample.data.FlowEntity
+import com.study.flowsample.data.FlowDao
+import com.study.flowsample.data.StateFlowDao
+import com.study.flowsample.data.StateFlowEntity
 import com.study.flowsample.data.SampleResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,31 +14,31 @@ import javax.inject.Singleton
 
 @Singleton
 class SampleRepository @Inject constructor(
-    private val coldDao: ColdDao,
-    private val hotDao: HotDao
+    private val flowDao: FlowDao,
+    private val stateFlowDao: StateFlowDao
 ) {
 
     /**
-     * Cold Flow
+     * Flow
      */
-    fun selectCold() : Flow<List<String>> = coldDao.selectCold()
+    fun selectFlow() : Flow<List<String>> = flowDao.selectFlow()
 
-    fun insertCold(coldEntity: ColdEntity) {
+    fun insertFlow(flowEntity: FlowEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            coldDao.insertCold(coldEntity)
+            flowDao.insertFlow(flowEntity)
         }
     }
 
-    fun deleteCold(data: String) {
+    fun deleteFlow(data: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            coldDao.deleteCold(data)
+            flowDao.deleteFlow(data)
         }
     }
 
-    suspend fun updateCold(originData: String, changeData: String) : SampleResult {
+    suspend fun updateFlow(originData: String, changeData: String) : SampleResult {
         val sampleResult = SampleResult()
         try {
-            sampleResult.success = coldDao.updateCold(originData, changeData)
+            sampleResult.success = flowDao.updateFlow(originData, changeData)
         } catch (e: Exception) {
             sampleResult.failure = e
         }
@@ -46,26 +46,26 @@ class SampleRepository @Inject constructor(
     }
 
     /**
-     * Hot Flow
+     * State Flow
      */
-    fun selectHot() : Flow<List<String>> = hotDao.selectHot()
+    fun selectStateFlow() : Flow<List<String>> = stateFlowDao.selectStateFlow()
 
-    fun insertHot(hotEntity: HotEntity) {
+    fun insertStateFlow(stateFlowEntity: StateFlowEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            hotDao.insertHot(hotEntity)
+            stateFlowDao.insertStateFlow(stateFlowEntity)
         }
     }
 
-    fun deleteHot(data: String) {
+    fun deleteStateFlow(data: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            hotDao.deleteHot(data)
+            stateFlowDao.deleteStateFlow(data)
         }
     }
 
-    suspend fun updateHot(originData: String, changeData: String) : SampleResult {
+    suspend fun updateStateFlow(originData: String, changeData: String) : SampleResult {
         val sampleResult = SampleResult()
         try {
-            sampleResult.success = hotDao.updateHot(originData, changeData)
+            sampleResult.success = stateFlowDao.updateStateFlow(originData, changeData)
         } catch (e: Exception) {
             sampleResult.failure = e
         }

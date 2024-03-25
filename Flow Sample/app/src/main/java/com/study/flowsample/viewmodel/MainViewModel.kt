@@ -2,8 +2,8 @@ package com.study.flowsample.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.study.flowsample.data.ColdEntity
-import com.study.flowsample.data.HotEntity
+import com.study.flowsample.data.FlowEntity
+import com.study.flowsample.data.StateFlowEntity
 import com.study.flowsample.repository.SampleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -14,21 +14,21 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val sampleRepository: SampleRepository) : ViewModel() {
 
     /**
-     * Cold Flow
+     * Flow
      */
-    fun selectCold() : Flow<List<String>> = sampleRepository.selectCold()
+    fun selectFlow() : Flow<List<String>> = sampleRepository.selectFlow()
 
-    fun insertCold(coldEntity: ColdEntity) {
-        sampleRepository.insertCold(coldEntity)
+    fun insertFlow(flowEntity: FlowEntity) {
+        sampleRepository.insertFlow(flowEntity)
     }
 
-    fun deleteCold(data: String) {
-        sampleRepository.deleteCold(data)
+    fun deleteFlow(data: String) {
+        sampleRepository.deleteFlow(data)
     }
 
-    fun updateCold(originData: String, changeData: String) {
+    fun updateFlow(originData: String, changeData: String) {
         viewModelScope.launch {
-            val result = sampleRepository.updateCold(originData, changeData)
+            val result = sampleRepository.updateFlow(originData, changeData)
             if(result.failure != null) {
                 println("에러 발생 : ${result.failure}")
             }
@@ -36,39 +36,39 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
     }
 
     /**
-     * Hot Flow
+     * StateFlow
      */
-    private var _hotData = MutableStateFlow<List<String>>(emptyList())
-    val hotData: StateFlow<List<String>> = _hotData
+    private var _stateFlowData = MutableStateFlow<List<String>>(emptyList())
+    val stateFlowData: StateFlow<List<String>> = _stateFlowData
 
-    fun selectHot() {
+    fun selectStateFlow() {
         viewModelScope.launch {
-            sampleRepository.selectHot().collectLatest {
-                _hotData.emit(it)
+            sampleRepository.selectStateFlow().collectLatest {
+                _stateFlowData.emit(it)
             }
         }
     }
 
-    fun selectHot2(): StateFlow<List<String>> {
+    fun selectStateFlow2(): StateFlow<List<String>> {
         // stateIn으로 StateFlow로 변환
-        return sampleRepository.selectHot().stateIn(
+        return sampleRepository.selectStateFlow().stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(1000),
             initialValue = emptyList()
         )
     }
 
-    fun insertHot(hotEntity: HotEntity) {
-        sampleRepository.insertHot(hotEntity)
+    fun insertStateFlow(stateFlowEntity: StateFlowEntity) {
+        sampleRepository.insertStateFlow(stateFlowEntity)
     }
 
-    fun deleteHot(data: String) {
-        sampleRepository.deleteHot(data)
+    fun deleteStateFlow(data: String) {
+        sampleRepository.deleteStateFlow(data)
     }
 
-    fun updateHot(originData: String, changeData: String) {
+    fun updateStateFlow(originData: String, changeData: String) {
         viewModelScope.launch {
-            val result = sampleRepository.updateHot(originData, changeData)
+            val result = sampleRepository.updateStateFlow(originData, changeData)
             if(result.failure != null) {
                 println("에러 발생 : ${result.failure}")
             }

@@ -10,11 +10,11 @@
         tools:context=".ui.MainActivity">
 
         <TextView
-            android:id="@+id/tv_cold_title"
+            android:id="@+id/tv_flow_title"
             style="@style/text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cold_flow"
+            android:text="@string/flow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.37"
@@ -23,32 +23,32 @@
             app:layout_constraintVertical_bias="0.4" />
 
         <TextView
-            android:id="@+id/tv_cold"
+            android:id="@+id/tv_flow"
             style="@style/text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            app:layout_constraintStart_toEndOf="@id/tv_cold_title"
-            app:layout_constraintTop_toTopOf="@id/tv_cold_title"
+            app:layout_constraintStart_toEndOf="@id/tv_flow_title"
+            app:layout_constraintTop_toTopOf="@id/tv_flow_title"
             tools:text="name" />
 
         <TextView
-            android:id="@+id/tv_hot_title"
+            android:id="@+id/tv_state_flow_title"
             style="@style/text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hot_flow"
-            app:layout_constraintTop_toBottomOf="@id/tv_cold_title"
-            app:layout_constraintStart_toStartOf="@id/tv_cold_title" />
+            android:text="@string/state_flow"
+            app:layout_constraintTop_toBottomOf="@id/tv_flow_title"
+            app:layout_constraintStart_toStartOf="@id/tv_flow_title" />
 
         <TextView
-            android:id="@+id/tv_hot"
+            android:id="@+id/tv_state_flow"
             style="@style/text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_cold"
-            app:layout_constraintStart_toEndOf="@id/tv_hot_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_flow"
+            app:layout_constraintStart_toEndOf="@id/tv_state_flow_title"
             tools:text="name" />
 
         <include
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="@+id/in_update"
-            app:layout_constraintTop_toBottomOf="@+id/tv_hot" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_state_flow" />
 
         <include
             android:id="@+id/in_delete"

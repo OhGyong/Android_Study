@@ -2,10 +2,10 @@ package com.study.flowsample.di
 
 import android.content.Context
 import androidx.room.Room
-import com.study.flowsample.data.ColdDao
-import com.study.flowsample.data.ColdDatabase
-import com.study.flowsample.data.HotDao
-import com.study.flowsample.data.HotDatabase
+import com.study.flowsample.data.FlowDao
+import com.study.flowsample.data.FlowDatabase
+import com.study.flowsample.data.StateFlowDao
+import com.study.flowsample.data.StateFlowDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,21 +18,21 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    fun provideColdDao(coldDatabase: ColdDatabase) : ColdDao {
-        return coldDatabase.coldDao()
+    fun provideFlowDao(flowDatabase: FlowDatabase) : FlowDao {
+        return flowDatabase.flowDao()
     }
 
     @Provides
     @Singleton
-    fun provideColdDatabase(@ApplicationContext context: Context) =
+    fun provideFlowDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(
             context,
-            ColdDatabase::class.java, "cold_db"
+            FlowDatabase::class.java, "flow_db"
         ).build()
 
     @Provides
-    fun provideHotDao(hotDatabase: HotDatabase) : HotDao {
-        return hotDatabase.hotDao()
+    fun provideStateFlowDao(stateFlowDatabase: StateFlowDatabase) : StateFlowDao {
+        return stateFlowDatabase.stateFlowDao()
     }
 
     @Provides
@@ -40,6 +40,6 @@ object DatabaseModule {
     fun provideHotDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(
             context,
-            HotDatabase::class.java, "hot_db"
+            StateFlowDatabase::class.java, "state_flow_db"
         ).build()
 }
