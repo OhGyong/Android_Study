@@ -6,6 +6,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.study.flowsample.data.FlowEntity
 import com.study.flowsample.data.StateFlowEntity
 import com.study.flowsample.databinding.ActivityMainBinding
@@ -13,6 +16,7 @@ import com.study.flowsample.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -29,30 +33,25 @@ class MainActivity : AppCompatActivity() {
 
         inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        // Flow
-        CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.selectFlow().collectLatest {
-                println("     Flow: $it")
-                mBinding.tvFlow.text = it.toString()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Flow
+                launch {
+                    mViewModel.selectFlow().collectLatest {
+                        println("     Flow: $it")
+                        mBinding.tvFlow.text = it.toString()
+                    }
+                }
+
+                // StateFlow
+                launch {
+                    mViewModel.stateFlowData().collectLatest {
+                        println("StateFlow: $it")
+                        mBinding.tvStateFlow.text = it.toString()
+                    }
+                }
             }
         }
-
-        // StateFlow
-        mViewModel.selectStateFlow()
-        CoroutineScope(Dispatchers.Main).launch {
-            mViewModel.stateFlowData.collectLatest {
-                println("StateFlow: $it")
-                mBinding.tvStateFlow.text = it.toString()
-            }
-        }
-
-        // StateFlow
-//        CoroutineScope(Dispatchers.Main).launch {
-//            mViewModel.selectStateFlow2().collectLatest {
-//                println("StateFlow: $it")
-//                mBinding.tvStateFlow.text = it.toString()
-//            }
-//        }
     }
 
     override fun onStart() {

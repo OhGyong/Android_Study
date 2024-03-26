@@ -10,7 +10,7 @@
     <string name="et_hint">enter name</string>
     <string name="et_target_hint">enter target</string>
 
-    <string name="flow">\ \ \ \ \ \ \ \ \ Flow: </string>
+    <string name="flow">\ \ \ \ \ \ \ \ \ \ Flow: </string>
     <string name="state_flow">StateFlow: </string>
 
 </resources>

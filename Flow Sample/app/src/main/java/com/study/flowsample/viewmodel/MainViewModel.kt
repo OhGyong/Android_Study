@@ -39,7 +39,12 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
      * StateFlow
      */
     private var _stateFlowData = MutableStateFlow<List<String>>(emptyList())
-    val stateFlowData: StateFlow<List<String>> = _stateFlowData
+//    val stateFlowData: StateFlow<List<String>> = _stateFlowData
+    fun stateFlowData() = sampleRepository.selectStateFlow().stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.Lazily,
+        initialValue = emptyList()
+    )
 
     fun selectStateFlow() {
         viewModelScope.launch {
@@ -49,14 +54,7 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
         }
     }
 
-    fun selectStateFlow2(): StateFlow<List<String>> {
-        // stateIn으로 StateFlow로 변환
-        return sampleRepository.selectStateFlow().stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(1000),
-            initialValue = emptyList()
-        )
-    }
+
 
     fun insertStateFlow(stateFlowEntity: StateFlowEntity) {
         sampleRepository.insertStateFlow(stateFlowEntity)
