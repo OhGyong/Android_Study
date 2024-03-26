@@ -46,7 +46,7 @@ class SampleRepository @Inject constructor(
     }
 
     /**
-     * State Flow
+     * StateFlow
      */
     fun selectStateFlow() : Flow<List<String>> = stateFlowDao.selectStateFlow()
 

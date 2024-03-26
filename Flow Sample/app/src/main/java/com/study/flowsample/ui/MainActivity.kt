@@ -14,9 +14,6 @@ import com.study.flowsample.data.StateFlowEntity
 import com.study.flowsample.databinding.ActivityMainBinding
 import com.study.flowsample.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -33,6 +30,8 @@ class MainActivity : AppCompatActivity() {
 
         inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
+        mViewModel.selectStateFlow()
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 // Flow
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 // StateFlow
                 launch {
-                    mViewModel.stateFlowData().collectLatest {
+                    mViewModel.stateFlowData.collectLatest {
                         println("StateFlow: $it")
                         mBinding.tvStateFlow.text = it.toString()
                     }

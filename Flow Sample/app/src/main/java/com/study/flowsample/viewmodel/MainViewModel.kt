@@ -38,23 +38,25 @@ class MainViewModel @Inject constructor(private val sampleRepository: SampleRepo
     /**
      * StateFlow
      */
+    // Case 1
     private var _stateFlowData = MutableStateFlow<List<String>>(emptyList())
 //    val stateFlowData: StateFlow<List<String>> = _stateFlowData
-    fun stateFlowData() = sampleRepository.selectStateFlow().stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.Lazily,
-        initialValue = emptyList()
-    )
 
     fun selectStateFlow() {
         viewModelScope.launch {
             sampleRepository.selectStateFlow().collectLatest {
-                _stateFlowData.emit(it)
+                _stateFlowData.value = it
+                // _stateFlowData.emit(it)
             }
         }
     }
 
-
+    // Case 2
+    val stateFlowData: StateFlow<List<String>> = sampleRepository.selectStateFlow().stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.Lazily,
+        initialValue = emptyList()
+    )
 
     fun insertStateFlow(stateFlowEntity: StateFlowEntity) {
         sampleRepository.insertStateFlow(stateFlowEntity)
