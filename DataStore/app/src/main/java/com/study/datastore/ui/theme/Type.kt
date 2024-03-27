@@ -15,20 +15,35 @@ val Typography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+)
+
+val SettingTextFieldTypography = Typography(
+    bodyLarge = TextStyle(
+        fontSize = 25.sp,
+        fontWeight = FontWeight.Bold,
+        color = White
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+
+    labelLarge = TextStyle(
+        fontSize = 25.sp,
+        fontWeight = FontWeight.Bold,
+        color = Gray
     )
-    */
+)
+
+val SettingTitleTypography = Typography(
+    bodyLarge = TextStyle(
+        fontFamily = FontFamily.Monospace,
+        fontSize = 35.sp,
+        color = Yellow40,
+        fontWeight = FontWeight.Bold
+    )
+)
+
+val SettingButtonTypography = Typography(
+    bodyLarge = TextStyle(
+        fontSize = 20.sp,
+        color = Gray,
+        fontWeight = FontWeight.Bold
+    )
 )

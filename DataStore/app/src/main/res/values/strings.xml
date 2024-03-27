@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DataStore</string>
+
+    <string name="welcome">환영합니다! 👋</string>
+    <string name="placeholder_name">What\'s Your Name?</string>
+    <string name="next">Next</string>
+
 </resources>
