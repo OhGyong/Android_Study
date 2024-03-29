@@ -8,37 +8,44 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
-import com.study.datastore.R
-import com.study.datastore.ui.theme.DataStoreTheme
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.study.datastore.MainViewModel
+import com.study.datastore.R
+import com.study.datastore.data.SettingRepository.DataStoreResult.SET_NAME
 import com.study.datastore.ui.theme.Black
-import com.study.datastore.ui.theme.SettingTitleTypography
-import com.study.datastore.ui.theme.Yellow40
-import androidx.compose.material3.Button
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
+import com.study.datastore.ui.theme.DataStoreTheme
 import com.study.datastore.ui.theme.Gray
 import com.study.datastore.ui.theme.SettingButtonTypography
 import com.study.datastore.ui.theme.SettingTextFieldTypography
+import com.study.datastore.ui.theme.SettingTitleTypography
 import com.study.datastore.ui.theme.White
+import com.study.datastore.ui.theme.Yellow40
 
 
 @Composable
-fun NameScreen(navController: NavHostController) {
+fun NameScreen(
+    navController: NavHostController,
+    nameViewModel: MainViewModel = hiltViewModel()
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,11 +54,16 @@ fun NameScreen(navController: NavHostController) {
     ) {
         Text(
             text = stringResource(id = R.string.welcome),
-            color = Yellow40,
             style = SettingTitleTypography.bodyLarge
         )
 
         var name by remember {mutableStateOf("")}
+
+        LaunchedEffect(nameViewModel.prefNameResult) {->
+            if(nameViewModel.prefNameResult == SET_NAME) {
+                navController.navigate("weight")
+            }
+        }
 
         Column(
             modifier = Modifier
@@ -60,10 +72,18 @@ fun NameScreen(navController: NavHostController) {
             Arrangement.Center,
             Alignment.CenterHorizontally
         ) {
-            SetNameView(name, onNameChange={newName->name=newName})
+            SetNameView(
+                name,
+                onNameChange= {newName->
+                    name=newName
+                }
+            )
         }
 
-        ButtonView(navController, name)
+        ButtonView(
+            name,
+            setName = {nameViewModel.setName(name)}
+        )
     }
 }
 
@@ -95,9 +115,14 @@ fun SetNameView(name: String, onNameChange:(String)->Unit) {
 }
 
 @Composable
-fun ButtonView(navController: NavHostController, name: String) {
+fun ButtonView(
+    name: String,
+    setName: ()->Unit
+) {
     Button(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 20.dp),
         colors = if(name == "") {
             ButtonDefaults.buttonColors(Black)
         } else {
@@ -105,10 +130,7 @@ fun ButtonView(navController: NavHostController, name: String) {
         },
         enabled = name != "",
         shape = RoundedCornerShape(0.dp),
-        onClick = {
-            // todo : DataStore 저장
-//            navController.navigate("weight")
-        }
+        onClick = setName
     ) {
         Text(
             text = stringResource(id = R.string.next),
