@@ -7,11 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,11 +31,9 @@ import com.study.datastore.data.SettingRepository.DataStoreResult.SET_NAME
 import com.study.datastore.ui.theme.Black
 import com.study.datastore.ui.theme.DataStoreTheme
 import com.study.datastore.ui.theme.Gray
-import com.study.datastore.ui.theme.SettingButtonTypography
 import com.study.datastore.ui.theme.SettingTextFieldTypography
 import com.study.datastore.ui.theme.SettingTitleTypography
 import com.study.datastore.ui.theme.White
-import com.study.datastore.ui.theme.Yellow40
 
 
 @Composable

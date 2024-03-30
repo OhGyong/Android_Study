@@ -47,3 +47,11 @@ val SettingButtonTypography = Typography(
         fontWeight = FontWeight.Bold
     )
 )
+
+val HomeDataTypography = Typography(
+    bodyLarge = TextStyle(
+        fontSize = 25.sp,
+        color = White,
+        fontWeight = FontWeight.Bold
+    )
+)

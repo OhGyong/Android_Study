@@ -3,7 +3,6 @@ package com.study.datastore
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -13,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.study.datastore.ui.home.HomeScreen
 import com.study.datastore.ui.setting.NameScreen
 import com.study.datastore.ui.setting.WeightScreen
 import com.study.datastore.ui.theme.DataStoreTheme
@@ -31,9 +31,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
 
-                    NavHost(navController = navController, startDestination = "weight") {
+                    NavHost(navController = navController, startDestination = "name") {
                         composable(route = "name") { NameScreen(navController)}
                         composable(route = "weight") { WeightScreen(navController)}
+                        composable(route = "home") { HomeScreen()}
                     }
                 }
             }

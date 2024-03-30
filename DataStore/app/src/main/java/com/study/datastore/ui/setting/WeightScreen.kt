@@ -3,15 +3,11 @@ package com.study.datastore.ui.setting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
@@ -83,7 +79,7 @@ fun WeightScreen(
 
         LaunchedEffect(weightViewModel.prefWeightResult) {
             if(weightViewModel.prefWeightResult == SET_WEIGHT) {
-                // todo : 화면 이동
+                navController.navigate("home")
             }
         }
     }

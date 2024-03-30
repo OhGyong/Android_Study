@@ -7,11 +7,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.study.datastore.data.SettingRepository
-import com.study.datastore.ui.setting.NameUiState
+import com.study.datastore.ui.home.HomeUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,21 +27,12 @@ class MainViewModel @Inject constructor(
     var prefWeightResult by mutableStateOf("")
         private set
 
-    private var _nameUiState = MutableStateFlow(NameUiState())
-    val nameUiState = _nameUiState.asStateFlow()
-
-    private val _weightObserve: MutableLiveData<String> = MutableLiveData()
-    val weightObserve = _weightObserve
+    private var _homeUiState = MutableStateFlow(HomeUiState())
+    val homeUiState = _homeUiState.asStateFlow()
 
     /**
      * 이름
      */
-    fun getName() {
-        viewModelScope.launch {
-
-        }
-    }
-
     fun setName(name: String) {
         viewModelScope.launch {
             prefNameResult = settingRepository.setName(name)
@@ -50,15 +42,23 @@ class MainViewModel @Inject constructor(
     /**
      * 몸무게
      */
-    fun getWeight() {
-        viewModelScope.launch {
-            _weightObserve.value = settingRepository.getWeight().first()
-        }
-    }
-
     fun setWeight(weight: String) {
         viewModelScope.launch {
             prefWeightResult = settingRepository.setWeight(weight)
+        }
+    }
+
+    /**
+     * Home Data
+     */
+    fun getHomeData() {
+        viewModelScope.launch {
+            _homeUiState.update {currentState->
+                currentState.copy(
+                    name = settingRepository.getName().first(),
+                    weight = settingRepository.getWeight().first()
+                )
+            }
         }
     }
 }
