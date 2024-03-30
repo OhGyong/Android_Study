@@ -23,6 +23,9 @@ class MainViewModel @Inject constructor(
     var prefNameResult by mutableStateOf("")
         private set
 
+    var prefWeightResult by mutableStateOf("")
+        private set
+
     private var _nameUiState = MutableStateFlow(NameUiState())
     val nameUiState = _nameUiState.asStateFlow()
 
@@ -30,7 +33,7 @@ class MainViewModel @Inject constructor(
     val weightObserve = _weightObserve
 
     /**
-     * 몸무게
+     * 이름
      */
     fun getName() {
         viewModelScope.launch {
@@ -55,7 +58,7 @@ class MainViewModel @Inject constructor(
 
     fun setWeight(weight: String) {
         viewModelScope.launch {
-            _weightObserve.value = settingRepository.setWeight(weight)
+            prefWeightResult = settingRepository.setWeight(weight)
         }
     }
 }

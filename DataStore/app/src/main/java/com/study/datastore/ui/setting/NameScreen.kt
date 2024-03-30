@@ -67,8 +67,8 @@ fun NameScreen(
 
         Column(
             modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .weight(1f),
             Arrangement.Center,
             Alignment.CenterHorizontally
         ) {
@@ -81,8 +81,8 @@ fun NameScreen(
         }
 
         ButtonView(
-            name,
-            setName = {nameViewModel.setName(name)}
+            textValue = name,
+            saveValue = {nameViewModel.setName(name)}
         )
     }
 }
@@ -112,36 +112,6 @@ fun SetNameView(name: String, onNameChange:(String)->Unit) {
             onNameChange(it)
         }
     )
-}
-
-@Composable
-fun ButtonView(
-    name: String,
-    setName: ()->Unit
-) {
-    Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 20.dp),
-        colors = if(name == "") {
-            ButtonDefaults.buttonColors(Black)
-        } else {
-            ButtonDefaults.buttonColors(Yellow40)
-        },
-        enabled = name != "",
-        shape = RoundedCornerShape(0.dp),
-        onClick = setName
-    ) {
-        Text(
-            text = stringResource(id = R.string.next),
-            style = SettingButtonTypography.bodyLarge,
-            color = if(name == "") {
-                Gray
-            } else {
-                White
-            }
-        )
-    }
 }
 
 @Preview(showBackground = true)

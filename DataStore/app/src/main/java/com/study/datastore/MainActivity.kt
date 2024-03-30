@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
 
-                    NavHost(navController = navController, startDestination = "name") {
+                    NavHost(navController = navController, startDestination = "weight") {
                         composable(route = "name") { NameScreen(navController)}
                         composable(route = "weight") { WeightScreen(navController)}
                     }

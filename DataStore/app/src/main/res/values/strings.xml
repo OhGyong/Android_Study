@@ -4,5 +4,6 @@
     <string name="welcome">환영합니다! 👋</string>
     <string name="placeholder_name">What\'s Your Name?</string>
     <string name="next">Next</string>
-
+    <string name="kr_empty_stomach_weight">공복 체중</string>
+    <string name="kg">Kg</string>
 </resources>
