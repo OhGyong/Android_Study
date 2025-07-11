@@ -17,9 +17,21 @@
         <TextView
             android:id="@+id/calendarDayText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="22" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPurple"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/calendarDayText"
+            tools:text="5건" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
