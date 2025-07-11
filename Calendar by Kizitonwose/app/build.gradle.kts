@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.plugin.compose)
     id("kotlin-kapt")
 }
 
@@ -37,6 +38,10 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
@@ -48,6 +53,17 @@ dependencies {
 
     implementation(libs.kizitonwose.calendar)
     implementation(libs.kotlin.stdlib)
+
+    val composeBom = platform("androidx.compose:compose-bom:2025.05.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.ui.tooling.preview)
+    debugImplementation(libs.androidx.ui.tooling)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
