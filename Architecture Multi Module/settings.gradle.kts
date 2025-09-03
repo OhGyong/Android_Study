@@ -19,6 +19,11 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Architecture Multi Module"
+rootProject.name = "ArchitectureMultiModule"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
- 
+include(":feature:home")
+include(":domain")
+include(":data")
+include(":core:common")
