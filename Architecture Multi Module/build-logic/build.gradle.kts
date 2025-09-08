@@ -10,7 +10,7 @@ dependencies {
 
 kotlin {
     compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
 
@@ -19,6 +19,16 @@ gradlePlugin {
         register("kotlinAndroid") {
             id = "architecturemultimodule.android.kotlinAndroid"
             implementationClass = "com.study.architecturemultimodule.build_logic.KotlinAndroidPlugin"
+        }
+
+        register("hiltAndroid") {
+            id = "architecturemultimodule.hiltAndroid"
+            implementationClass = "com.study.architecturemultimodule.build_logic.HiltAndroidPlugin"
+        }
+
+        register("hiltCore") {
+            id = "architecturemultimodule.hiltCore"
+            implementationClass = "com.study.architecturemultimodule.build_logic.HiltCorePlugin"
         }
     }
 }

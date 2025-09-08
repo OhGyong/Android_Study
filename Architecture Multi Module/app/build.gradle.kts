@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.architecturemultimodule.android.kotlinAndroid)
+    alias(libs.plugins.architecturemultimodule.hiltAndroid)
 }
 
 android {
@@ -24,4 +25,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(projects.feature.home)
+    implementation(projects.domain)
+    implementation(projects.data)
+    implementation(projects.core.di)
 }

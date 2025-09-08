@@ -5,9 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.study.architecturemultimodule.data"
+    namespace = "com.study.architecturemultimodule.core.di"
 }
 
 dependencies {
+    implementation(projects.data)
     implementation(projects.domain)
 }
