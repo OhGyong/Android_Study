@@ -1,20 +1,15 @@
-- [API 연결](https://github.com/OhGyong/Android_Study/tree/master/API%20%EC%97%B0%EA%B2%B0) <br>
-Retrofit2 사용 방법
-
-<br/>
-
 - [AddView](https://github.com/OhGyong/Android_Study/tree/master/AddView) <br>
 addView로 Layout에 View 추가하기
 
 <br/>
 
-- [Android Design Patterns](https://github.com/OhGyong/Android_Study/tree/master/Android%20Design%20Patterns) <br> 
-Android에서 사용하는 디자인 패턴 정리
+- [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) <br/>
+FCM 사용 방법
 
 <br/>
 
-- [Android With Firebase Cloud Messaging](https://github.com/OhGyong/Android_Study/tree/master/Android%20With%20Firebase%20Cloud%20Messaging) <br/>
-FCM 사용 방법
+- [Architecture Multi Module](https://github.com/OhGyong/Android_Study/tree/master/Architecture%20Multi%20Module) <br/>
+멀티 모듈 적용
 
 <br/>
 
@@ -33,6 +28,11 @@ BottomSheetDialog 사용 방법
 
 <br/>
 
+- [Calendar by Kizitonwose](https://github.com/OhGyong/Android_Study/tree/master/Calendar%20by%20Kizitonwose) <br/>
+캘린더 라이브러리 Kizitonwose 사용 방법(View + Compose)
+
+<br/>
+
 - [CameraX with ImageCapture](https://github.com/OhGyong/Android_Study/tree/master/CameraX%20with%20ImageCapture) <br/>
 CameraX와 ImageCapture를 이용한 화면 캡처(촬영) 사용 방법
 
@@ -44,7 +44,7 @@ CameraX와 PreviewView를 이용한 미리보기 사용 방법
 <br/>
 
 - [Cipher](https://github.com/OhGyong/Android_Study/tree/master/Cipher) <br/>
-Cipher로 암호화와 복호와 해보기
+Cipher로 암호화와 복호화 해보기
 
 <br/>
 
@@ -170,4 +170,3 @@ TextWatcher로 텍스트 변경될 때마다 이벤트 처리하기
 
 - [ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) <br/>
 ViewPager2 사용 방법
-
