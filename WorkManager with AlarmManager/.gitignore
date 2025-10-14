@@ -1,0 +1,47 @@
+# Android Studio / IntelliJ IDEA
+*.iml
+.idea/
+.gradle/
+local.properties
+
+# Build output
+**/build/
+**/out/
+
+# Gradle files
+.gradle/**/buildOutputCleanup
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Kotlin specific
+*.kotlin_module
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Captures for Android Studio
+captures/
+
+# Crashlytics / Firebase
+crashlytics.properties
+fabric.properties
+
+# Others
+*.bak
+*.tmp
+*.orig
+
+# Ignore IntelliJ workspace settings (optional)
+.idea/workspace.xml
