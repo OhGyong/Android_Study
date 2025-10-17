@@ -1,6 +1,5 @@
-package com.study.workmanagerwithalarmmanager.ui.theme
+package com.study.workmanagerwithalarmmanager.feature.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

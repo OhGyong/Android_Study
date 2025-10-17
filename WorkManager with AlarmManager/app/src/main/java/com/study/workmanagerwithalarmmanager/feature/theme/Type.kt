@@ -1,4 +1,4 @@
-package com.study.workmanagerwithalarmmanager.ui.theme
+package com.study.workmanagerwithalarmmanager.feature.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
