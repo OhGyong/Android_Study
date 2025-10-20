@@ -7,8 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -82,14 +85,29 @@ fun TimeCounterRoute(
             style = MaterialTheme.typography.bodyLarge
         )
 
-        Button(
-            onClick = {
-                viewModel.setAlarmManager()
-            },
-            modifier = Modifier.padding(top = 12.dp)
+        Column(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .width(IntrinsicSize.Max) // 가장 넓은 자식의 너비로 Column 크기를 맞춤
+                .padding(top = 12.dp)
         ) {
-            Text("AlarmManager Set")
+            Button(
+                onClick = { viewModel.setAlarmManager() },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("AlarmManager Set")
+            }
+
+            Button(
+                onClick = { viewModel.clearSampleCount() },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp)
+            ) {
+                Text("Data Clear")
+            }
         }
+
     }
 }
 

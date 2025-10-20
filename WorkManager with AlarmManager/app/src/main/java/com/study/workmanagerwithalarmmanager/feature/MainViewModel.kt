@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.study.workmanagerwithalarmmanager.core.alarm.AlarmScheduler
+import com.study.workmanagerwithalarmmanager.domain.ClearSampleCountUseCase
 import com.study.workmanagerwithalarmmanager.domain.GetSampleCountUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -19,9 +20,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
+    private val alarmScheduler: AlarmScheduler,
+    private val clearSampleCountUseCase: ClearSampleCountUseCase,
     private val savedStateHandle: SavedStateHandle,
-    private val getSampleCountUseCase: GetSampleCountUseCase,
-    private val alarmScheduler: AlarmScheduler
+    private val getSampleCountUseCase: GetSampleCountUseCase
 
 ) : ViewModel() {
 
@@ -54,6 +56,12 @@ class MainViewModel @Inject constructor(
             getSampleCountUseCase().collect { count ->
                 _count.value = count
             }
+        }
+    }
+
+    fun clearSampleCount() {
+        viewModelScope.launch {
+            clearSampleCountUseCase()
         }
     }
 

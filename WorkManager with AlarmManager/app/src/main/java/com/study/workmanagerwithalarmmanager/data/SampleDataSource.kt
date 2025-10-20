@@ -7,4 +7,7 @@ class SampleDataSource @Inject constructor(private val sampleDao: SampleDao) {
     suspend fun incrementCount() {
         sampleDao.incrementCount()
     }
+    suspend fun clearCount() {
+        sampleDao.clearCount()
+    }
 }

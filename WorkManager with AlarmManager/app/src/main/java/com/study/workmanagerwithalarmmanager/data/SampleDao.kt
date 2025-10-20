@@ -11,4 +11,7 @@ interface SampleDao {
 
     @Query("UPDATE sample SET count = count + 1")
     suspend fun incrementCount()
+
+    @Query("UPDATE sample SET count = 0")
+    suspend fun clearCount()
 }

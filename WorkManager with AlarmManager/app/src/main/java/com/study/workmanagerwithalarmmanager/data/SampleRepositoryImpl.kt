@@ -12,4 +12,8 @@ class SampleRepositoryImpl @Inject constructor(
     override suspend fun incrementCount() {
         sampleDataSource.incrementCount()
     }
+
+    override suspend fun clearCount() {
+        sampleDataSource.clearCount()
+    }
 }
