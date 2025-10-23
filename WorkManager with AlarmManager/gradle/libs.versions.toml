@@ -13,6 +13,7 @@ composeBom = "2025.10.00"
 roomVersion = "2.8.2"
 workVersion = "2.10.5"
 hiltVersion = "2.57.2"
+hiltWorkVersion = "1.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,7 +33,7 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 
 # ViewModel & LiveData/Flow
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleVersion" }
-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleVersion" }
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleVersion" }
 
 # Room
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
@@ -45,6 +46,8 @@ work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "w
 # Hilt, HiltPlugin에서 사용 됨 (hilt.android, hilt.compiler)
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
+hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltWorkVersion" }
+hilt-android-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltWorkVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

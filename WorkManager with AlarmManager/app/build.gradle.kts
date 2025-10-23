@@ -58,12 +58,14 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.work.runtime.ktx)
     implementation(libs.bundles.room)
     implementation(libs.hilt.android)
+    implementation(libs.hilt.work)
     ksp(libs.room.compiler)
     ksp(libs.hilt.compiler)
+    ksp(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

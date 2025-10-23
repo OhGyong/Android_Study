@@ -62,6 +62,9 @@ class MainViewModel @Inject constructor(
     fun clearSampleCount() {
         viewModelScope.launch {
             clearSampleCountUseCase()
+            _selectedHour.value = 0
+            _selectedMinute.value = 0
+            _selectedSecond.value = 0
         }
     }
 

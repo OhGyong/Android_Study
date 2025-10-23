@@ -1,17 +1,16 @@
 package com.study.workmanagerwithalarmmanager
 
 import android.app.Application
+import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import com.study.workmanagerwithalarmmanager.core.worker.WorkerFactoryEntryPoint
-import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
 class SampleApplication : Application(), Configuration.Provider {
+    @Inject
+    lateinit var workerFactory: HiltWorkerFactory
+
     override val workManagerConfiguration: Configuration
-        get() {
-            val factory = EntryPointAccessors.fromApplication(this, WorkerFactoryEntryPoint::class.java)
-                .getWorkerFactory()
-            return Configuration.Builder().setWorkerFactory(factory).build()
-        }
+        get() = Configuration.Builder().setWorkerFactory(workerFactory).build()
 }
