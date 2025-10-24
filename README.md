@@ -170,3 +170,8 @@ TextWatcher로 텍스트 변경될 때마다 이벤트 처리하기
 
 - [ViewPager2](https://github.com/OhGyong/Android_Study/tree/master/ViewPager2) <br/>
 ViewPager2 사용 방법
+  
+<br/>
+
+- [WorkManager with AlarmManager](https://github.com/OhGyong/Android_Study/tree/master/WorkManager%20with%20AlarmManager) <br/>
+WorkManager & AlarmManger로 특정 시간에 백그라운드 작업 예약하기
